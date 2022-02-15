@@ -4,7 +4,7 @@ from sqlalchemy.sql import func
 
 saved = db.Table(
     "saved",
-    db.Column('user_id', db.Integer, db.ForeignKey('users.id'))
+    db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
     db.Column('posting_id', db.Integer, db.ForeignKey('postings.id'))
 )
 
@@ -12,7 +12,7 @@ class Posting(db.Model):
     __tablename__ = 'postings'
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, nullable=False, db.ForeignKey('users.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     address = db.Column(db.String(100), nullable=False)
     city = db.Column(db.String(200), nullable=False)
     state = db.Column(db.String(2), nullable=False)
@@ -22,7 +22,7 @@ class Posting(db.Model):
     icon = db.Column(db.Text, nullable=False)
 
     users = db.relationship('User', back_populates='postings')
-    pickups = db.relationship('Posting', back_populates='postings')
+    pickups = db.relationship('Pickup', back_populates='postings')
 
     save = db.relationship(
         'User',
@@ -50,11 +50,11 @@ class Pickup(db.Model):
     __tablename__ = 'pickups'
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, nullable=False, db.ForeignKey('users.id'))
-    posting_id = db.Column(db.Integer, nullable=False, db.ForeignKey('postings.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False,)
+    posting_id = db.Column(db.Integer, db.ForeignKey('postings.id'), nullable=False,)
     date = db.Column(db.String(100), nullable=False)
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
-    updated_at = Column(DateTime(timezone=True), server_default=func.now())
+    created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
+    updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
     users = db.relationship('User', back_populates='pickups')
     postings = db.relationship('Posting', back_populates='pickups')
