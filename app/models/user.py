@@ -9,7 +9,19 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
+    profile_picture = db.Column(db.Text, nullable=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+
+    postings = db.relationship('Posting', back_populates='users')
+    pickups = db.relationship('Pickup', back_populates='users')
+
+    save = db.relationship(
+        'User',
+        secondary=saved,
+        primaryjoin=(saved.c.user_id == id),
+        # backref=db.backref("saved"),
+        lazy='dynamic'
+    )
 
     @property
     def password(self):
@@ -26,5 +38,6 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'profile_picture': self.profile_picture
         }
