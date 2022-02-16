@@ -57,19 +57,54 @@ def createPosting():
     form = AddPostingForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
+    if form.validate_on_submit():
+        newPosting = Posting(
+            user_id = current_user.id,
+            # user_id = userId,
+            address = form.data['address'],
+            city = form.data['city'],
+            state = form.data['state'],
+            zipcode = form.data['zipcode'],
+            name = form.data['name'],
+            caption = form.data['caption'],
+            icon = form.data['icon']
+        )
+
+        db.session.add(newPosting)
+        db.session.commit()
+        return newPosting.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
-# @posting_routes.route('/<int:postingId>', methods=["PUT"])
-# # @login_required
-# def editPosting(userId):
-#     """
-#     Route that allows a user to edit a posting
-#     """
+@posting_routes.route('/<int:postingId>', methods=["PUT"])
+# @login_required
+def editPosting(postingId):
+    """
+    Route that allows a user to edit a posting
+    """
+    posting = Posting.query.get(postingId)
+    data = request.get_json()
+
+    posting.address = data['address']
+    posting.city = data['city']
+    posting.state = data['state']
+    posting.zipcode = data['zipcode']
+    posting.name = data['name']
+    posting.caption = data['caption']
+    posting.icon = data['icon']
+
+    db.session.commit()
+    return posting.to_dict()
 
 
-# @posting_routes.route('/<int:postingId>', methods=["DELETE"])
-# # @login_required
-# def getUserPostings(userId):
-#     """
-#     Route that allows a user to delete a posting
-#     """
+@posting_routes.route('/<int:postingId>', methods=["DELETE"])
+# @login_required
+def deletePosting(postingId):
+    """
+    Route that allows a user to delete a posting
+    """
+    posting = Posting.query.get(postingId)
+
+    db.session.delete(posting)
+    db.session.commit()
+    return posting.to_dict()

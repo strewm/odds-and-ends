@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SelectField
-from wtforms.validators import DataRequired, Email, ValidationError
-from app.models import Post
+from wtforms.validators import DataRequired, ValidationError
+# from app.models import Posting
 
 
 class AddPostingForm(FlaskForm):
@@ -12,7 +12,3 @@ class AddPostingForm(FlaskForm):
     name = StringField('name', validators=[DataRequired()])
     caption = TextAreaField('caption', validators=[DataRequired()])
     icon = SelectField('icon', choices=['Food', 'Home', 'Supplies', 'Other'], validators=[DataRequired()])
-
-
-    image = TextAreaField('image', validators=[DataRequired()])
-    caption = TextAreaField('caption')
