@@ -3,7 +3,7 @@ from flask_login import current_user, login_required
 from app.models import User, Posting, db
 from sqlalchemy.orm import joinedload, selectinload
 from app.forms.posting_form import AddPostingForm
-# from app.forms.edit_posting_form.py import EditPostingForm
+from app.forms.edit_posting_form import EditPostingForm
 
 posting_routes = Blueprint('postings', __name__)
 
@@ -51,9 +51,9 @@ def getUserPostings(userId):
     return res
 
 
-@posting_routes.route('/create', methods=["POST"])
+@posting_routes.route('/create/<int:userId>', methods=["POST"])
 # @login_required
-def createPosting():
+def createPosting(userId):
     """
     Route that allows user to create a posting
     """
@@ -62,8 +62,8 @@ def createPosting():
 
     if form.validate_on_submit():
         newPosting = Posting(
-            user_id = current_user.id,
-            # user_id = userId,
+            # user_id = current_user.id,
+            user_id = userId,
             address = form.data['address'],
             city = form.data['city'],
             state = form.data['state'],
@@ -85,19 +85,23 @@ def editPosting(postingId):
     """
     Route that allows a user to edit a posting
     """
-    posting = Posting.query.get(postingId)
-    data = request.get_json()
+    form = EditPostingForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
 
-    posting.address = data['address']
-    posting.city = data['city']
-    posting.state = data['state']
-    posting.zipcode = data['zipcode']
-    posting.name = data['name']
-    posting.caption = data['caption']
-    posting.icon = data['icon']
+    if form.validate_on_submit():
+        posting = Posting.query.get(postingId)
+        posting.address = form.data['address']
+        posting.city = form.data['city']
+        posting.state = form.data['state']
+        posting.zipcode = form.data['zipcode']
+        posting.name = form.data['name']
+        posting.caption = form.data['caption']
+        posting.icon = form.data['icon']
 
-    db.session.commit()
-    return posting.to_dict()
+        db.session.commit()
+        return posting.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
 
 
 @posting_routes.route('/<int:postingId>', methods=["DELETE"])
