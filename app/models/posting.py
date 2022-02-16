@@ -4,8 +4,8 @@ from sqlalchemy.sql import func
 
 saved = db.Table(
     "saved",
-    db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
-    db.Column('posting_id', db.Integer, db.ForeignKey('postings.id'))
+    db.Column('user_id', db.Integer, db.ForeignKey('users.id'), primary_key=True),
+    db.Column('posting_id', db.Integer, db.ForeignKey('postings.id'), primary_key=True)
 )
 
 class Posting(db.Model):
@@ -21,16 +21,9 @@ class Posting(db.Model):
     caption = db.Column(db.Text, nullable=False)
     icon = db.Column(db.String(25), nullable=False)
 
-    users = db.relationship('User', back_populates='postings')
+    users = db.relationship('User', back_populates='postings', secondary=saved)
     pickups = db.relationship('Pickup', back_populates='postings')
 
-    save = db.relationship(
-        'User',
-        secondary=saved,
-        primaryjoin=(saved.c.posting_id == id),
-        # backref=db.backref("saved"),
-        lazy='dynamic'
-    )
 
     def to_dict(self):
         return {

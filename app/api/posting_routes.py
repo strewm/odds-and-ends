@@ -32,6 +32,9 @@ def getAllPostings():
 
     return res
 
+    # postings = Posting.query.all()
+    # return jsonify([post.to_dict() for post in postings])
+
 
 @posting_routes.route('/<int:userId>/postings')
 # @login_required
