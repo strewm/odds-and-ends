@@ -37,7 +37,18 @@ def getAllPostings():
     # return jsonify([post.to_dict() for post in postings])
 
 
-@posting_routes.route('/<int:userId>/postings')
+@posting_routes.route('/<int:postingId>')
+# @login_required
+def getPosting(postingId):
+    """
+    Route that returns all postings
+    """
+    posting = Posting.query.get(postingId)
+
+    return posting.to_dict()
+
+
+@posting_routes.route('/user/<int:userId>/postings')
 # @login_required
 def getUserPostings(userId):
     """
@@ -52,9 +63,9 @@ def getUserPostings(userId):
     return res
 
 
-@posting_routes.route('/create/<int:userId>', methods=["POST"])
+@posting_routes.route('/create', methods=["POST"])
 # @login_required
-def createPosting(userId):
+def createPosting():
     """
     Route that allows user to create a posting
     """
@@ -63,8 +74,8 @@ def createPosting(userId):
 
     if form.validate_on_submit():
         newPosting = Posting(
-            # user_id = current_user.id,
-            user_id = userId,
+            user_id = current_user.id,
+            # user_id = userId,
             address = form.data['address'],
             city = form.data['city'],
             state = form.data['state'],
