@@ -19,7 +19,7 @@ class Posting(db.Model):
     zipcode = db.Column(db.String(20), nullable=False)
     name = db.Column(db.String, nullable=False)
     caption = db.Column(db.Text, nullable=False)
-    icon = db.Column(db.Text, nullable=False)
+    icon = db.Column(db.String(25), nullable=False)
 
     users = db.relationship('User', back_populates='postings')
     pickups = db.relationship('Pickup', back_populates='postings')

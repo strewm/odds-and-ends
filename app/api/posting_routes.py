@@ -1,10 +1,9 @@
 from flask import Blueprint, jsonify, redirect, session, request
 from flask_login import current_user, login_required
-from app.models import User, Post, db
+from app.models import User, Posting, db
 from sqlalchemy.orm import joinedload, selectinload
-# from app.forms.posting_form import AddPostingForm
+from app.forms.posting_form import AddPostingForm
 # from app.forms.edit_posting_form.py import EditPostingForm
-
 
 posting_routes = Blueprint('postings', __name__)
 
@@ -21,10 +20,17 @@ def validation_errors_to_error_messages(validation_errors):
 
 @posting_routes.route('/all')
 # @login_required
-def homefeed():
+def getAllPostings():
     """
     Route that returns all postings
     """
+    res = {}
+    postings = Posting.query.all()
+
+    for post in postings:
+        res[post.id] = post.to_dict()
+
+    return res
 
 
 @posting_routes.route('/<int:userId>/postings')
@@ -33,6 +39,13 @@ def getUserPostings(userId):
     """
     Route that returns a user's postings
     """
+    res = {}
+    postings = Posting.query.filter(userId == Posting.user_id).all()
+
+    for post in postings:
+        res[post.id] = post.to_dict()
+
+    return res
 
 
 @posting_routes.route('/create', methods=["POST"])
@@ -41,19 +54,22 @@ def createPosting():
     """
     Route that allows user to create a posting
     """
+    form = AddPostingForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
 
 
-@posting_routes.route('/<int:postingId>', methods=["PUT"])
-# @login_required
-def editPosting(userId):
-    """
-    Route that allows a user to edit a posting
-    """
+
+# @posting_routes.route('/<int:postingId>', methods=["PUT"])
+# # @login_required
+# def editPosting(userId):
+#     """
+#     Route that allows a user to edit a posting
+#     """
 
 
-@posting_routes.route('/<int:postingId>', methods=["DELETE"])
-# @login_required
-def getUserPostings(userId):
-    """
-    Route that allows a user to delete a posting
-    """
+# @posting_routes.route('/<int:postingId>', methods=["DELETE"])
+# # @login_required
+# def getUserPostings(userId):
+#     """
+#     Route that allows a user to delete a posting
+#     """
