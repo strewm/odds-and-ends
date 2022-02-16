@@ -1,5 +1,6 @@
 from .db import db
 from sqlalchemy.sql import func
+from datetime import datetime
 
 
 saved = db.Table(
@@ -20,6 +21,8 @@ class Posting(db.Model):
     name = db.Column(db.String, nullable=False)
     caption = db.Column(db.Text, nullable=False)
     icon = db.Column(db.String(25), nullable=False)
+    created_at = db.Column(db.DateTime(timezone=True), default=datetime.now())
+    updated_at = db.Column(db.DateTime(timezone=True), default=datetime.now())
 
     users = db.relationship('User', back_populates='postings', secondary=saved)
     pickups = db.relationship('Pickup', back_populates='postings')
@@ -35,7 +38,9 @@ class Posting(db.Model):
             'zipcode': self.zipcode,
             'name': self.name,
             'caption': self.caption,
-            'icon': self.icon
+            'icon': self.icon,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at
         }
 
 
@@ -46,9 +51,9 @@ class Pickup(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False,)
     posting_id = db.Column(db.Integer, db.ForeignKey('postings.id'), nullable=False,)
     date = db.Column(db.String(100), nullable=False)
-    created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
-    updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
-
+    created_at = db.Column(db.DateTime(timezone=True), default=datetime.now())
+    updated_at = db.Column(db.DateTime(timezone=True), default=datetime.now())
+    
     users = db.relationship('User', back_populates='pickups')
     postings = db.relationship('Posting', back_populates='pickups')
 

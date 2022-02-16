@@ -2,8 +2,9 @@ from flask import Blueprint, jsonify, redirect, session, request
 from flask_login import current_user, login_required
 from app.models import User, Posting, db
 from sqlalchemy.orm import joinedload, selectinload
-from app.forms.posting_form import AddPostingForm
-from app.forms.edit_posting_form import EditPostingForm
+from app.forms.posting_form import PostingForm
+from datetime import datetime
+
 
 posting_routes = Blueprint('postings', __name__)
 
@@ -57,7 +58,7 @@ def createPosting(userId):
     """
     Route that allows user to create a posting
     """
-    form = AddPostingForm()
+    form = PostingForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
@@ -70,7 +71,8 @@ def createPosting(userId):
             zipcode = form.data['zipcode'],
             name = form.data['name'],
             caption = form.data['caption'],
-            icon = form.data['icon']
+            icon = form.data['icon'],
+            created_at = datetime.now()
         )
 
         db.session.add(newPosting)
@@ -85,7 +87,7 @@ def editPosting(postingId):
     """
     Route that allows a user to edit a posting
     """
-    form = EditPostingForm()
+    form = PostingForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
@@ -97,6 +99,8 @@ def editPosting(postingId):
         posting.name = form.data['name']
         posting.caption = form.data['caption']
         posting.icon = form.data['icon']
+        posting.updated_at = datetime.now()
+
 
         db.session.commit()
         return posting.to_dict()

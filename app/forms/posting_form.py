@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired, ValidationError
 # from app.models import Posting
 
 
-class AddPostingForm(FlaskForm):
+class PostingForm(FlaskForm):
     address = StringField('address', validators=[DataRequired()])
     city = StringField('city', validators=[DataRequired()])
     state = StringField('state', validators=[DataRequired()])
