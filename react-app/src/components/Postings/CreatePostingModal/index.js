@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Modal } from '../../../context/Modal';
 import CreatePosting from './CreatePosting';
 
+
 function CreatePostingModal() {
   const [showModal, setShowModal] = useState(false);
+
 
   return (
     <>

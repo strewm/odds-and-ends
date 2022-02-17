@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../Auth/LogoutButton';
-import CreatePostingModal from '../Postings/CreatePosting';
+import CreatePostingModal from '../Postings/CreatePostingModal';
+// import CreatePosting from '../Postings/CreatePostingModal/CreatePosting';
 import './Navigation.css';
 
 const NavBar = () => {

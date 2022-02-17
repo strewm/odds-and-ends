@@ -33,7 +33,6 @@ const CreatePosting = ({ setShowModal }) => {
         } else {
             setShowModal(false)
         }
-
     }
 
 
