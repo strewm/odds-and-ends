@@ -1,6 +1,7 @@
 /* ------------------- Sitewide styles ------------------- */
 * {
     /* font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; */
+    font-family: BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     background-color: #ffe4aa;
     color: #ff9029;
     /* cursor: crosshair; */
@@ -28,9 +29,12 @@ input {
 
 
 /* ------------------- Sitewide errors ------------------- */
-/* .errors {
-    margin: 12px 0;
+.errors {
+    display: flex;
+    justify-content: flex-start;
+    /* margin: 12px 0; */
     padding: 0;
+    font-size: 12px;
     color: red;
     background-color: transparent;
 }
@@ -39,4 +43,4 @@ input {
     list-style: none;
     font-size: 12px;
     background-color: transparent;
-} */
+}

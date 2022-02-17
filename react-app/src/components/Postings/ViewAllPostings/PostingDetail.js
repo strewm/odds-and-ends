@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllPostings } from "../../../store/postings";
 // import { NavLink } from "react-router-dom";
 // import ViewSinglePost from "../ViewSinglePost/ViewSinglePostModal";
-// import './PostDetail.css';
+import './PostingDetail.css';
 
 const PostingDetail = ({ posting }) => {
 
@@ -19,15 +19,18 @@ const PostingDetail = ({ posting }) => {
 
     return (
         <>
-            <div className='post-detail-container'>
-                <div className='post-username'>
+            <div className='posting-detail-container'>
+                <div className='posting-username'>
                     {posting.user_id}
                     {/* <NavLink to={`/profile/${posting.user_id}`}>
                         {posting.username}
                     </NavLink> */}
                 </div>
-                <div className='post-caption'>
+                <div id='posting-caption'>
                     <p><b>{posting.title}</b> {posting.caption}</p>
+                </div>
+                <div id='posting-icon'>
+                    {posting.icon}
                 </div>
             </div>
         </>

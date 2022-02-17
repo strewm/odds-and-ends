@@ -1,0 +1,18 @@
+/* ------------------- Posting detail container ------------------- */
+.posting-detail-container {
+    margin: 20px 0;
+    padding: 7px;
+    border: 1px solid #ff9029;
+}
+
+.posting-detail-container p {
+    margin: 5px 0;
+}
+
+
+
+/* ------------------- Posting detail container details ------------------- */
+#posting-icon {
+    font-size: 13px;
+    color: #ff6d29;
+}

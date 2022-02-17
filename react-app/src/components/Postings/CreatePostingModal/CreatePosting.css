@@ -1,0 +1,55 @@
+/* ------------------- Create post container ------------------- */
+.create-posting-container {
+    width: 550px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* ------------------- Create post header ------------------- */
+.create-posting-container div:first-child {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 1px solid #ff9029;
+}
+
+
+
+/* ------------------- Edit profile modal form ------------------- */
+.create-posting-form {
+    /* height: 450px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.create-posting-form fieldset {
+    width: 193px;
+    margin: 5px;
+    border: 1px solid #ff9029;
+    border-radius: 3px;
+    color: #ff9029;
+    background-color: transparent;
+}
+
+.create-posting-form legend {
+    font-size: 11px;
+    background-color: transparent;
+}
+
+.create-posting-form input {
+    height: 18px;
+    width: 193px;
+    padding: 0;
+    border: none;
+    font-size: 12px;
+    background-color: transparent;
+}
