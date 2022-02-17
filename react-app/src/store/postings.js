@@ -114,7 +114,7 @@ export const addPosting = (user_id, address, city, state, zipcode, name, caption
 };
 
 export const updateOnePosting = (user_id, posting_id, address, city, state, zipcode, name, caption, icon) => async dispatch => {
-    const response = await fetch(`/api/postings/${posting.id}`, {
+    const response = await fetch(`/api/postings/${posting_id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -144,11 +144,11 @@ export const updateOnePosting = (user_id, posting_id, address, city, state, zipc
 };
 
 export const deleteOnePosting = postingId => async dispatch => {
-    const res = await fetch(`/api/postings/${postingId}`, {
-        method: 'DELETE',
+    const response = await fetch(`/api/postings/${postingId}`, {
+        method: 'DELETE'
     });
 
-    if (res.ok) {
+    if (response.ok) {
         const data = await response.json();
         if (data.errors) {
             return;
@@ -172,9 +172,11 @@ export default function postsReducer(state = initialState, action) {
 
     switch (action.type) {
         case GET_POSTINGS: {
-            action.postings.forEach((posting) => {
-                newState[posting.id] = posting;
-            });
+            // console.log('+++++INSIDE REDUCER', action.postings)
+            const newState = { ...state }
+            for (const key in action.postings) {
+                newState[action.postings[key].id] = action.postings[key]
+            }
             return newState;
         };
         case GET_ONE_POSTING: {
