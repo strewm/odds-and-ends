@@ -102,7 +102,7 @@ export const addPosting = ({user_id, address, city, state, zipcode, title, capti
         })
     });
 
-    console.log('INSIDE STOOOOOOOOOORE', response)
+    // console.log('INSIDE STOOOOOOOOOORE', response)
 
     if (response.ok) {
         const data = await response.json();
@@ -117,14 +117,13 @@ export const addPosting = ({user_id, address, city, state, zipcode, title, capti
     }
 };
 
-export const updateOnePosting = (user_id, posting_id, address, city, state, zipcode, title, caption, icon) => async dispatch => {
+export const updateOnePosting = ({posting_id, address, city, state, zipcode, title, caption, icon}) => async dispatch => {
     const response = await fetch(`/api/postings/${posting_id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            user_id,
             posting_id,
             address,
             city,
@@ -138,12 +137,14 @@ export const updateOnePosting = (user_id, posting_id, address, city, state, zipc
 
     if (response.ok) {
         const data = await response.json();
-        if (data.errors) {
-            return;
-        };
-
         dispatch(updatePosting(data));
-        return data;
+        return;
+    } else {
+        const data = await response.json();
+        if (data.errors) {
+            // console.log('HEYYYYYYYYYY', data.errors)
+            return data.errors;
+        };
     }
 };
 

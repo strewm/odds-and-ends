@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllPostings, deleteOnePosting } from "../../../store/postings";
-import { useParams, NavLink } from "react-router-dom";
+import { getSinglePosting, deleteOnePosting } from "../../../store/postings";
+import { useParams, useHistory } from "react-router-dom";
 // import ViewSinglePost from "../ViewSinglePost/ViewSinglePostModal";
+import EditPostingModal from "../EditPostingModal";
 // import './PostingDetail.css';
 
 const SinglePosting = () => {
+    const [update, setUpdate] = useState(false);
+
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const { postingId } = useParams();
-    console.log('+++++ID', postingId);
     const posting = useSelector(state => state.postings[postingId]);
-    // const posting = useSelector(state => state)
 
     const current_user = useSelector(state => state.session.user);
     const user_id = current_user.id;
-
-    console.log('--------POSTING', posting)
 
     let icon;
 
@@ -30,27 +30,42 @@ const SinglePosting = () => {
         icon = <i className="fa-solid fa-otter"></i>
     }
 
-    useEffect(async () => {
-        dispatch(getAllPostings())
-    }, [dispatch])
+    useEffect(() => {
+        // dispatch(getSinglePosting(posting.id))
+        setUpdate(false)
+    }, [update])
 
-    // const handleDelete = async () => {
-    //     dispatch(deleteOnePosting(posting.id));
-
-    // }
+    const handleDelete = async (e) => {
+        e.preventDefault();
+        await dispatch(deleteOnePosting(posting.id))
+            // .then(history.push('/'))
+        setUpdate(true)
+    }
 
 
     return (
         <>
-            <div className='posting-detail-container'>
-                <div id='posting-icon'>
+            <div className='single-posting-detail-container'>
+                <div id='single-posting-header'>
                     {icon}
+                    {posting.user_id === user_id && (
+                        <button id="edit-button"><EditPostingModal posting={posting}/></button>
+                    )}
+                    {posting.user_id === user_id && (
+                        <button id="delete-button" onClick={(e) => handleDelete(e)}>Delete</button>
+                    )}
                 </div>
-                <div className='posting-username'>
+                <div className='single-posting-username'>
                     {posting.user_id}
                 </div>
-                <div id='posting-caption'>
-                    <p><b>{posting.title}</b> {posting.caption}</p>
+                <div id='single-posting-title'>
+                    <b>{posting.title}</b>
+                </div>
+                <div id='single-posting-caption'>
+                    <p>{posting.caption}</p>
+                </div>
+                <div id='single-posting-address'>
+                    <p>{posting.address}, {posting.state} {posting.zipcode}</p>
                 </div>
             </div>
         </>
