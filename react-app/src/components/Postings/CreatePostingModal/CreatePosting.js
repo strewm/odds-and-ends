@@ -37,7 +37,6 @@ const CreatePosting = ({ setShowModal }) => {
                 errors[errLabel] = errMessage
             })
             setErrors(errors)
-            console.log(errors)
             return
         } else {
             setShowModal(false)

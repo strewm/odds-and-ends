@@ -9,9 +9,8 @@ function CreatePostingModal() {
 
   return (
     <>
-      {/* <i onClick={() => setShowModal(true)} className="fa-solid fa-circle-plus"></i> */}
-      {/* <i onClick={() => setShowModal(true)} className="fa-solid fa-circle-plus"></i> */}
-      <button onClick={() => setShowModal(true)}>+</button>
+      <i onClick={() => setShowModal(true)} className="fa-solid fa-circle-plus"></i>
+      {/* <button onClick={() => setShowModal(true)}>+</button> */}
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <CreatePosting setShowModal={setShowModal} />
