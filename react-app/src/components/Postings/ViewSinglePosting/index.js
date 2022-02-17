@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPostings, deleteOnePosting } from "../../../store/postings";
-import { NavLink } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 // import ViewSinglePost from "../ViewSinglePost/ViewSinglePostModal";
-import './PostingDetail.css';
+// import './PostingDetail.css';
 
-const PostingDetail = ({ posting }) => {
+const SinglePosting = () => {
     const dispatch = useDispatch();
+
+    const { postingId } = useParams();
+    console.log('+++++ID', postingId);
+    const posting = useSelector(state => state.postings[postingId]);
+    // const posting = useSelector(state => state)
 
     const current_user = useSelector(state => state.session.user);
     const user_id = current_user.id;
+
+    console.log('--------POSTING', posting)
 
     let icon;
 
@@ -35,21 +42,19 @@ const PostingDetail = ({ posting }) => {
 
     return (
         <>
-            <NavLink to={`/postings/${posting.id}`}>
-                <div className='posting-detail-container'>
-                    <div id='posting-icon'>
-                        {icon}
-                    </div>
-                    <div className='posting-username'>
-                        {posting.user_id}
-                    </div>
-                    <div id='posting-caption'>
-                        <p><b>{posting.title}</b> {posting.caption}</p>
-                    </div>
+            <div className='posting-detail-container'>
+                <div id='posting-icon'>
+                    {icon}
                 </div>
-            </NavLink>
+                <div className='posting-username'>
+                    {posting.user_id}
+                </div>
+                <div id='posting-caption'>
+                    <p><b>{posting.title}</b> {posting.caption}</p>
+                </div>
+            </div>
         </>
     )
 }
 
-export default PostingDetail;
+export default SinglePosting;

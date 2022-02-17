@@ -18,7 +18,7 @@ const CreatePosting = ({ setShowModal }) => {
 
     const current_user = useSelector(state => state.session.user)
     const user_id = current_user.id
-    console.log('---------user id', typeof(user_id))
+    // console.log('---------user id', typeof(user_id))
 
 
     const handleSubmit = async (e) => {
@@ -35,19 +35,20 @@ const CreatePosting = ({ setShowModal }) => {
                 const errLabel = error.split(' : ')[0]
                 const errMessage = error.split(' : ')[1]
                 errors[errLabel] = errMessage
-            })
-            setErrors(errors)
-            return
+            });
+
+            setErrors(errors);
+            return;
         } else {
-            setShowModal(false)
+            setShowModal(false);
         }
     }
 
     let iconDropdown = [
-        { label: 'Food', value: '🥕' },
-        { label: 'Home', value: '🏠' },
-        { label: 'Supplies', value: '🪵' },
-        { label: 'Other', value: '✅' },
+        { label: 'Food' },
+        { label: 'Home' },
+        { label: 'Supplies' },
+        { label: 'Other' },
     ]
 
     let handleIconChange = (e) => {
@@ -88,6 +89,9 @@ const CreatePosting = ({ setShowModal }) => {
                         onChange={(e) => setCity(e.target.value)}
                     />
                 </fieldset>
+                <div className="errors">
+                    {errors.city ? `${errors.city}` : ''}
+                </div>
                 <fieldset>
                     <legend>State</legend>
                     <input
@@ -97,6 +101,9 @@ const CreatePosting = ({ setShowModal }) => {
                         onChange={(e) => setState(e.target.value)}
                     />
                 </fieldset>
+                <div className="errors">
+                    {errors.state ? `${errors.state}` : ''}
+                </div>
                 <fieldset>
                     <legend>Zipcode</legend>
                     <input
@@ -106,6 +113,9 @@ const CreatePosting = ({ setShowModal }) => {
                         onChange={(e) => setZipcode(e.target.value)}
                     />
                 </fieldset>
+                <div className="errors">
+                    {errors.zipcode ? `${errors.zipcode}` : ''}
+                </div>
                 <fieldset>
                     <legend>Post Title</legend>
                     <input
@@ -115,6 +125,9 @@ const CreatePosting = ({ setShowModal }) => {
                         onChange={(e) => setTitle(e.target.value)}
                     />
                 </fieldset>
+                <div className="errors">
+                    {errors.title ? `${errors.title}` : ''}
+                </div>
                 <fieldset>
                     <legend>Post Caption</legend>
                     <input
@@ -124,19 +137,16 @@ const CreatePosting = ({ setShowModal }) => {
                         onChange={(e) => setCaption(e.target.value)}
                     />
                 </fieldset>
-                {/* <fieldset>
-                    <legend>Icon</legend>
-                    <input
-                        name='icon'
-                        type='textarea'
-                        value={icon}
-                        onChange={(e) => setIcon(e.target.value)}
-                    />
-                </fieldset> */}
+                <div className="errors">
+                    {errors.caption ? `${errors.caption}` : ''}
+                </div>
                 <select onChange={handleIconChange}>
                     <option value=''>Select an icon</option>
                     {iconDropdown.map((icon) => <option key={icon.label} value={icon.label}>{icon.label}</option>)}
                 </select>
+                <div className="errors">
+                    {errors.icon ? `${errors.icon}` : ''}
+                </div>
                 <button id='new-post-share' type="submit">Share</button>
             </form>
         </div>

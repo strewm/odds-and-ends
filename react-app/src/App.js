@@ -10,6 +10,7 @@ import User from './components/User/User';
 import { authenticate } from './store/session';
 
 import ViewPostings from './components/Postings/ViewAllPostings';
+import SinglePosting from './components/Postings/ViewSinglePosting';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -46,6 +47,9 @@ function App() {
           <h1>My Home Page</h1>
           <ViewPostings />
         </ProtectedRoute>
+        <Route path='/postings/:postingId' exact={true}>
+          <SinglePosting />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
