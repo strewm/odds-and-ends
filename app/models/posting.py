@@ -18,7 +18,7 @@ class Posting(db.Model):
     city = db.Column(db.String(200), nullable=False)
     state = db.Column(db.String(2), nullable=False)
     zipcode = db.Column(db.String(20), nullable=False)
-    name = db.Column(db.String, nullable=False)
+    title = db.Column(db.String, nullable=False)
     caption = db.Column(db.Text, nullable=False)
     icon = db.Column(db.String(25), nullable=False)
     created_at = db.Column(db.DateTime(timezone=True), default=datetime.now())
@@ -36,7 +36,7 @@ class Posting(db.Model):
             'city': self.city,
             'state': self.state,
             'zipcode': self.zipcode,
-            'name': self.name,
+            'title': self.title,
             'caption': self.caption,
             'icon': self.icon,
             'created_at': self.created_at,
@@ -53,7 +53,7 @@ class Pickup(db.Model):
     date = db.Column(db.String(100), nullable=False)
     created_at = db.Column(db.DateTime(timezone=True), default=datetime.now())
     updated_at = db.Column(db.DateTime(timezone=True), default=datetime.now())
-    
+
     users = db.relationship('User', back_populates='pickups')
     postings = db.relationship('Posting', back_populates='pickups')
 

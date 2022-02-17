@@ -27,7 +27,7 @@ const PostingDetail = ({ posting }) => {
                     </NavLink> */}
                 </div>
                 <div className='post-caption'>
-                    <p><b>{posting.name}</b> {posting.caption}</p>
+                    <p><b>{posting.title}</b> {posting.caption}</p>
                 </div>
             </div>
         </>

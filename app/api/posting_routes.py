@@ -80,7 +80,7 @@ def createPosting():
             city = form.data['city'],
             state = form.data['state'],
             zipcode = form.data['zipcode'],
-            name = form.data['name'],
+            title = form.data['title'],
             caption = form.data['caption'],
             icon = form.data['icon'],
             created_at = datetime.now()
@@ -107,7 +107,7 @@ def editPosting(postingId):
         posting.city = form.data['city']
         posting.state = form.data['state']
         posting.zipcode = form.data['zipcode']
-        posting.name = form.data['name']
+        posting.title = form.data['title']
         posting.caption = form.data['caption']
         posting.icon = form.data['icon']
         posting.updated_at = datetime.now()

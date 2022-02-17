@@ -84,7 +84,7 @@ export const getUserPosts = (userId) => async dispatch => {
     }
 };
 
-export const addPosting = (user_id, address, city, state, zipcode, name, caption, icon) => async dispatch => {
+export const addPosting = (user_id, address, city, state, zipcode, title, caption, icon) => async dispatch => {
     const response = await fetch(`/api/postings/create`, {
         method: 'POST',
         headers: {
@@ -96,7 +96,7 @@ export const addPosting = (user_id, address, city, state, zipcode, name, caption
             city,
             state,
             zipcode,
-            name,
+            title,
             caption,
             icon
         })
@@ -113,7 +113,7 @@ export const addPosting = (user_id, address, city, state, zipcode, name, caption
     }
 };
 
-export const updateOnePosting = (user_id, posting_id, address, city, state, zipcode, name, caption, icon) => async dispatch => {
+export const updateOnePosting = (user_id, posting_id, address, city, state, zipcode, title, caption, icon) => async dispatch => {
     const response = await fetch(`/api/postings/${posting_id}`, {
         method: 'PUT',
         headers: {
@@ -126,7 +126,7 @@ export const updateOnePosting = (user_id, posting_id, address, city, state, zipc
             city,
             state,
             zipcode,
-            name,
+            title,
             caption,
             icon
         })

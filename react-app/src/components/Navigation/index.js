@@ -1,10 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../Auth/LogoutButton';
+import CreatePostingModal from '../Postings/CreatePosting';
+import './Navigation.css';
 
 const NavBar = () => {
   return (
-    <nav>
+    <nav className='nav-container'>
       <ul>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
@@ -25,6 +27,9 @@ const NavBar = () => {
           <NavLink to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink>
+        </li>
+        <li>
+          <CreatePostingModal />
         </li>
         <li>
           <LogoutButton />

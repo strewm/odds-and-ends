@@ -9,6 +9,6 @@ class PostingForm(FlaskForm):
     city = StringField('city', validators=[DataRequired()])
     state = StringField('state', validators=[DataRequired()])
     zipcode = StringField('zipcode', validators=[DataRequired()])
-    name = StringField('name', validators=[DataRequired()])
+    title = StringField('title', validators=[DataRequired()])
     caption = TextAreaField('caption', validators=[DataRequired()])
     icon = SelectField('icon', choices=['Food', 'Home', 'Supplies', 'Other'], validators=[DataRequired()])

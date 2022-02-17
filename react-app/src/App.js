@@ -5,8 +5,8 @@ import LoginForm from './components/Auth/LoginForm';
 import SignUpForm from './components/Auth/SignUpForm';
 import NavBar from './components/Navigation';
 import ProtectedRoute from './components/Auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
+import UsersList from './components/User/UsersList';
+import User from './components/User/User';
 import { authenticate } from './store/session';
 
 import ViewPostings from './components/Postings/ViewAllPostings';
