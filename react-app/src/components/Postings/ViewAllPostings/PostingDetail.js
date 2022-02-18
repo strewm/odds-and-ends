@@ -30,6 +30,7 @@ const PostingDetail = ({ setUpdate, posting }) => {
     return (
         <>
             <div className='posting-detail-container'>
+                {posting.username}
                 <div id='posting-icon'>
                     {icon}
                     {posting.user_id === user_id && (
