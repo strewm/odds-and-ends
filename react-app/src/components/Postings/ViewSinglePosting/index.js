@@ -8,8 +8,6 @@ import DeletePostingModal from "../DeletePostingModal";
 // import './PostingDetail.css';
 
 const SinglePosting = () => {
-    const [update, setUpdate] = useState(false);
-
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -22,29 +20,20 @@ const SinglePosting = () => {
 
     let icon;
 
-    if (posting.icon === "Food") {
+    if (posting?.icon === "Food") {
         icon = <i className="fa-solid fa-shrimp"></i>
-    } else if (posting.icon === "Home") {
+    } else if (posting?.icon === "Home") {
         icon = <i className="fa-solid fa-chair"></i>
-    } else if (posting.icon === "Supplies") {
+    } else if (posting?.icon === "Supplies") {
         icon = <i className="fa-solid fa-parachute-box"></i>
-    } else if (posting.icon === "Other") {
+    } else if (posting?.icon === "Other") {
         icon = <i className="fa-solid fa-otter"></i>
     }
 
-    useEffect(() => {
-        dispatch(getSinglePosting());
+    useEffect(async () => {
+        await dispatch(getSinglePosting(postingId));
 
-        setUpdate(false)
-    }, [dispatch, update])
-
-    const handleDelete = async (e) => {
-        e.preventDefault();
-        await dispatch(deleteOnePosting(posting.id))
-            .then(history.push('/'))
-        setUpdate(true)
-        return;
-    }
+    }, [dispatch])
 
 
     return (
@@ -52,24 +41,24 @@ const SinglePosting = () => {
             <div className='single-posting-detail-container'>
                 <div id='single-posting-header'>
                     {icon}
-                    {posting.user_id === user_id && (
+                    {posting?.user_id === user_id && (
                         <button id="edit-button"><EditPostingModal posting={posting}/></button>
                     )}
-                    {posting.user_id === user_id && (
+                    {posting?.user_id === user_id && (
                         <button id="delete-button"><DeletePostingModal posting={posting}/></button>
                     )}
                 </div>
                 <div className='single-posting-username'>
-                    {posting.user_id}
+                    {posting?.user_id}
                 </div>
                 <div id='single-posting-title'>
-                    <b>{posting.title}</b>
+                    <b>{posting?.title}</b>
                 </div>
                 <div id='single-posting-caption'>
-                    <p>{posting.caption}</p>
+                    <p>{posting?.caption}</p>
                 </div>
                 <div id='single-posting-address'>
-                    <p>{posting.address}, {posting.state} {posting.zipcode}</p>
+                    <p>{posting?.address}, {posting?.state} {posting?.zipcode}</p>
                 </div>
             </div>
         </>

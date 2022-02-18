@@ -9,7 +9,7 @@ function EditPostingModal({ posting }) {
   return (
     <>
       {/* <i onClick={() => setShowModal(true)} className="fa-solid fa-circle-plus"></i> */}
-      <button onClick={() => setShowModal(true)}>Edit</button>
+      <div onClick={() => setShowModal(true)}>Edit</div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <EditPosting setShowModal={setShowModal} posting={posting} />

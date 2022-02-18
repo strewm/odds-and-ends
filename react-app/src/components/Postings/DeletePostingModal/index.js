@@ -13,7 +13,7 @@ function DeletePostingModal({ posting }) {
   return (
     <>
       {/* <i onClick={() => setShowModal(true)} className="fa-solid fa-circle-plus"></i> */}
-      <button onClick={() => setShowModal(true)}>Delete</button>
+      <div onClick={() => setShowModal(true)}>Delete</div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <DeletePosting setShowModal={setShowModal} posting={posting} />
