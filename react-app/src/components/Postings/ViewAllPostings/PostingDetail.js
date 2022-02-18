@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllPostings, deleteOnePosting } from "../../../store/postings";
 import { NavLink } from "react-router-dom";
 // import ViewSinglePost from "../ViewSinglePost/ViewSinglePostModal";
-import SinglePosting from "../ViewSinglePosting";
 import EditPostingModal from "../EditPostingModal";
 import DeletePostingModal from "../DeletePostingModal";
 import './PostingDetail.css';
@@ -26,19 +25,6 @@ const PostingDetail = ({ setUpdate, posting }) => {
     } else if (posting.icon === "Other") {
         icon = <i className="fa-solid fa-otter"></i>
     }
-
-    // useEffect(async () => {
-    //     dispatch(getAllPostings())
-    // }, [dispatch])
-
-
-    // const handleDelete = async (e) => {
-    //     e.preventDefault();
-    //     await dispatch(deleteOnePosting(posting.id))
-    //         // .then(history.push('/'))
-    //     setUpdate(true)
-    //     return;
-    // }
 
 
     return (

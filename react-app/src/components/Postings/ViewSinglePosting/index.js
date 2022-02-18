@@ -4,6 +4,7 @@ import { getSinglePosting, deleteOnePosting } from "../../../store/postings";
 import { useParams, useHistory } from "react-router-dom";
 // import ViewSinglePost from "../ViewSinglePost/ViewSinglePostModal";
 import EditPostingModal from "../EditPostingModal";
+import DeletePostingModal from "../DeletePostingModal";
 // import './PostingDetail.css';
 
 const SinglePosting = () => {
@@ -40,7 +41,7 @@ const SinglePosting = () => {
     const handleDelete = async (e) => {
         e.preventDefault();
         await dispatch(deleteOnePosting(posting.id))
-            // .then(history.push('/'))
+            .then(history.push('/'))
         setUpdate(true)
         return;
     }
@@ -55,7 +56,7 @@ const SinglePosting = () => {
                         <button id="edit-button"><EditPostingModal posting={posting}/></button>
                     )}
                     {posting.user_id === user_id && (
-                        <button id="delete-button" onClick={(e) => handleDelete(e)}>Delete</button>
+                        <button id="delete-button"><DeletePostingModal posting={posting}/></button>
                     )}
                 </div>
                 <div className='single-posting-username'>
