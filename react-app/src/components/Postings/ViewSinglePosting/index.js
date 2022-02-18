@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { getSinglePosting } from "../../../store/postings";
-import { getAllPickups } from "../../../store/pickups";
 
 import { useParams, useHistory } from "react-router-dom";
 // import ViewSinglePost from "../ViewSinglePost/ViewSinglePostModal";
 import EditPostingModal from "../EditPostingModal";
 import DeletePostingModal from "../DeletePostingModal";
 import ViewAllPickups from "../../Pickups/ViewAllPickups";
+import { getAllPickups } from "../../../store/pickups";
 // import './PostingDetail.css';
 
 const SinglePosting = () => {
@@ -34,9 +34,10 @@ const SinglePosting = () => {
         icon = <i className="fa-solid fa-otter"></i>
     }
 
-    useEffect(async () => {
-        await dispatch(getSinglePosting(postingId));
-    }, [dispatch])
+    useEffect(() => {
+        dispatch(getSinglePosting(postingId));
+        dispatch(getAllPickups(postingId))
+    }, [dispatch, postingId])
 
 
     return (

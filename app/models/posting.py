@@ -25,7 +25,7 @@ class Posting(db.Model):
     updated_at = db.Column(db.DateTime(timezone=True), default=datetime.now())
 
     users = db.relationship('User', back_populates='postings', secondary=saved)
-    pickups = db.relationship('Pickup', back_populates='postings')
+    pickups = db.relationship('Pickup', back_populates='postings', cascade="all, delete")
 
 
     def to_dict(self):

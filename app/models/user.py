@@ -13,8 +13,8 @@ class User(db.Model, UserMixin):
     profile_picture = db.Column(db.Text, nullable=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    postings = db.relationship('Posting', back_populates='users', secondary=saved)
-    pickups = db.relationship('Pickup', back_populates='users')
+    postings = db.relationship('Posting', back_populates='users', secondary=saved, cascade="all, delete")
+    pickups = db.relationship('Pickup', back_populates='users', cascade="all, delete")
 
 
     @property

@@ -31,6 +31,8 @@ def getPostPickups(postingId):
     for pickup in pickups:
         res[pickup.id] = pickup.to_dict()
 
+    print('+++++++ALL PICKUPS', res)
+
     return res
 
 

@@ -11,11 +11,12 @@ const ViewAllPickups = ({ posting }) => {
     const dispatch = useDispatch();
 
     const viewPickups = useSelector(state => state.pickups);
+    console.log('--------THIS IS POSTING', posting.id)
 
-    useEffect(async () => {
-        await dispatch(getAllPickups(posting.id));
+    useEffect(() => {
+        dispatch(getAllPickups(posting.id));
         setUpdate(false)
-    }, [dispatch, update])
+    }, [dispatch, posting.id, update])
 
     const viewPickupsArr = Object.values(viewPickups);
     const viewPickupsArrReverse = viewPickupsArr.reverse();
