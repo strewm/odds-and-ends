@@ -26,7 +26,8 @@ const DeletePosting = ({ setShowModal, posting }) => {
             <div className='posting-detail-container'>
                 <div>Confirm Delete</div>
                 {posting.user_id === user_id && (
-                    <button id="home-delete-button" onClick={(e) => handleDelete(e)}>Confirm</button>
+                    <button id="home-delete-button" onClick={handleDelete}>Confirm</button>
+                    // <button id="home-delete-button" type='submit' onSubmit={handleSubmit}>Confirm</button>
                 )}
             </div>
         </>
