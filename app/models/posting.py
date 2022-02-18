@@ -18,7 +18,7 @@ class Posting(db.Model):
     city = db.Column(db.String(200), nullable=False)
     state = db.Column(db.String(2), nullable=False)
     zipcode = db.Column(db.String(20), nullable=False)
-    title = db.Column(db.String, nullable=False)
+    title = db.Column(db.String(30), nullable=False)
     caption = db.Column(db.Text, nullable=False)
     icon = db.Column(db.String(25), nullable=False)
     created_at = db.Column(db.DateTime(timezone=True), default=datetime.now())

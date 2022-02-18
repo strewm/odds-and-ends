@@ -2,7 +2,7 @@
 .posting-detail-container {
     margin: 20px 0;
     padding: 7px;
-    border: 1px solid #ff9029;
+    border: 1px solid #fefae0;
 }
 
 .posting-detail-container p {
@@ -22,3 +22,7 @@
     /* border: 1px solid #ff9029; */
     /* border-radius: 50%; */
 }
+
+/* #home-edit-button {
+    z-index: 10;
+} */

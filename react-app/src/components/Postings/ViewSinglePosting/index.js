@@ -13,6 +13,7 @@ const SinglePosting = () => {
     const history = useHistory();
 
     const { postingId } = useParams();
+    // const postId = postingId
     const posting = useSelector(state => state.postings[postingId]);
 
     const current_user = useSelector(state => state.session.user);
@@ -31,15 +32,17 @@ const SinglePosting = () => {
     }
 
     useEffect(() => {
-        // dispatch(getSinglePosting(posting.id))
+        dispatch(getSinglePosting());
+
         setUpdate(false)
-    }, [update])
+    }, [dispatch, update])
 
     const handleDelete = async (e) => {
         e.preventDefault();
         await dispatch(deleteOnePosting(posting.id))
             // .then(history.push('/'))
         setUpdate(true)
+        return;
     }
 
 

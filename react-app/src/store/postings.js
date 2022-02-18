@@ -155,13 +155,24 @@ export const deleteOnePosting = postingId => async dispatch => {
 
     if (response.ok) {
         const data = await response.json();
+        dispatch(deletePosting(data));
+        return;
+    } else {
+        const data = await response.json();
         if (data.errors) {
-            return;
+            return data.errors;
         };
-
-        dispatch(deletePosting(postingId))
-        return 'Post successfully deleted.'
     }
+
+    // if (response.ok) {
+    //     const data = await response.json();
+    //     if (data.errors) {
+    //         return data.errors;
+    //     };
+
+    //     dispatch(deletePosting(postingId))
+    //     return 'Post successfully deleted.'
+    // }
 };
 
 

@@ -2,8 +2,12 @@
 * {
     /* font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; */
     font-family: BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    background-color: #ffe4aa;
-    color: #ff9029;
+    /* background-color: #ffe4aa;
+    color: #ff9029; */
+
+    background-color: #bdc998;
+    color: #fefae0;
+
     /* cursor: crosshair; */
 }
 

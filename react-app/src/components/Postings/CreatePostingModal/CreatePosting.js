@@ -6,18 +6,18 @@ import './CreatePosting.css';
 
 
 const CreatePosting = ({ setShowModal }) => {
-    const [address, setAddress] = useState('')
-    const [city, setCity] = useState('')
-    const [state, setState] = useState('')
-    const [zipcode, setZipcode] = useState('')
-    const [title, setTitle] = useState('')
-    const [caption, setCaption] = useState('')
-    const [icon, setIcon] = useState('')
-    const [errors, setErrors] = useState({})
+    const [address, setAddress] = useState('');
+    const [city, setCity] = useState('');
+    const [state, setState] = useState('');
+    const [zipcode, setZipcode] = useState('');
+    const [title, setTitle] = useState('');
+    const [caption, setCaption] = useState('');
+    const [icon, setIcon] = useState('');
+    const [errors, setErrors] = useState({});
     const dispatch = useDispatch();
 
-    const current_user = useSelector(state => state.session.user)
-    const user_id = current_user.id
+    const current_user = useSelector(state => state.session.user);
+    const user_id = current_user.id;
     // console.log('---------user id', typeof(user_id))
 
 
@@ -32,9 +32,9 @@ const CreatePosting = ({ setShowModal }) => {
             const errors = {}
 
             data.forEach(error => {
-                const errLabel = error.split(' : ')[0]
-                const errMessage = error.split(' : ')[1]
-                errors[errLabel] = errMessage
+                const errLabel = error.split(' : ')[0];
+                const errMessage = error.split(' : ')[1];
+                errors[errLabel] = errMessage;
             });
 
             setErrors(errors);
@@ -49,11 +49,11 @@ const CreatePosting = ({ setShowModal }) => {
         { label: 'Home' },
         { label: 'Supplies' },
         { label: 'Other' },
-    ]
+    ];
 
     let handleIconChange = (e) => {
         setIcon(e.target.value)
-    }
+    };
 
 
     return (

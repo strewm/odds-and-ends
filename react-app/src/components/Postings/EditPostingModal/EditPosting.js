@@ -6,23 +6,22 @@ import { updateOnePosting } from "../../../store/postings";
 
 
 const EditPosting = ({ setShowModal, posting }) => {
-    const [address, setAddress] = useState(posting.address)
-    const [city, setCity] = useState(posting.city)
-    const [state, setState] = useState(posting.state)
-    const [zipcode, setZipcode] = useState(posting.zipcode)
-    const [title, setTitle] = useState(posting.title)
-    const [caption, setCaption] = useState(posting.caption)
-    const [icon, setIcon] = useState('')
-    const [errors, setErrors] = useState({})
+    const [address, setAddress] = useState(posting.address);
+    const [city, setCity] = useState(posting.city);
+    const [state, setState] = useState(posting.state);
+    const [zipcode, setZipcode] = useState(posting.zipcode);
+    const [title, setTitle] = useState(posting.title);
+    const [caption, setCaption] = useState(posting.caption);
+    const [icon, setIcon] = useState('');
+    const [errors, setErrors] = useState({});
+    // const [update, setUpdate] = useState(false);
+
     const dispatch = useDispatch();
 
-    const current_user = useSelector(state => state.session.user)
-    const user_id = current_user.id
-    // console.log('---------user id', typeof(user_id))
+    // const current_user = useSelector(state => state.session.user);
+    // const user_id = current_user.id;
 
     const posting_id = posting.id;
-    console.log('===========', posting_id)
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -31,13 +30,12 @@ const EditPosting = ({ setShowModal, posting }) => {
         const data = await dispatch(updateOnePosting(info));
 
         if (data) {
-            // console.log('============ERRORS', data)
-            const errors = {}
+            const errors = {};
 
             data.forEach(error => {
-                const errLabel = error.split(' : ')[0]
-                const errMessage = error.split(' : ')[1]
-                errors[errLabel] = errMessage
+                const errLabel = error.split(' : ')[0];
+                const errMessage = error.split(' : ')[1];
+                errors[errLabel] = errMessage;
             });
 
             setErrors(errors);
@@ -52,11 +50,11 @@ const EditPosting = ({ setShowModal, posting }) => {
         { label: 'Home' },
         { label: 'Supplies' },
         { label: 'Other' },
-    ]
+    ];
 
     let handleIconChange = (e) => {
         setIcon(e.target.value)
-    }
+    };
 
 
     return (
@@ -66,11 +64,6 @@ const EditPosting = ({ setShowModal, posting }) => {
                 {icon}
             </div>
             <form className='create-posting-form' onSubmit={handleSubmit}>
-                {/* <ul className='errors'>
-                    <li className="errors">
-                        {errors}
-                    </li>
-                </ul> */}
                 <fieldset>
                     <legend>Address</legend>
                     <input

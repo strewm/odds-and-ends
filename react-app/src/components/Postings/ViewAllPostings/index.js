@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 const ViewPostings = () => {
+    const [update, setUpdate] = useState(false);
+
     const dispatch = useDispatch();
     const viewPostings = useSelector(state => state.postings);
     // console.log('----------POSTS?', viewPostings)
@@ -14,7 +16,8 @@ const ViewPostings = () => {
 
     useEffect(() => {
         dispatch(getAllPostings());
-    }, [dispatch])
+        setUpdate(false)
+    }, [dispatch, update])
 
     const viewPostingsArr = Object.values(viewPostings);
     const viewPostingsArrReverse = viewPostingsArr.reverse();
@@ -22,7 +25,7 @@ const ViewPostings = () => {
     return (
         <div className='all-posting-container'>
             {viewPostingsArrReverse.map(posting => (
-                <PostingDetail posting={posting} key={posting.id} />
+                <PostingDetail setUpdate={setUpdate} posting={posting} key={posting.id} />
             ))}
         </div>
     )
