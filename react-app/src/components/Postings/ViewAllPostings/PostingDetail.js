@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllPostings, deleteOnePosting } from "../../../store/postings";
 import { NavLink } from "react-router-dom";
-// import ViewSinglePost from "../ViewSinglePost/ViewSinglePostModal";
 import EditPostingModal from "../EditPostingModal";
 import DeletePostingModal from "../DeletePostingModal";
 import './PostingDetail.css';
 
-const PostingDetail = ({ setUpdate, posting }) => {
+const PostingDetail = ({ posting }) => {
     const dispatch = useDispatch();
     // const history = useHistory();
 

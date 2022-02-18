@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getSinglePosting, deleteOnePosting } from "../../../store/postings";
+import { getSinglePosting } from "../../../store/postings";
+import { getAllPickups } from "../../../store/pickups";
+
 import { useParams, useHistory } from "react-router-dom";
 // import ViewSinglePost from "../ViewSinglePost/ViewSinglePostModal";
 import EditPostingModal from "../EditPostingModal";
 import DeletePostingModal from "../DeletePostingModal";
+import ViewAllPickups from "../../Pickups/ViewAllPickups";
 // import './PostingDetail.css';
 
 const SinglePosting = () => {
@@ -13,6 +16,7 @@ const SinglePosting = () => {
 
     const { postingId } = useParams();
     // const postId = postingId
+
     const posting = useSelector(state => state.postings[postingId]);
 
     const current_user = useSelector(state => state.session.user);
@@ -32,14 +36,13 @@ const SinglePosting = () => {
 
     useEffect(async () => {
         await dispatch(getSinglePosting(postingId));
-
     }, [dispatch])
 
 
     return (
         <>
             <div className='single-posting-detail-container'>
-                {posting.username}
+                {/* {posting.username} */}
                 <div id='single-posting-header'>
                     {icon}
                     {posting?.user_id === user_id && (
@@ -62,6 +65,7 @@ const SinglePosting = () => {
                     <p>{posting?.address}, {posting?.state} {posting?.zipcode}</p>
                 </div>
             </div>
+            {posting && <ViewAllPickups posting={posting}/>}
         </>
     )
 }

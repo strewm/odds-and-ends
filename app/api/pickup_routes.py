@@ -34,9 +34,24 @@ def getPostPickups(postingId):
     return res
 
 
-@pickup_routes.route('/posting/<int:postingId>/create/<int:userId>', methods=["POST"])
+@pickup_routes.route('/user/<int:userId>/pickups')
 # @login_required
-def createPickup(postingId, userId):
+def getUserPickups(userId):
+    """
+    Route that returns a user's postings
+    """
+    res = {}
+    pickups = Pickup.query.filter(userId == Pickup.user_id).all()
+
+    for pickup in pickups:
+        res[pickup.id] = pickup.to_dict()
+
+    return res
+
+
+@pickup_routes.route('/posting/<int:postingId>/create', methods=["POST"])
+# @login_required
+def createPickup(postingId):
     """
     Route that allows user to create a posting
     """
@@ -45,8 +60,8 @@ def createPickup(postingId, userId):
 
     if form.validate_on_submit():
         newPickup = Pickup(
-            # user_id = current_user.id,
-            user_id = userId,
+            user_id = current_user.id,
+            # user_id = userId,
             posting_id = postingId,
             date = form.data['date'],
             created_at = datetime.now()

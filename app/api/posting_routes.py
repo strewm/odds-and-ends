@@ -49,10 +49,10 @@ def getPosting(postingId):
     """
     posting = Posting.query.get(postingId)
 
-    user = User.query.get(posting.user_id)
-    username = user.username
+    # user = User.query.get(posting.user_id)
+    # username = user.username
 
-    posting[posting.id]['usernmae'] = f'{username}'
+    # posting[posting.id]['username'] = f'{username}'
 
     return posting.to_dict()
 

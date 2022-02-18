@@ -14,9 +14,9 @@ const ViewPostings = () => {
     // console.log('----------POSTS?', viewPostings)
 
 
-    useEffect(() => {
-        dispatch(getAllPostings());
-        setUpdate(false)
+    useEffect(async () => {
+        await dispatch(getAllPostings());
+        setUpdate(false);
     }, [dispatch, update])
 
     const viewPostingsArr = Object.values(viewPostings);
