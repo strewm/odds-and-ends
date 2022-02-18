@@ -2,7 +2,7 @@
 .posting-detail-container {
     margin: 20px 0;
     padding: 7px;
-    border: 1px solid #fefae0;
+    /* border: 1px solid #fefae0; */
 }
 
 .posting-detail-container p {
@@ -14,7 +14,7 @@
 /* ------------------- Posting detail container details ------------------- */
 #posting-icon {
     font-size: 25px;
-    color: #ff6d29;
+    /* color: #ff6d29; */
     /* display: inline-block; */
     /* height: 25px; */
     /* width: 25px; */

@@ -5,7 +5,7 @@
     /* background-color: #ffe4aa;
     color: #ff9029; */
 
-    background-color: #bdc998;
+    background-color: #bfce94;
     color: #fefae0;
 
     /* cursor: crosshair; */
@@ -13,7 +13,7 @@
 
 body {
     margin: 0;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 #root {
