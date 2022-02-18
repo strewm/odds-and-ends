@@ -29,10 +29,10 @@ def getAllPostings():
     postings = Posting.query.all()
 
     for post in postings:
-        res[post.id] = post.to_dict()
-
         user = User.query.get(post.user_id)
         username = user.username
+
+        res[post.id] = post.to_dict()
         res[post.id]['username'] = f'{username}'
 
     return res
@@ -48,6 +48,11 @@ def getPosting(postingId):
     Route that returns all postings
     """
     posting = Posting.query.get(postingId)
+
+    user = User.query.get(posting.user_id)
+    username = user.username
+
+    posting[posting.id]['usernmae'] = f'{username}'
 
     return posting.to_dict()
 

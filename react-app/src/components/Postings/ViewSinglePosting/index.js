@@ -39,6 +39,7 @@ const SinglePosting = () => {
     return (
         <>
             <div className='single-posting-detail-container'>
+                {posting.username}
                 <div id='single-posting-header'>
                     {icon}
                     {posting?.user_id === user_id && (
