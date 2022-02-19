@@ -40,7 +40,8 @@ class Posting(db.Model):
             'caption': self.caption,
             'icon': self.icon,
             'created_at': self.created_at,
-            'updated_at': self.updated_at
+            'updated_at': self.updated_at,
+            'pickups': [pickup.to_dict() for pickup in self.pickups]
         }
 
 

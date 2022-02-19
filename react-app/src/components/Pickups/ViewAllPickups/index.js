@@ -10,16 +10,17 @@ const ViewAllPickups = ({ posting }) => {
     const [update, setUpdate] = useState(false);
     const dispatch = useDispatch();
 
-    const viewPickups = useSelector(state => state.pickups);
-    console.log('--------THIS IS POSTING', posting.id)
+    const viewPickups = useSelector(state => state.postings[posting.id].pickups);
+    // const viewPickups = useSelector(state => state.pickups);
+    console.log('--------THIS IS POSTING/PICKUP', viewPickups)
 
     useEffect(() => {
         dispatch(getAllPickups(posting.id));
         setUpdate(false)
     }, [dispatch, posting.id, update])
 
-    const viewPickupsArr = Object.values(viewPickups);
-    const viewPickupsArrReverse = viewPickupsArr.reverse();
+    // const viewPickupsArr = Object.values(viewPickups);
+    const viewPickupsArrReverse = viewPickups.reverse();
 
     return (
         <div className='all-posting-container'>

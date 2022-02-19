@@ -43,7 +43,7 @@ const SinglePosting = () => {
     return (
         <>
             <div className='single-posting-detail-container'>
-                {/* {posting.username} */}
+                {/* {posting?.username} */}
                 <div id='single-posting-header'>
                     {icon}
                     {posting?.user_id === user_id && (
@@ -54,7 +54,7 @@ const SinglePosting = () => {
                     )}
                 </div>
                 <div className='single-posting-username'>
-                    {posting?.user_id}
+                    {posting?.username}
                 </div>
                 <div id='single-posting-title'>
                     <b>{posting?.title}</b>
