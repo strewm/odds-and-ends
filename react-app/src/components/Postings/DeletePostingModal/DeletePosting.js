@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import { deleteOnePosting } from "../../../store/postings";
+import { getAllPostings } from "../../../store/postings";
 // import './PostingDetail.css';
 
 const DeletePosting = ({ setShowModal, posting }) => {
@@ -10,6 +11,10 @@ const DeletePosting = ({ setShowModal, posting }) => {
 
     const current_user = useSelector(state => state.session.user);
     const user_id = current_user.id;
+
+    useEffect(() => {
+		return () => {setShowModal(false)}
+	}, []);
 
     const handleDelete = async (e) => {
         e.preventDefault();

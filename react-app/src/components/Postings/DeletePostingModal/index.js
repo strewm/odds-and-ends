@@ -8,7 +8,7 @@ function DeletePostingModal({ posting }) {
 
   useEffect(() => {
 		return () => setShowModal(false);
-	}, []);
+	}, [setShowModal]);
 
   return (
     <>

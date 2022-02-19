@@ -12,12 +12,7 @@ const DELETE_PICKUP = 'posts/DELETE_PICKUP';
 const getPickups = pickups => ({
     type:GET_PICKUPS,
     pickups
-})
-
-// const getOnePickup = pickup => ({
-//     type: GET_ONE_PICKUP,
-//     pickup
-// });
+});
 
 const getAllUserPickups = pickups => ({
     type: GET_USER_PICKUPS,
@@ -57,20 +52,6 @@ export const getAllPickups = (postingId) => async dispatch => {
         return data;
     }
 };
-
-// export const getSinglePickup = (pickupId) => async (dispatch) => {
-//     const response = await fetch(`/api/pickups/${pickupId}`);
-
-//     if (response.ok) {
-//         const data = await response.json();
-//         if (data.errors) {
-//             return;
-//         };
-
-//         dispatch(getOnePickup(data));
-//         return data;
-//     }
-// };
 
 export const getUserPickups = (userId) => async dispatch => {
     const response = await fetch(`/api/pickups/user/${userId}/pickups`);
@@ -176,13 +157,6 @@ export default function pickupsReducer(state = initialState, action) {
             // console.log('=========', newState)
             return newState;
         };
-        // case GET_ONE_PICKUP: {
-        //     const newState = {
-        //         ...state,
-        //         [action.pickups.id]: action.pickups
-        //     };
-        //     return newState;
-        // };
         case GET_USER_PICKUPS: {
             action.pickups.forEach((pickup) => {
                 newState[pickup.id] = pickup;
