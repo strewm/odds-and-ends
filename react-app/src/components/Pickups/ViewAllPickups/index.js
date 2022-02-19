@@ -8,7 +8,7 @@ import PickupDetail from "./PickupDetail";
 // import './ViewPosts.css';
 
 
-const ViewAllPickups = ({ posting }) => {
+const ViewAllPickups = ({ posting, setDeletePickup }) => {
     const dispatch = useDispatch();
 
     const viewPickups = useSelector(state => state.postings[posting.id].pickups);
@@ -28,7 +28,7 @@ const ViewAllPickups = ({ posting }) => {
     return (
         <div className='all-posting-container'>
             {viewPickupsArrReverse.map(pickup => (
-                <PickupDetail pickup={pickup} key={pickup.id} />
+                <PickupDetail posting={posting} pickup={pickup} setDeletePickup={setDeletePickup} key={pickup.id} />
             ))}
         </div>
     )

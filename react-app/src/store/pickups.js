@@ -119,7 +119,7 @@ export const updateOnePickup = ({posting_id, pickup_id, date}) => async dispatch
     }
 };
 
-export const deleteOnePickup = ({pickup_id}) => async dispatch => {
+export const deleteOnePickup = (pickup_id) => async dispatch => {
     const response = await fetch(`/api/pickups/${pickup_id}`, {
         method: 'DELETE'
     });
