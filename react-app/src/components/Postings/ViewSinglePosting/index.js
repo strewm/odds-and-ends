@@ -8,11 +8,14 @@ import EditPostingModal from "../EditPostingModal";
 import DeletePostingModal from "../DeletePostingModal";
 import ViewAllPickups from "../../Pickups/ViewAllPickups";
 import { getAllPickups } from "../../../store/pickups";
+import CreatePickupModal from "../../Pickups/CreatePickupModal";
 // import './PostingDetail.css';
 
 const SinglePosting = () => {
     const dispatch = useDispatch();
     const history = useHistory();
+
+    const [update, setUpdate] = useState('')
 
     const { postingId } = useParams();
     // const postId = postingId
@@ -35,9 +38,10 @@ const SinglePosting = () => {
     }
 
     useEffect(() => {
-        dispatch(getSinglePosting(postingId));
         dispatch(getAllPickups(postingId))
-    }, [dispatch, postingId])
+        dispatch(getSinglePosting(postingId));
+        setUpdate(false);
+    }, [dispatch, update])
 
 
     return (
@@ -66,7 +70,8 @@ const SinglePosting = () => {
                     <p>{posting?.address}, {posting?.state} {posting?.zipcode}</p>
                 </div>
             </div>
-            {posting && <ViewAllPickups posting={posting}/>}
+            <CreatePickupModal posting={posting} setUpdate={setUpdate}/>
+            {posting && <ViewAllPickups posting={posting} />}
         </>
     )
 }

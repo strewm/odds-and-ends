@@ -19,7 +19,7 @@ const getAllUserPickups = pickups => ({
     pickups
 });
 
-const creatPickup = pickup => ({
+const createPickup = pickup => ({
     type: CREATE_PICKUP,
     pickup
 });
@@ -84,7 +84,7 @@ export const addPickup = ({user_id, posting_id, date}) => async dispatch => {
 
     if (response.ok) {
         const data = await response.json();
-        dispatch(creatPickup(data));
+        dispatch(createPickup(data));
         return;
     } else {
         const data = await response.json();

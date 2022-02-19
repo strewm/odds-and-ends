@@ -56,7 +56,7 @@ def getPosting(postingId):
 
     res['username'] = f'{username}'
 
-    print ('--------------------', res)
+    # print ('--------------------', res)
 
     return res
 
@@ -102,7 +102,7 @@ def createPosting():
         db.session.add(newPosting)
         db.session.commit()
         return newPosting.to_dict()
-    print('++++++++++++++', form.errors)
+    # print('++++++++++++++', form.errors)
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
