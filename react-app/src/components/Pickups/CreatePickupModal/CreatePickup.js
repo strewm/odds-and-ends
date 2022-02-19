@@ -55,7 +55,7 @@ const CreatePickup = ({ setShowModal, setUpdate, posting }) => {
                 <fieldset>
                     <legend>Date</legend>
                     <input
-                        name='address'
+                        name='date'
                         type='text'
                         value={date}
                         onChange={(e) => setDate(e.target.value)}

@@ -16,7 +16,9 @@ const SinglePosting = () => {
     const history = useHistory();
 
     const [update, setUpdate] = useState('');
+    const [editPickup, setEditPickup] = useState('');
     const [deletePickup, setDeletePickup] = useState('');
+
 
     const { postingId } = useParams();
     // const postId = postingId
@@ -42,8 +44,9 @@ const SinglePosting = () => {
         dispatch(getAllPickups(postingId))
         dispatch(getSinglePosting(postingId));
         setUpdate(false);
+        setEditPickup(false);
         setDeletePickup(false);
-    }, [dispatch, update, deletePickup])
+    }, [dispatch, update, editPickup, deletePickup])
 
 
     return (
@@ -73,7 +76,7 @@ const SinglePosting = () => {
                 </div>
             </div>
             <CreatePickupModal posting={posting} setUpdate={setUpdate}/>
-            {posting && <ViewAllPickups posting={posting} setDeletePickup={setDeletePickup} />}
+            {posting && <ViewAllPickups posting={posting} setEditPickup={setEditPickup} setDeletePickup={setDeletePickup} />}
         </>
     )
 }

@@ -31,10 +31,8 @@ const DeletePickup = ({ setShowModal, posting, pickup, setDeletePickup }) => {
         <>
             <div className='posting-detail-container'>
                 <div>Confirm Delete Scheduling</div>
-                {pickup.user_id === user_id && (
-                    <button id="home-delete-button" onClick={handleDelete}>Confirm</button>
-                    // <button id="home-delete-button" type='submit' onSubmit={handleSubmit}>Confirm</button>
-                )}
+                <button id="home-delete-button" onClick={handleDelete}>Confirm</button>
+                {/* // <button id="home-delete-button" type='submit' onSubmit={handleSubmit}>Confirm</button> */}
             </div>
         </>
     )

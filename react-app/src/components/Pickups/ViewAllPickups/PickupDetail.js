@@ -4,9 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 // import EditPostingModal from "../EditPostingModal";
 // import DeletePostingModal from "../DeletePostingModal";
 import DeletePickupModal from "../DeletePickupModal";
+import EditPickupModal from "../EditPickupModal";
 import './PickupDetail.css';
 
-const PickupDetail = ({ posting, pickup, setDeletePickup }) => {
+const PickupDetail = ({ posting, pickup, setEditPickup, setDeletePickup }) => {
     const dispatch = useDispatch();
     // const history = useHistory();
 
@@ -19,11 +20,11 @@ const PickupDetail = ({ posting, pickup, setDeletePickup }) => {
         <>
             <div className='pickup-detail-container'>
                 <div id='pickup-buttons'>
-                    {/* {pickup.user_id === user_id && (
-                        <button id="home-edit-button"><EditPostingModal pickup={pickup}/></button>
-                    )} */}
                     {pickup.user_id === user_id && (
-                        <button id="home-delete-button"><DeletePickupModal posting={posting} pickup={pickup} setDeletePickup={setDeletePickup} /></button>
+                        <button id="pickup-edit-button"><EditPickupModal posting={posting} pickup={pickup} setEditPickup={setEditPickup} /></button>
+                    )}
+                    {pickup.user_id === user_id && (
+                        <button id="pickup-delete-button"><DeletePickupModal posting={posting} pickup={pickup} setDeletePickup={setDeletePickup} /></button>
                     )}
                 </div>
                 <div className='pickup-username'>
