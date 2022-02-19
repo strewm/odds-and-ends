@@ -51,7 +51,7 @@ export const getAllPickups = (postingId) => async dispatch => {
             return;
         };
 
-        console.log('====RESPOOOOOONSE', data)
+        // console.log('====RESPOOOOOONSE', data)
 
         dispatch(getPickups(data));
         return data;
@@ -108,7 +108,6 @@ export const addPickup = ({user_id, posting_id, date}) => async dispatch => {
     } else {
         const data = await response.json();
         if (data.errors) {
-            // console.log('HEYYYYYYYYYY', data.errors)
             return data.errors;
         };
     }
@@ -134,7 +133,6 @@ export const updateOnePickup = ({posting_id, pickup_id, date}) => async dispatch
     } else {
         const data = await response.json();
         if (data.errors) {
-            // console.log('HEYYYYYYYYYY', data.errors)
             return data.errors;
         };
     }
@@ -155,16 +153,6 @@ export const deleteOnePickup = ({pickup_id}) => async dispatch => {
             return data.errors;
         };
     }
-
-    // if (response.ok) {
-    //     const data = await response.json();
-    //     if (data.errors) {
-    //         return data.errors;
-    //     };
-
-    //     dispatch(deletePosting(postingId))
-    //     return 'Post successfully deleted.'
-    // }
 };
 
 
@@ -175,36 +163,18 @@ const initialState = { };
 
 
 // ------------------- Reducer ------------------- //
-export default function postsReducer(state = initialState, action) {
+export default function pickupsReducer(state = initialState, action) {
     let newState = {};
 
     switch (action.type) {
         case GET_PICKUPS: {
-            console.log('+++++INSIDE REDUCER', action.pickups)
+            // console.log('+++++INSIDE REDUCER', action.pickups)
             const newState = {}
             for (const key in action.pickups) {
                 newState[action.pickups[key].id] = action.pickups[key]
             }
-            console.log('=========', newState)
+            // console.log('=========', newState)
             return newState;
-
-
-            // console.log('+++++INSIDE REDUCER', action.pickups)
-            // const newState = {}
-            // for (const key in action.pickups) {
-            //     newState[action.pickups[key].id] = action.pickups[key]
-            // }
-            // console.log('=========', newState)
-            // return newState;
-
-            // const newState = {
-            //     ...state,
-            //     ...state = {
-            //         ...action.pickups
-            // } }
-            // // newState[action.pickups.id] = action.pickups
-            // console.log('=========', newState)
-            // return newState;
         };
         // case GET_ONE_PICKUP: {
         //     const newState = {
