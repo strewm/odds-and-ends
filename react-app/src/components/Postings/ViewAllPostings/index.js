@@ -11,6 +11,7 @@ const ViewPostings = () => {
     // const [deletePost, setDeletePost] = useState(false);
 
     const dispatch = useDispatch();
+    
     const viewPostings = useSelector(state => state.postings);
     // console.log('----------POSTS?', viewPostings)
 

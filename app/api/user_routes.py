@@ -43,7 +43,7 @@ def user(id):
 # @login_required
 def username(username):
     print(username)
-    user = User.query.filter_by(username=username).first_or_404()
+    user = User.query.filter(User.username == username).first_or_404()
     # user = User.query.get(username)
 
     print('=========user route', user.to_dict())

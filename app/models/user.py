@@ -33,5 +33,6 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            'profile_picture': self.profile_picture
+            'profile_picture': self.profile_picture,
+            # 'postings': [posting.to_dict() for posting in self.postings]
         }

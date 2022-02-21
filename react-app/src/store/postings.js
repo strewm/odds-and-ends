@@ -72,8 +72,8 @@ export const getSinglePosting = (postingId) => async (dispatch) => {
     }
 };
 
-export const getUserPosts = (userId) => async dispatch => {
-    const response = await fetch(`/api/postings/user/${userId}/postings`);
+export const getUserPosts = (username) => async dispatch => {
+    const response = await fetch(`/api/postings/user/${username}/postings`);
 
     if (response.ok) {
         const data = await response.json();
@@ -205,10 +205,15 @@ export default function postsReducer(state = initialState, action) {
             return newState;
         };
         case GET_USER_POSTINGS: {
-            action.postings.forEach((posting) => {
-                newState[posting.id] = posting;
-            });
+            const newState = { ...state }
+            for (const key in action.postings) {
+                newState[action.postings[key].id] = action.postings[key]
+            }
             return newState;
+            // action.postings.forEach((posting) => {
+            //     newState[posting.id] = posting;
+            // });
+            // return newState;
         };
         case CREATE_POSTING: {
             const newState = {

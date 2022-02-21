@@ -61,17 +61,38 @@ def getPosting(postingId):
     return res
 
 
-@posting_routes.route('/user/<int:userId>/postings')
+@posting_routes.route('/user/<username>/postings')
 # @login_required
-def getUserPostings(userId):
+def getUserPostings(username):
     """
     Route that returns a user's postings
     """
+    # res = {}
+    # postings = Posting.query.filter(userId == Posting.user_id).all()
+
+    # for post in postings:
+    #     res[post.id] = post.to_dict()
+
+    # I have a username
+    # I need to take username, find the user entry in User table, and take the id from that user
+    # Compare the user id to the Posting user id
+
     res = {}
+    # postings = session.query(User).join(Posting, User.username)
+
+    user = User.query.filter(User.username == username).first_or_404()
+    userId = user.id
+
+    print('++++++backend routes', user, userId)
+
     postings = Posting.query.filter(userId == Posting.user_id).all()
+
+    print('========backend routes', postings)
 
     for post in postings:
         res[post.id] = post.to_dict()
+
+    # print('========backend routes', res)
 
     return res
 
