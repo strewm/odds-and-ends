@@ -7,7 +7,7 @@ import NavBar from './components/Navigation';
 import ProtectedRoute from './components/Auth/ProtectedRoute';
 import UsersList from './components/User/UsersList';
 import User from './components/User/User';
-// import UserProfile from './components/User/UserProfile';
+import UserProfile from './components/User/UserProfile';
 import { authenticate } from './store/session';
 
 import ViewPostings from './components/Postings/ViewAllPostings';
@@ -51,9 +51,9 @@ function App() {
         <Route path='/postings/:postingId' exact={true}>
           <SinglePosting />
         </Route>
-        {/* <ProtectedRoute path='/:username' exact={true} >
+        <ProtectedRoute path='/:username' exact={true} >
           <UserProfile />
-        </ProtectedRoute> */}
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );
