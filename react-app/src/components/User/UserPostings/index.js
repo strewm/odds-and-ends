@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const ViewPostings = () => {
     // const [update, setUpdate] = useState(false);
-    // const [deletePost, setDeletePost] = useState(false);
 
     const dispatch = useDispatch();
     const viewPostings = useSelector(state => state.postings);
@@ -18,8 +17,7 @@ const ViewPostings = () => {
     useEffect(() => {
         dispatch(getAllPostings());
         // setUpdate(false);
-        // setDeletePost(false)
-    }, [dispatch])
+    }, [dispatch, update])
 
     const viewPostingsArr = Object.values(viewPostings);
     const viewPostingsArrReverse = viewPostingsArr.reverse();

@@ -20,9 +20,8 @@ const DeletePosting = ({ setShowModal, posting }) => {
         e.preventDefault();
 
         await dispatch(deleteOnePosting(posting.id))
-            .then(history.push('/'))
-        setShowModal(false)
-        return;
+        setShowModal(false);
+        history.push('/');
     }
 
 

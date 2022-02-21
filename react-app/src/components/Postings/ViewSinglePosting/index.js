@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getSinglePosting } from "../../../store/postings";
+import { getSinglePosting, getAllPostings } from "../../../store/postings";
 
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, NavLink } from "react-router-dom";
 // import ViewSinglePost from "../ViewSinglePost/ViewSinglePostModal";
 import EditPostingModal from "../EditPostingModal";
 import DeletePostingModal from "../DeletePostingModal";
@@ -43,6 +43,7 @@ const SinglePosting = () => {
     useEffect(() => {
         dispatch(getAllPickups(postingId))
         dispatch(getSinglePosting(postingId));
+        // dispatch(getAllPostings());
         setUpdate(false);
         setEditPickup(false);
         setDeletePickup(false);
@@ -62,9 +63,9 @@ const SinglePosting = () => {
                         <button id="delete-button"><DeletePostingModal posting={posting}/></button>
                     )}
                 </div>
-                <div className='single-posting-username'>
+                <NavLink to={`/${posting?.username}`} className='single-posting-username'>
                     {posting?.username}
-                </div>
+                </NavLink>
                 <div id='single-posting-title'>
                     <b>{posting?.title}</b>
                 </div>

@@ -16,7 +16,7 @@ function DeletePostingModal({ posting }) {
       <div onClick={() => setShowModal(true)}>Delete</div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <DeletePosting setShowModal={setShowModal} posting={posting} />
+          <DeletePosting setShowModal={setShowModal} posting={posting}/>
         </Modal>
       )}
     </>

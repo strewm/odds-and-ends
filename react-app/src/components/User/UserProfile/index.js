@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getUserProfile } from '../../store/users';
+// import { getUserProfile } from '../../../store/users';
 
 const UserProfile = () => {
     const [user, setUser] = useState({});

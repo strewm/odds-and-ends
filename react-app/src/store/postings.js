@@ -67,7 +67,6 @@ export const getSinglePosting = (postingId) => async (dispatch) => {
 
         // console.log('====RESPOOOOOONSE', data)
 
-
         dispatch(getOnePosting(data));
         return data;
     }
