@@ -6,6 +6,7 @@ import CreatePostingModal from '../Postings/CreatePostingModal';
 // import CreatePosting from '../Postings/CreatePostingModal/CreatePosting';
 import './Navigation.css';
 
+
 const NavBar = () => {
   const [width, setWidth] = useState('0%');
 

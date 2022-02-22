@@ -5,6 +5,9 @@ import { addPickup, getAllPickups } from "../../../store/pickups";
 import { getSinglePosting } from "../../../store/postings";
 import './CreatePickup.css';
 
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 
 const CreatePickup = ({ setShowModal, setUpdate, posting }) => {
     const [date, setDate] = useState('');
@@ -17,11 +20,6 @@ const CreatePickup = ({ setShowModal, setUpdate, posting }) => {
 
     const posting_id = posting.id;
 
-    // useEffect(() => {
-    //     dispatch(getAllPickups(posting_id));
-    //     dispatch(getSinglePosting(posting_id));
-    // }, [dispatch, setShowModal])
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -30,7 +28,6 @@ const CreatePickup = ({ setShowModal, setUpdate, posting }) => {
         const data = await dispatch(addPickup(info));
 
         if (data) {
-            // console.log('============ERRORS', data)
             const errors = {}
 
             data.forEach(error => {
@@ -52,7 +49,7 @@ const CreatePickup = ({ setShowModal, setUpdate, posting }) => {
         <div className='create-pickup-container'>
             <div>Schedule new pickup</div>
             <form className='create-pickup-form' onSubmit={handleSubmit}>
-                <fieldset>
+                {/* <fieldset>
                     <legend>Date</legend>
                     <input
                         name='date'
@@ -60,7 +57,13 @@ const CreatePickup = ({ setShowModal, setUpdate, posting }) => {
                         value={date}
                         onChange={(e) => setDate(e.target.value)}
                     />
-                </fieldset>
+                </fieldset> */}
+                <DatePicker
+                    selected={date}
+                    onChange={date => setDate(date)}
+                    dateFormat='MM/dd/yyyy'
+                    minDate={new Date()}
+                />
                 <div className="errors">
                     {errors.date ? `${errors.date}` : ''}
                 </div>
