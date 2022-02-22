@@ -136,6 +136,10 @@ def editPosting(postingId):
     form = PostingForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
+    # post = Posting.query.get(postingId)
+    # user = User.query.get(post.user_id)
+    # username = user.username
+
     if form.validate_on_submit():
         posting = Posting.query.get(postingId)
         posting.address = form.data['address']
@@ -146,6 +150,7 @@ def editPosting(postingId):
         posting.caption = form.data['caption']
         posting.icon = form.data['icon']
         posting.updated_at = datetime.now()
+        # posting.username = username
 
 
         db.session.commit()

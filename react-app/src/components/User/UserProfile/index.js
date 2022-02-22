@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import PostingDetail from '../../Postings/ViewAllPostings/PostingDetail';
 // import { getUserProfile } from '../../../store/users';
 import UserPostings from '../UserPostings';
-import { getUserPosts } from '../../../store/postings';
-import PostingDetail from '../../Postings/ViewAllPostings/PostingDetail';
+// import PostingDetail from '../../Postings/ViewAllPostings/PostingDetail';
 
 const UserProfile = () => {
     const [user, setUser] = useState({});
     const [postings, setPostings] = useState({});
     const [errors, setErrors] = useState("");
-
-    const dispatch = useDispatch();
 
     const { username } = useParams();
 
@@ -35,21 +33,9 @@ const UserProfile = () => {
             setPostings(postings);
         }
 
-        dispatch(getUserPosts(username))
 
         // await dispatch(getUserProfile(username));
-    }, [username, dispatch]);
-
-
-    // useEffect(async () => {
-    //     console.log('-----THIS IS THE USER', user)
-    //     const response = await dispatch(getUserPosts(user.id));
-
-    //     if (response.ok) {
-    //         const postings = await response.json();
-    //         setPostings(postings);
-    //     }
-    // }, [])
+    }, [username]);
 
     const viewUserPostingsArr = Object.values(postings);
     const viewUserPostingsReverse = viewUserPostingsArr.reverse();
@@ -84,6 +70,7 @@ const UserProfile = () => {
             <div className='profile-grid-container'>
                 {viewUserPostingsReverse?.map(posting => {
                     return <PostingDetail posting={posting} key={posting.id}/>
+                    // return <UserPostings posting={posting} key={posting.id}/>
                 })}
             </div>
         </>
