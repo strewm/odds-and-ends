@@ -9,6 +9,8 @@ import DeletePostingModal from "../DeletePostingModal";
 import ViewAllPickups from "../../Pickups/ViewAllPickups";
 import { getAllPickups } from "../../../store/pickups";
 import CreatePickupModal from "../../Pickups/CreatePickupModal";
+
+import { savePosting, unsavePosting } from "../../../store/saved";
 // import './PostingDetail.css';
 
 const SinglePosting = () => {
@@ -19,6 +21,7 @@ const SinglePosting = () => {
     const [editPickup, setEditPickup] = useState('');
     const [deletePickup, setDeletePickup] = useState('');
 
+    const [saved, setSaved] = useState([]);
 
     const { postingId } = useParams();
     // const postId = postingId
@@ -40,15 +43,24 @@ const SinglePosting = () => {
         icon = <i className="fa-solid fa-otter"></i>
     }
 
-    useEffect(() => {
+    useEffect(async () => {
         dispatch(getAllPickups(postingId))
         dispatch(getSinglePosting(postingId));
         // dispatch(getAllPostings());
+
+        const res_saved = await fetch(`/api/saved/posting/${postingId}/saved`);
+        const save = await res_saved.json();
+        setSaved(save);
+
         setUpdate(false);
         setEditPickup(false);
         setDeletePickup(false);
-    }, [dispatch, update, editPickup, deletePickup])
+    }, [dispatch, saved, update, editPickup, deletePickup])
 
+
+    const handleSave = async () => {
+        dispatch(savePosting(user_id, postingId))
+    }
 
     return (
         <>
