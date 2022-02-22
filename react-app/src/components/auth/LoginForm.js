@@ -14,7 +14,16 @@ const LoginForm = () => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
-      setErrors(data);
+      const errors = {};
+
+      data.forEach(error => {
+          const errLabel = error.split(' : ')[0];
+          const errMessage = error.split(' : ')[1];
+          errors[errLabel] = errMessage;
+      });
+
+      setErrors(errors);
+      return;
     }
   };
 
@@ -32,11 +41,11 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={onLogin}>
-      <div>
+      {/* <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
-      </div>
+      </div> */}
       <div>
         <label htmlFor='email'>Email</label>
         <input
@@ -47,6 +56,9 @@ const LoginForm = () => {
           onChange={updateEmail}
         />
       </div>
+      <div className="errors">
+        {errors.email ? `${errors.email}` : ''}
+      </div>
       <div>
         <label htmlFor='password'>Password</label>
         <input
@@ -56,8 +68,11 @@ const LoginForm = () => {
           value={password}
           onChange={updatePassword}
         />
-        <button type='submit'>Login</button>
       </div>
+      <div className="errors">
+        {errors.password ? `${errors.password}` : ''}
+      </div>
+      <button type='submit'>Login</button>
     </form>
   );
 };

@@ -27,11 +27,9 @@ const PostingDetail = ({ posting }) => {
         icon = <i className="fa-solid fa-otter" style={{color: color_check}}></i>
     }
 
-    const url_checker = useParams()
-
-    console.log('HEYYYYYYYYY', url_checker)
-
+    const url_checker = useParams();
     let buttons;
+    
     if (url_checker.username) {
         buttons = '';
     } else {

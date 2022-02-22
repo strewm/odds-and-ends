@@ -14,11 +14,19 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
-      if (data) {
-        setErrors(data)
-      }
+    const data = await dispatch(signUp(username, email, password, repeatPassword));
+
+    if (data) {
+      const errors = {};
+
+      data.forEach(error => {
+          const errLabel = error.split(' : ')[0];
+          const errMessage = error.split(' : ')[1];
+          errors[errLabel] = errMessage;
+      });
+
+      setErrors(errors);
+      return;
     }
   };
 
@@ -44,11 +52,11 @@ const SignUpForm = () => {
 
   return (
     <form onSubmit={onSignUp}>
-      <div>
+      {/* <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
-      </div>
+      </div> */}
       <div>
         <label>User Name</label>
         <input
@@ -57,6 +65,9 @@ const SignUpForm = () => {
           onChange={updateUsername}
           value={username}
         ></input>
+      </div>
+      <div className="errors">
+        {errors.username ? `${errors.username}` : ''}
       </div>
       <div>
         <label>Email</label>
@@ -67,6 +78,9 @@ const SignUpForm = () => {
           value={email}
         ></input>
       </div>
+      <div className="errors">
+        {errors.email ? `${errors.email}` : ''}
+      </div>
       <div>
         <label>Password</label>
         <input
@@ -76,8 +90,11 @@ const SignUpForm = () => {
           value={password}
         ></input>
       </div>
+      <div className="errors">
+        {errors.password ? `${errors.password}` : ''}
+      </div>
       <div>
-        <label>Repeat Password</label>
+        <label>Confirm Password</label>
         <input
           type='password'
           name='repeat_password'
@@ -85,6 +102,9 @@ const SignUpForm = () => {
           value={repeatPassword}
           required={true}
         ></input>
+      </div>
+      <div className="errors">
+        {errors.password ? `${errors.password}` : ''}
       </div>
       <button type='submit'>Sign Up</button>
     </form>
