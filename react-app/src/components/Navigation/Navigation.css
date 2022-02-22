@@ -1,33 +1,20 @@
 /* ------------------- Navbar container ------------------- */
-/* .nav-container {
-    width: 100%;
-}
-
-.nav-container ul {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 0;
-    margin: 25px 0;
-}
-
-.nav-container li {
-    list-style: none;
-} */
 .navbar {
     width: 100%;
     display: flex;
     justify-content: flex-start;
 }
 
-/* #menu-open {
-    left: 15px;
-} */
+#menu-open {
+    font-size: 24px;
+    cursor: pointer;
+}
 
 .nav-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: space-between; */
+    justify-content: flex-start;
     align-items: center;
 
     height: 100%;
@@ -35,7 +22,10 @@
     z-index: 1;
     top: 0;
     left: 0;
+    bottom: 0;
 
+    padding-top: 25px;
+    padding-bottom: 300px;
     background-color:#96a56b;
     transition: 1s ease;
     overflow-x: hidden;
@@ -59,3 +49,39 @@
     background-color:#96a56b;
     overflow-x: hidden;
 } */
+
+
+
+/* ------------------- Navbar links ------------------- */
+#button-close {
+    margin-bottom: 35px;
+    font-size: 34px;
+    color: #fefae0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#navbar-home, #navbar-profile {
+    margin: 10px 0;
+    font-size: 24px;
+    color: #fefae0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.nav-links * {
+    padding: 0;
+}
+
+.nav-links a {
+    background-color: transparent;
+
+}

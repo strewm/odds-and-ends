@@ -52,10 +52,10 @@ const SignUpForm = () => {
 
   return (
     <>
-      <NavLink to='/login' exact={true} activeClassName='active'>
+      <NavLink to='/login' exact={true}>
         Login
       </NavLink>
-      <NavLink to='/sign-up' exact={true} activeClassName='active'>
+      <NavLink to='/sign-up' exact={true}>
         Sign Up
       </NavLink>
       <form onSubmit={onSignUp}>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../../context/Modal';
 import CreatePosting from './CreatePosting';
-
+import './CreatePosting.css';
 
 function CreatePostingModal() {
   const [showModal, setShowModal] = useState(false);
@@ -9,7 +9,7 @@ function CreatePostingModal() {
 
   return (
     <>
-      <i onClick={() => setShowModal(true)} className="fa-solid fa-circle-plus"></i>
+      <i id='create-posting' onClick={() => setShowModal(true)} className="fa-solid fa-circle-plus"></i>
       {/* <button onClick={() => setShowModal(true)}>+</button> */}
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

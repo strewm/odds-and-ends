@@ -60,7 +60,7 @@ const CreatePosting = ({ setShowModal }) => {
         <div className='create-posting-container'>
             <div>Create new posting</div>
             <div id='create-icon'>
-                    {icon}
+                {icon}
             </div>
             <form className='create-posting-form' onSubmit={handleSubmit}>
                 {/* <ul className='errors'>

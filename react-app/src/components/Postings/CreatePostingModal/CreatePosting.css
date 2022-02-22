@@ -1,3 +1,13 @@
+/* ------------------- Create post index ------------------- */
+#create-posting {
+    margin: 10px 0;
+    font-size: 26px;
+    color: #fefae0;
+    background-color: transparent;
+}
+
+
+
 /* ------------------- Create post container ------------------- */
 .create-posting-container {
     width: 550px;
