@@ -16,6 +16,11 @@ const PickupDetail = ({ posting, pickup, setEditPickup, setDeletePickup }) => {
 
     // let color_check = (user_id === posting.user_id ? "#93a365" : "#fefae0")
 
+    const daysWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    const dayCalc = new Date(pickup.date)
+    const day = daysWeek[dayCalc.getDay()]
+    // console.log('HEYYYYYYY', day)
+
     return (
         <>
             <div className='pickup-detail-container'>
@@ -28,11 +33,11 @@ const PickupDetail = ({ posting, pickup, setEditPickup, setDeletePickup }) => {
                     )}
                 </div>
                 <div className='pickup-username'>
-                    {pickup.user_id}
+                    {pickup.user_id} is picking up on...
                     {/* {pickup.username} */}
                 </div>
                 <div id='pickup-date'>
-                    {pickup.date}
+                    {day}, {pickup.date}
                 </div>
             </div>
         </>

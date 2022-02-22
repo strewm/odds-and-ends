@@ -47,6 +47,24 @@ const CreatePickup = ({ setShowModal, setUpdate, posting }) => {
         }
     }
 
+    const disablePreviousDates = () => {
+        const today = new Date();
+
+        const yyyy = today.getFullYear();
+        console.log('---------year', yyyy)
+
+        const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+        console.log('---------month', mm)
+
+        const dd = String(today.getDate()).padStart(2, "0");
+        console.log('---------day', dd)
+
+        // const day = date.getDay()
+        // console.log('---------day', day)
+
+        return yyyy + "-" + mm + "-" + dd;
+    };
+
 
     return (
         <div className='create-pickup-container'>
@@ -59,6 +77,7 @@ const CreatePickup = ({ setShowModal, setUpdate, posting }) => {
                         type='date'
                         value={date}
                         onChange={(e) => setDate(e.target.value)}
+                        min={disablePreviousDates()}
                     />
                 </fieldset>
                 <div className="errors">
