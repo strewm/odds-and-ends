@@ -1,5 +1,5 @@
 /* ------------------- Navbar container ------------------- */
-.nav-container {
+/* .nav-container {
     width: 100%;
 }
 
@@ -13,4 +13,21 @@
 
 .nav-container li {
     list-style: none;
+} */
+
+.nav-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+    background-color:#96a56b;
+    transition: 1s ease;
+    overflow-x: hidden;
 }
