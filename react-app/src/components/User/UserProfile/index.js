@@ -48,13 +48,6 @@ const UserProfile = () => {
 
     return (
         <>
-            {/* <div>hi</div> */}
-            {/* <ul className='errors'>
-                <li className="errors">
-                    {errors}
-                </li>
-            </ul> */}
-            {/* <div>{user.username}</div> */}
             <ul>
                 <li>
                     <strong>Username:</strong> {user.username} {errors}
@@ -67,12 +60,14 @@ const UserProfile = () => {
                 </li>
             </ul>
             {/* <UserPostings /> */}
+            <div>My postings:</div>
             <div className='profile-grid-container'>
                 {viewUserPostingsReverse?.map(posting => {
                     return <PostingDetail posting={posting} key={posting.id}/>
                     // return <UserPostings posting={posting} key={posting.id}/>
                 })}
             </div>
+            <div>My saved postings:</div>
         </>
     );
 }
