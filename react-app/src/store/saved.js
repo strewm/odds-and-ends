@@ -58,11 +58,11 @@ export const getPostSaved = (postingId) => async dispatch => {
 //     }
 // }
 
-export const savePosting = (user_id, posting_id) => async (dispatch) => {
-    const response = await fetch(`/api/saved/posting/${posting_id}/user/${user_id}/saved`, {
+export const savePosting = (user_id, postingId) => async (dispatch) => {
+    const response = await fetch(`/api/saved/posting/${postingId}/user/${user_id}/saved`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ user_id, posting_id }),
+        body: JSON.stringify({ user_id, postingId }),
     });
 
     if (response.ok) {

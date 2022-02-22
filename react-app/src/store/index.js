@@ -4,12 +4,14 @@ import session from './session';
 import postings from './postings';
 import pickups from './pickups';
 import users from './users';
+import saved from './saved';
 
 const rootReducer = combineReducers({
   session,
   postings,
   pickups,
-  users
+  users,
+  saved
 });
 
 

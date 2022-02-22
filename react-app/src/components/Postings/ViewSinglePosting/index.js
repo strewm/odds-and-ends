@@ -59,8 +59,21 @@ const SinglePosting = () => {
 
 
     const handleSave = async () => {
-        dispatch(savePosting(user_id, postingId))
+        dispatch(savePosting(user_id, postingId));
+    };
+
+    const handleUnsave = async () => {
+        dispatch(unsavePosting(user_id, postingId));
+    };
+
+    let save;
+    if (saved[user_id]) {
+        save = <i id='bookmark' className="fa-solid fa-bookmark" style={{ "color": "#e94943" }} onClick={() => handleUnsave()}></i>
+    } else {
+        save = <i id='un-bookmark' className="fa-regular fa-bookmark" onClick={() => handleSave()}></i>
     }
+
+
 
     return (
         <>
@@ -87,6 +100,7 @@ const SinglePosting = () => {
                 <div id='single-posting-address'>
                     <p>{posting?.address}, {posting?.state} {posting?.zipcode}</p>
                 </div>
+                {save}
             </div>
             <CreatePickupModal posting={posting} setUpdate={setUpdate}/>
             {posting && <ViewAllPickups posting={posting} setEditPickup={setEditPickup} setDeletePickup={setDeletePickup} />}
