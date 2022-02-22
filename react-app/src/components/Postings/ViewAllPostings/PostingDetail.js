@@ -29,9 +29,9 @@ const PostingDetail = ({ posting }) => {
 
     const url_checker = useParams();
     let buttons;
-    
+
     if (url_checker.username) {
-        buttons = '';
+        buttons = <></>;
     } else {
         buttons =
         <div>
