@@ -1,10 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
-// import { NavLink } from "react-router-dom";
-// import EditPostingModal from "../EditPostingModal";
-// import DeletePostingModal from "../DeletePostingModal";
-import DeletePickupModal from "../DeletePickupModal";
 import EditPickupModal from "../EditPickupModal";
+import DeletePickupModal from "../DeletePickupModal";
 import './PickupDetail.css';
 
 const PickupDetail = ({ posting, pickup, setEditPickup, setDeletePickup }) => {
@@ -18,7 +15,7 @@ const PickupDetail = ({ posting, pickup, setEditPickup, setDeletePickup }) => {
 
     const daysWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     const dayCalc = new Date(pickup.date)
-    const day = daysWeek[dayCalc.getDay()]
+    const day = daysWeek[dayCalc.getUTCDay()]
     // console.log('HEYYYYYYY', day)
 
     return (

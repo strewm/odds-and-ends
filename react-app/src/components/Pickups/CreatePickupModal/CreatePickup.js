@@ -51,16 +51,8 @@ const CreatePickup = ({ setShowModal, setUpdate, posting }) => {
         const today = new Date();
 
         const yyyy = today.getFullYear();
-        console.log('---------year', yyyy)
-
-        const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-        console.log('---------month', mm)
-
-        const dd = String(today.getDate()).padStart(2, "0");
-        console.log('---------day', dd)
-
-        // const day = date.getDay()
-        // console.log('---------day', day)
+        const mm = (today.getMonth() + 1).toString().padStart(2, "0");
+        const dd = (today.getDate()).toString().padStart(2, "0");
 
         return yyyy + "-" + mm + "-" + dd;
     };
