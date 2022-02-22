@@ -31,7 +31,7 @@ const NavBar = () => {
           <NavLink to={`/${user.username}`} exact={true} onClick={closeNav}>
             <i id='navbar-profile' className="fa-solid fa-id-card"></i>
           </NavLink>
-          <CreatePostingModal />
+          <CreatePostingModal closeNav={closeNav}/>
           <LogoutButton />
         </div>
       </div>

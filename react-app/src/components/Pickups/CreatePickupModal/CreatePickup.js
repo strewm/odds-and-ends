@@ -56,7 +56,7 @@ const CreatePickup = ({ setShowModal, setUpdate, posting }) => {
                     <legend>Date</legend>
                     <input
                         name='date'
-                        type='text'
+                        type='date'
                         value={date}
                         onChange={(e) => setDate(e.target.value)}
                     />
