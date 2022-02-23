@@ -30,10 +30,10 @@ def getAllPostings():
 
     for post in postings:
         user = User.query.get(post.user_id)
-        username = user.username
+        # username = user.username
 
         res[post.id] = post.to_dict()
-        res[post.id]['username'] = f'{username}'
+        # res[post.id]['username'] = f'{username}'
 
     return res
 
@@ -55,8 +55,6 @@ def getPosting(postingId):
     res = posting.to_dict()
 
     # res['username'] = f'{username}'
-
-    # print ('--------------------', res)
 
     return res
 
@@ -160,7 +158,7 @@ def deletePosting(postingId):
     Route that allows a user to delete a posting
     """
     posting = Posting.query.get(postingId)
-
+    data = posting.to_dict()
     db.session.delete(posting)
     db.session.commit()
-    return posting.to_dict()
+    return data

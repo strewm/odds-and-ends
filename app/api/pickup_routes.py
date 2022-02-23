@@ -102,7 +102,7 @@ def deletePosting(pickupId):
     Route that allows a user to delete a posting
     """
     pickup = Pickup.query.get(pickupId)
-
+    data = pickup.to_dict()
     db.session.delete(pickup)
     db.session.commit()
-    return pickup.to_dict()
+    return data

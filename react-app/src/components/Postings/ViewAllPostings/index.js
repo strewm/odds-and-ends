@@ -16,8 +16,8 @@ const ViewPostings = () => {
     // console.log('----------POSTS?', viewPostings)
 
 
-    useEffect(async () => {
-        await dispatch(getAllPostings());
+    useEffect(() => {
+        dispatch(getAllPostings());
         // setUpdate(false);
         // setDeletePost(false)
     }, [dispatch])

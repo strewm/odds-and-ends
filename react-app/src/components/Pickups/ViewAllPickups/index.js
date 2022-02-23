@@ -16,9 +16,9 @@ const ViewAllPickups = ({ posting, setEditPickup, setDeletePickup }) => {
     console.log('--------THIS IS POSTING/PICKUP', viewPickups)
 
 
-    useEffect(async () => {
-        await dispatch(getAllPickups(posting.id));
-        await dispatch(getSinglePosting(posting.id));
+    useEffect(() => {
+        dispatch(getAllPickups(posting.id));
+        dispatch(getSinglePosting(posting.id));
 
     }, [dispatch, posting.id])
 
