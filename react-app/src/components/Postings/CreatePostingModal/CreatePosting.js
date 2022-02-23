@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from "react-router-dom";
 // import * as postActions from '../../../store/post';
 import { addPosting } from "../../../store/postings";
 import './CreatePosting.css';
@@ -15,6 +16,7 @@ const CreatePosting = ({ setShowModal }) => {
     const [icon, setIcon] = useState('');
     const [errors, setErrors] = useState({});
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const current_user = useSelector(state => state.session.user);
     const user_id = current_user.id;
@@ -41,6 +43,7 @@ const CreatePosting = ({ setShowModal }) => {
             return;
         } else {
             setShowModal(false);
+            history.push('/');
         }
     }
 
