@@ -17,7 +17,7 @@
     /* align-items: center; */
     height: 150px;
     width: 150px;
-    padding: 7px;
+    padding: 10px;
     border: 1px solid #fefae0;
     border-radius: 5px;
 }
@@ -28,7 +28,7 @@
 
 
 
-/* ------------------- Posting detail container details ------------------- */
+/* ------------------- Posting container header ------------------- */
 .posting-header {
     display: flex;
     flex-direction: column;
@@ -55,22 +55,44 @@
 
 .home-posting-buttons {
     height: 22px;
-    /* visibility: hidden; */
 }
 
-.home-posting-buttons button:hover {
+.home-posting-buttons button {
+    height: 22px;
+    visibility: hidden;
+}
+
+.posting-header:hover button {
     visibility: visible;
 }
 
+
+
+/* ------------------- Posting container NavLinks ------------------- */
 .posting-navlink-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* padding: 3px; */
+}
+
+#posting-username {
+    padding: 3px;
 
 }
 
+#posting-title {
+    padding: 3px;
+    border-radius: 5px;
+    background-color: rgb(255,255,255, 0.2);
+}
+
 #posting-caption {
-    text-overflow: ellipsis;
     overflow: hidden;
+    text-overflow: ellipsis;
     white-space: nowrap;
-    line-height: 16px;
+    padding: 3px;
+    font-size: 11px;
 }
 
 
