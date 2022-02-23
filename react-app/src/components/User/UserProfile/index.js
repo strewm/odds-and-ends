@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import PostingDetail from '../../Postings/ViewAllPostings/PostingDetail';
-// import { getUserProfile } from '../../../store/users';
-import UserPostings from '../UserPostings';
-// import PostingDetail from '../../Postings/ViewAllPostings/PostingDetail';
+// import UserPostings from '../UserPostings';
+import { getUsersSaved } from '../../../store/saved';
 
 const UserProfile = () => {
     const [user, setUser] = useState({});
     const [postings, setPostings] = useState({});
-    const [errors, setErrors] = useState("");
+    const [saved, setSaved] = useState({});
+    const [errors, setErrors] = useState('');
 
     const { username } = useParams();
 
@@ -19,28 +19,31 @@ const UserProfile = () => {
 
         const res_user = await fetch(`/api/users/${username}`);
         const res_posts = await fetch(`/api/postings/user/${username}/postings`);
+        const res_saved = await fetch(`/api/saved/user/${username}/saved`);
 
         if (res_user.ok) {
             const user = await res_user.json();
             setUser(user);
         } else {
-            // console.log('erroooooors')
             setErrors("User does not exist.");
-        }
+        };
 
         if (res_posts.ok) {
             const postings = await res_posts.json();
             setPostings(postings);
-        }
+        };
 
-
-        // await dispatch(getUserProfile(username));
+        if (res_saved.ok) {
+            const saved = await res_saved.json();
+            setSaved(saved);
+        };
     }, [username]);
 
     const viewUserPostingsArr = Object.values(postings);
     const viewUserPostingsReverse = viewUserPostingsArr.reverse();
 
-    console.log('-------profile component', postings)
+    const viewSavedPostingsArr = Object.values(saved);
+    const viewSavedPostingsReverse = viewSavedPostingsArr.reverse();
 
     if (!user) {
         return null;
@@ -61,13 +64,19 @@ const UserProfile = () => {
             </ul>
             {/* <UserPostings /> */}
             <div>My postings:</div>
-            <div className='profile-grid-container'>
+            <div className='profile-postings'>
                 {viewUserPostingsReverse?.map(posting => {
                     return <PostingDetail posting={posting} key={posting.id}/>
                     // return <UserPostings posting={posting} key={posting.id}/>
                 })}
             </div>
             <div>My saved postings:</div>
+            <div className='profile-saved'>
+                {viewSavedPostingsReverse?.map(posting => {
+                    return <PostingDetail posting={posting} key={posting.id}/>
+                    // return <UserPostings posting={posting} key={posting.id}/>
+                })}
+            </div>
         </>
     );
 }

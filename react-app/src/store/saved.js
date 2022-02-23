@@ -108,22 +108,22 @@ export default function (state = initialState, action) {
     let newState;
     switch (action.type) {
         case GET_SAVED: {
-            console.log('----------INSIDE REDUCER', action.saved)
             const newState = { ...state }
             for (const key in action.saved) {
                 newState[action.saved[key].id] = action.saved[key]
             }
-            console.log('-----------', newState)
             return newState;
-
+        }
+        case GET_USER_SAVED: {
+            const newState = { ...state }
+            for (const key in action.saved) {
+                newState[action.saved[key].id] = action.saved[key]
+            }
+            return newState;
+            
             // newState = { ...state };
             // action.saved.map((save) => newState[save.id] = save);
             // return newState;
-        }
-        case GET_USER_SAVED: {
-            newState = { ...state };
-            action.saved.map((save) => newState[save.id] = save);
-            return newState;
         }
         case ADD_SAVE: {
             newState = { ...state, [action.save.id]: action.save };

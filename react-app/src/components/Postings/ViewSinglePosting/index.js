@@ -43,7 +43,7 @@ const SinglePosting = () => {
     }
 
     useEffect(async () => {
-        dispatch(getAllPickups(postingId))
+        dispatch(getAllPickups(postingId));
         dispatch(getSinglePosting(postingId));
         // dispatch(getAllPostings());
         // dispatch(getPostSaved(postingId));
@@ -51,6 +51,7 @@ const SinglePosting = () => {
         const res_saved = await fetch(`/api/saved/posting/${postingId}/saved`);
         const save = await res_saved.json();
         setSaved(save);
+
         setSaveUpdate(false);
         setUpdate(false);
         setEditPickup(false);
@@ -59,7 +60,6 @@ const SinglePosting = () => {
 
 
     const handleSave = async () => {
-        console.log('-----HANDLE SAVE', username, postingId)
         await dispatch(savePosting(username, postingId));
         setSaveUpdate(true);
     };
