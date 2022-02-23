@@ -10,18 +10,18 @@ import ViewAllPickups from "../../Pickups/ViewAllPickups";
 import { getAllPickups } from "../../../store/pickups";
 import CreatePickupModal from "../../Pickups/CreatePickupModal";
 
-import { savePosting, unsavePosting } from "../../../store/saved";
+import { getPostSaved, savePosting, unsavePosting } from "../../../store/saved";
 // import './PostingDetail.css';
 
 const SinglePosting = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const [update, setUpdate] = useState('');
-    const [editPickup, setEditPickup] = useState('');
-    const [deletePickup, setDeletePickup] = useState('');
-
+    const [update, setUpdate] = useState(false);
+    const [editPickup, setEditPickup] = useState(false);
+    const [deletePickup, setDeletePickup] = useState(false);
     const [saved, setSaved] = useState([]);
+    const [saveUpdate, setSaveUpdate] = useState(false)
 
     const { postingId } = useParams();
     // const postId = postingId
@@ -48,24 +48,27 @@ const SinglePosting = () => {
         dispatch(getAllPickups(postingId))
         dispatch(getSinglePosting(postingId));
         // dispatch(getAllPostings());
+        // dispatch(getPostSaved(postingId));
 
         const res_saved = await fetch(`/api/saved/posting/${postingId}/saved`);
         const save = await res_saved.json();
         setSaved(save);
-
+        setSaveUpdate(false);
         setUpdate(false);
         setEditPickup(false);
         setDeletePickup(false);
-    }, [dispatch, update, editPickup, deletePickup])
+    }, [dispatch, saveUpdate, update, editPickup, deletePickup])
 
 
     const handleSave = async () => {
         console.log('-----HANDLE SAVE', username, postingId)
         await dispatch(savePosting(username, postingId));
+        setSaveUpdate(true);
     };
 
     const handleUnsave = async () => {
         await dispatch(unsavePosting(username, postingId));
+        setSaveUpdate(true);
     };
 
     let save;
