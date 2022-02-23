@@ -27,15 +27,15 @@ const PostingDetail = ({ posting }) => {
     let buttons;
 
     if (url_checker.username) {
-        buttons = <div className='home-posting-buttons'><span></span></div>;
+        buttons = <div className='home-posting-buttons'></div>;
     } else {
         buttons =
         <div className='home-posting-buttons'>
             {posting.user_id === user_id && (
-                <button id="home-edit-button"><EditPostingModal posting={posting}/></button>
+                <div id="home-edit-button"><EditPostingModal posting={posting}/></div>
             )}
             {posting.user_id === user_id && (
-                <button id="home-delete-button"><DeletePostingModal posting={posting}/></button>
+                <div id="home-delete-button"><DeletePostingModal posting={posting}/></div>
             )}
         </div>;
     };

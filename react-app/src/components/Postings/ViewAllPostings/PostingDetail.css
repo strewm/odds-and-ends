@@ -15,7 +15,7 @@
     flex-direction: column;
     justify-content: center;
     /* align-items: center; */
-    height: 172px;
+    height: 197.5px;
     width: 150px;
     padding: 10px;
     border: 1px solid #fefae0;
@@ -49,32 +49,29 @@
     /* border-radius: 50%; */
 }
 
-/* #home-edit-button {
-    z-index: 10;
-} */
-
 .home-posting-buttons {
-    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 23px;
 }
 
-.home-posting-buttons button {
-    height: 22px;
-    padding: 0 3px;
+.home-posting-buttons div {
+    margin: 0 5px 5px 5px;
     font-size: 11px;
     border: none;
     cursor: pointer;
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 
-.home-posting-buttons button:: {
-    padding: 0;
-    border: 0;
-}
-
-.posting-header:hover button {
+.posting-header:hover div {
     visibility: visible;
 }
 
+#home-edit-button, #home-delete-button {
+    margin: 0;
+    padding: 0;
+}
 
 
 /* ------------------- Posting container NavLinks ------------------- */
@@ -88,6 +85,8 @@
 #posting-username {
     margin: 3px 0;
     padding: 5px;
+    font-size: 14px;
+    font-weight: 600;
     border-radius: 5px;
     background-color: rgb(255,255,255, 0.1);
 }
@@ -95,25 +94,32 @@
 #posting-title {
     margin: 3px 0;
     padding: 5px;
-    font-size: 14px;
+    font-size: 13px;
     border-radius: 5px;
     background-color: rgb(255,255,255, 0.2);
 }
 
 #posting-caption {
-    overflow: hidden;
+    /* overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
-    margin: 3px 0;
-    padding: 5px;
+    white-space: nowrap; */
+
+    margin-top: 3px;
+    height: 48px;
+    line-height: 16px;
+    padding: 1px 5px 2px 5px;
     font-style: italic;
     font-size: 11px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
     border-radius: 5px;
-    background-color: rgba(139, 153, 99, 0.2);
-    /* background-color: rgba(255, 255, 255, 0.3); */
-
+    /* background-color: rgba(139, 153, 99, 0.2); */
+    background-color: rgba(255, 255, 255, 0.3);
 }
-
 
 
 
