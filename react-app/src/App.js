@@ -21,9 +21,7 @@ function App() {
 
   let sessionLinks;
   if (user) {
-    sessionLinks = <>
-      <NavBar />
-    </>
+    sessionLinks = <><NavBar /></>
   } else {
     sessionLinks = <></>
   }

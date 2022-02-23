@@ -35,14 +35,14 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
-  const handleDemo = (e) => {
-    e.preventDefault();
+  // const handleDemo = (e) => {
+  //   e.preventDefault();
 
-    const email = 'demo@aa.io';
-    const password = 'password';
+  //   const email = 'demo@aa.io';
+  //   const password = 'password';
 
-    return dispatch(login(email, password))
-  };
+  //   return dispatch(login(email, password))
+  // };
 
   if (user) {
     return <Redirect to='/' />;
@@ -90,9 +90,9 @@ const LoginForm = () => {
         </div>
         <button type='submit'>Login</button>
       </form>
-      <div className='login-demo-container'>
+      {/* <div className='login-demo-container'>
         <button type="submit" id='login-demo-button' onClick={handleDemo}>DEMO USER</button>
-      </div>
+      </div> */}
     </>
   );
 };
