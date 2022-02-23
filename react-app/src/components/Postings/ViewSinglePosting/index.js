@@ -30,6 +30,7 @@ const SinglePosting = () => {
 
     const current_user = useSelector(state => state.session.user);
     const user_id = current_user.id;
+    const username = current_user.username;
 
     let icon;
 
@@ -55,15 +56,16 @@ const SinglePosting = () => {
         setUpdate(false);
         setEditPickup(false);
         setDeletePickup(false);
-    }, [dispatch, saved, update, editPickup, deletePickup])
+    }, [dispatch, update, editPickup, deletePickup])
 
 
     const handleSave = async () => {
-        dispatch(savePosting(user_id, postingId));
+        console.log('-----HANDLE SAVE', username, postingId)
+        await dispatch(savePosting(username, postingId));
     };
 
     const handleUnsave = async () => {
-        dispatch(unsavePosting(user_id, postingId));
+        await dispatch(unsavePosting(username, postingId));
     };
 
     let save;

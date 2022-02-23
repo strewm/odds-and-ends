@@ -58,12 +58,13 @@ export const getUsersSaved = (username) => async dispatch => {
     }
 }
 
-export const savePosting = (user_id, postingId) => async (dispatch) => {
-    const response = await fetch(`/api/saved/posting/${postingId}/user/${user_id}/saved`, {
+export const savePosting = (username, postingId) => async (dispatch) => {
+    const response = await fetch(`/api/saved/posting/${postingId}/user/${username}/saved`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ user_id, postingId }),
+        body: JSON.stringify({ username, postingId }),
     });
+    console.log('+++++++++store', response)
 
     if (response.ok) {
         const data = await response.json();
@@ -75,12 +76,12 @@ export const savePosting = (user_id, postingId) => async (dispatch) => {
     }
 };
 
-export const unsavePosting = (user_id, posting_id) => async (dispatch) => {
+export const unsavePosting = (username, posting_id) => async (dispatch) => {
     if (posting_id) {
-        const response = await fetch(`/api/saved/posting/${posting_id}/user/${user_id}/saved`, {
+        const response = await fetch(`/api/saved/posting/${posting_id}/user/${username}/saved`, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ user_id, posting_id }),
+            body: JSON.stringify({ username, posting_id }),
         });
 
         if (response.ok) {
@@ -107,9 +108,17 @@ export default function (state = initialState, action) {
     let newState;
     switch (action.type) {
         case GET_SAVED: {
-            newState = { ...state };
-            action.saved.map((save) => newState[save.id] = save);
+            console.log('----------INSIDE REDUCER', action.saved)
+            const newState = { ...state }
+            for (const key in action.saved) {
+                newState[action.saved[key].id] = action.saved[key]
+            }
+            console.log('-----------', newState)
             return newState;
+
+            // newState = { ...state };
+            // action.saved.map((save) => newState[save.id] = save);
+            // return newState;
         }
         case GET_USER_SAVED: {
             newState = { ...state };
