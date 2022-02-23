@@ -137,9 +137,10 @@ const EditPosting = ({ setShowModal, posting }) => {
                 <div className="errors">
                     {errors.caption ? `${errors.caption}` : ''}
                 </div>
-                <select onChange={handleIconChange}>
-                    <option value=''>Select an icon</option>
-                    {iconDropdown.map((iconEdit) => <option key={iconEdit.label} value={iconEdit.label} selected={icon === iconEdit.label}>{iconEdit.label}</option>)}
+                <select onChange={handleIconChange} defaultValue={icon}>
+                    {/* <option value=''>Select an icon</option> */}
+                    {/* {iconDropdown.map((iconEdit) => <option key={iconEdit.label} value={iconEdit.label} selected={icon === iconEdit.label}>{iconEdit.label}</option>)} */}
+                    {iconDropdown.map((iconEdit) => <option key={iconEdit.label} value={iconEdit.label}>{iconEdit.label}</option>)}
                 </select>
                 <div className="errors">
                     {errors.icon ? `${errors.icon}` : ''}
