@@ -40,6 +40,16 @@ const EditPickup = ({ setShowModal, posting, pickup, setEditPickup }) => {
         }
     }
 
+    const disablePreviousDates = () => {
+        const today = new Date();
+
+        const yyyy = today.getFullYear();
+        const mm = (today.getMonth() + 1).toString().padStart(2, "0");
+        const dd = (today.getDate()).toString().padStart(2, "0");
+
+        return yyyy + "-" + mm + "-" + dd;
+    };
+
 
     return (
         <div className='create-posting-container'>
@@ -49,9 +59,10 @@ const EditPickup = ({ setShowModal, posting, pickup, setEditPickup }) => {
                     <legend>Date</legend>
                     <input
                         name='date'
-                        type='text'
+                        type='date'
                         value={date}
                         onChange={(e) => setDate(e.target.value)}
+                        min={disablePreviousDates()}
                     />
                 </fieldset>
                 <div className="errors">
