@@ -22,9 +22,10 @@ body {
 #root {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     padding: 25px;
+    height: 100vh;
 }
 
 

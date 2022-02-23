@@ -11,7 +11,7 @@ const PostingDetail = ({ posting }) => {
     const user_id = current_user.id;
 
     let icon;
-    let color_check = (user_id === posting.user_id ? "#93a365" : "#fefae0")
+    let color_check = (user_id === posting.user_id ? "#93a365" : "#fefae0");
 
     if (posting.icon === "Food") {
         icon = <i className="fa-solid fa-shrimp" style={{color: color_check}}></i>
@@ -27,7 +27,7 @@ const PostingDetail = ({ posting }) => {
     let buttons;
 
     if (url_checker.username) {
-        buttons = <div className='home-posting-buttons'></div>;
+        buttons = <div className='home-posting-buttons'><span></span></div>;
     } else {
         buttons =
         <div className='home-posting-buttons'>
@@ -42,13 +42,15 @@ const PostingDetail = ({ posting }) => {
 
 
     return (
-        <>
+        // <>
             <div className='posting-detail-container' style={{color: color_check}}>
-                <div id='posting-icon'>
-                    {icon}
+                <div className='posting-header'>
+                    <div id='posting-icon'>
+                        {icon}
+                    </div>
+                    {buttons}
                 </div>
-                {buttons}
-                <NavLink to={`/postings/${posting.id}`} style={{ textDecoration: 'none' }}>
+                <NavLink to={`/postings/${posting.id}`} className='posting-navlink-container' style={{ textDecoration: 'none' }}>
                     <div className='posting-username' style={{color: color_check}}>
                         {posting.username}
                     </div>
@@ -60,7 +62,7 @@ const PostingDetail = ({ posting }) => {
                     </div>
                 </NavLink>
             </div>
-        </>
+        // </>
     )
 }
 

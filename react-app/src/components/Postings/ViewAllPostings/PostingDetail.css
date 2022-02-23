@@ -1,8 +1,25 @@
+/* ------------------- Home page container ------------------- */
+.all-posting-container {
+    height: auto;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1rem;
+    padding: 1rem;
+}
+
+
+
 /* ------------------- Posting detail container ------------------- */
 .posting-detail-container {
-    margin: 20px 46px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    height: 150px;
+    width: 150px;
     padding: 7px;
     border: 1px solid #fefae0;
+    border-radius: 5px;
 }
 
 .posting-detail-container p {
@@ -12,8 +29,17 @@
 
 
 /* ------------------- Posting detail container details ------------------- */
+.posting-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 #posting-icon {
-    font-size: 25px;
+    font-size: 45px;
+
+    /* position: relative; */
     /* color: #ff6d29; */
     /* display: inline-block; */
     /* height: 25px; */
@@ -26,3 +52,43 @@
 /* #home-edit-button {
     z-index: 10;
 } */
+
+.home-posting-buttons {
+    height: 22px;
+    visibility: hidden;
+}
+
+.home-posting-buttons button:hover {
+    visibility: visible;
+}
+
+.posting-navlink-container {
+
+}
+
+#posting-caption {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 16px;
+}
+
+
+
+
+/* ------------------- Posting detail media queries ------------------- */
+@media (min-width: 450px) {
+    .all-posting-container { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 650px) {
+    .all-posting-container { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 850px) {
+    .all-posting-container { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (min-width: 1050px) {
+    .all-posting-container { grid-template-columns: repeat(5, 1fr); }
+}
