@@ -51,7 +51,7 @@ const PostingDetail = ({ posting }) => {
                     {buttons}
                 </div>
                 <NavLink to={`/postings/${posting.id}`} className='posting-navlink-container' style={{ textDecoration: 'none' }}>
-                    <div className='posting-username' style={{color: color_check}}>
+                    <div id='posting-username' style={{color: color_check}}>
                         {posting.username}
                     </div>
                     <div id='posting-title' style={{color: color_check}}>
