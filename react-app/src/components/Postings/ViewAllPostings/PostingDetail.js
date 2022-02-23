@@ -1,16 +1,12 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux';
+import React from "react";
+import { useSelector } from 'react-redux';
 import { NavLink, useParams } from "react-router-dom";
 import EditPostingModal from "../EditPostingModal";
 import DeletePostingModal from "../DeletePostingModal";
 import './PostingDetail.css';
 
-import { getUserPosts } from "../../../store/postings";
 
 const PostingDetail = ({ posting }) => {
-    const dispatch = useDispatch();
-    // const history = useHistory();
-
     const current_user = useSelector(state => state.session.user);
     const user_id = current_user.id;
 
@@ -31,10 +27,10 @@ const PostingDetail = ({ posting }) => {
     let buttons;
 
     if (url_checker.username) {
-        buttons = <></>;
+        buttons = <div className='home-posting-buttons'></div>;
     } else {
         buttons =
-        <div>
+        <div className='home-posting-buttons'>
             {posting.user_id === user_id && (
                 <button id="home-edit-button"><EditPostingModal posting={posting}/></button>
             )}
@@ -50,14 +46,8 @@ const PostingDetail = ({ posting }) => {
             <div className='posting-detail-container' style={{color: color_check}}>
                 <div id='posting-icon'>
                     {icon}
-                    {buttons}
-                    {/* {posting.user_id === user_id && (
-                        <button id="home-edit-button"><EditPostingModal posting={posting}/></button>
-                    )}
-                    {posting.user_id === user_id && (
-                        <button id="home-delete-button"><DeletePostingModal posting={posting}/></button>
-                    )} */}
                 </div>
+                {buttons}
                 <NavLink to={`/postings/${posting.id}`} style={{ textDecoration: 'none' }}>
                     <div className='posting-username' style={{color: color_check}}>
                         {posting.username}

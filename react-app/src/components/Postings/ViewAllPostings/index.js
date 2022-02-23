@@ -7,19 +7,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 const ViewPostings = () => {
-    // const [update, setUpdate] = useState(false);
-    // const [deletePost, setDeletePost] = useState(false);
-
     const dispatch = useDispatch();
 
     const viewPostings = useSelector(state => state.postings);
-    // console.log('----------POSTS?', viewPostings)
-
 
     useEffect(() => {
         dispatch(getAllPostings());
-        // setUpdate(false);
-        // setDeletePost(false)
     }, [dispatch])
 
     const viewPostingsArr = Object.values(viewPostings);
