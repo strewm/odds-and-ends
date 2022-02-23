@@ -28,13 +28,6 @@ class Posting(db.Model):
     user_saved = db.relationship('User', back_populates='saved_postings', secondary=saved)
     pickups = db.relationship('Pickup', back_populates='postings', cascade="all, delete")
 
-    # save = db.relationship(
-    #     "User",
-    #     secondary=saved,
-    #     primaryjoin=(saved.c.posting_id == id),
-    #     backref=db.backref("saved"),
-    #     lazy='dynamic'
-    # )
 
     def to_dict(self):
         return {
@@ -49,6 +42,7 @@ class Posting(db.Model):
             'icon': self.icon,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
+            'username': self.user.username,
             'pickups': [pickup.to_dict() for pickup in self.pickups]
         }
 

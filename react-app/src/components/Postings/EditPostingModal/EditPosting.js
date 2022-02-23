@@ -12,7 +12,7 @@ const EditPosting = ({ setShowModal, posting }) => {
     const [zipcode, setZipcode] = useState(posting.zipcode);
     const [title, setTitle] = useState(posting.title);
     const [caption, setCaption] = useState(posting.caption);
-    const [icon, setIcon] = useState('');
+    const [icon, setIcon] = useState(posting.icon);
     const [errors, setErrors] = useState({});
     // const [update, setUpdate] = useState(false);
 
@@ -139,7 +139,7 @@ const EditPosting = ({ setShowModal, posting }) => {
                 </div>
                 <select onChange={handleIconChange}>
                     <option value=''>Select an icon</option>
-                    {iconDropdown.map((icon) => <option key={icon.label} value={icon.label}>{icon.label}</option>)}
+                    {iconDropdown.map((iconEdit) => <option key={iconEdit.label} value={iconEdit.label} selected={icon === iconEdit.label}>{iconEdit.label}</option>)}
                 </select>
                 <div className="errors">
                     {errors.icon ? `${errors.icon}` : ''}

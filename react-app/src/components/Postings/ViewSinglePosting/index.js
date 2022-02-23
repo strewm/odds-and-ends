@@ -43,10 +43,8 @@ const SinglePosting = () => {
     }
 
     useEffect(async () => {
-        dispatch(getAllPickups(postingId));
-        dispatch(getSinglePosting(postingId));
-        // dispatch(getAllPostings());
-        // dispatch(getPostSaved(postingId));
+        await dispatch(getAllPickups(postingId));
+        await dispatch(getSinglePosting(postingId));
 
         const res_saved = await fetch(`/api/saved/posting/${postingId}/saved`);
         const save = await res_saved.json();
