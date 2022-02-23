@@ -24,9 +24,17 @@ class Posting(db.Model):
     created_at = db.Column(db.DateTime(timezone=True), default=datetime.now())
     updated_at = db.Column(db.DateTime(timezone=True), default=datetime.now())
 
-    users = db.relationship('User', back_populates='postings', secondary=saved)
+    user = db.relationship('User', back_populates='postings')
+    user_saved = db.relationship('User', back_populates='saved_postings', secondary=saved)
     pickups = db.relationship('Pickup', back_populates='postings', cascade="all, delete")
 
+    # save = db.relationship(
+    #     "User",
+    #     secondary=saved,
+    #     primaryjoin=(saved.c.posting_id == id),
+    #     backref=db.backref("saved"),
+    #     lazy='dynamic'
+    # )
 
     def to_dict(self):
         return {

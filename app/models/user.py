@@ -13,9 +13,16 @@ class User(db.Model, UserMixin):
     profile_picture = db.Column(db.Text, nullable=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    postings = db.relationship('Posting', back_populates='users', secondary=saved, cascade="all, delete")
+    postings = db.relationship('Posting', back_populates='user', cascade="all, delete")
+    saved_postings = db.relationship('Posting', back_populates='user_saved', secondary=saved, cascade="all, delete")
     pickups = db.relationship('Pickup', back_populates='users', cascade="all, delete")
 
+    # save = db.relationship(
+    #     "Posting",
+    #     secondary=saved,
+    #     primaryjoin=(saved.c.user_id == id),
+    #     lazy='dynamic'
+    # )
 
     @property
     def password(self):
@@ -34,5 +41,6 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email,
             'profile_picture': self.profile_picture,
-            # 'postings': [posting.to_dict() for posting in self.postings]
+            'postings': [posting.to_dict() for posting in self.postings],
+            'saved_postings': [posting.to_dict() for posting in self.saved_postings]
         }
