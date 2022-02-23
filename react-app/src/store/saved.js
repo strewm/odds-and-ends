@@ -44,19 +44,19 @@ export const getPostSaved = (postingId) => async dispatch => {
     }
 }
 
-// export const getUsersSaved = (username) => async dispatch => {
-//     const response = await fetch(`/api/saved/user/${username}/saved`);
+export const getUsersSaved = (username) => async dispatch => {
+    const response = await fetch(`/api/saved/user/${username}/saved`);
 
-//     if (response.ok) {
-//         const data = await response.json();
-//         if (data.errors) {
-//             return;
-//         }
+    if (response.ok) {
+        const data = await response.json();
+        if (data.errors) {
+            return;
+        }
 
-//         dispatch(getUserSaved(data));
-//         return data;
-//     }
-// }
+        dispatch(getUserSaved(data));
+        return data;
+    }
+}
 
 export const savePosting = (user_id, postingId) => async (dispatch) => {
     const response = await fetch(`/api/saved/posting/${postingId}/user/${user_id}/saved`, {
@@ -107,6 +107,11 @@ export default function (state = initialState, action) {
     let newState;
     switch (action.type) {
         case GET_SAVED: {
+            newState = { ...state };
+            action.saved.map((save) => newState[save.id] = save);
+            return newState;
+        }
+        case GET_USER_SAVED: {
             newState = { ...state };
             action.saved.map((save) => newState[save.id] = save);
             return newState;
