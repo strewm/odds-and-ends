@@ -20,7 +20,7 @@ const DeletePickup = ({ setShowModal, posting, pickup, setDeletePickup }) => {
         e.preventDefault();
 
         await dispatch(deleteOnePickup(pickup.id))
-            .then(history.push(`/postings/${posting.id}`))
+        history.push(`/postings/${posting.id}`)
         setShowModal(false)
         setDeletePickup(true)
         return;

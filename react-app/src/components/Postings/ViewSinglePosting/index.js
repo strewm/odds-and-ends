@@ -15,7 +15,6 @@ import { getPostSaved, savePosting, unsavePosting } from "../../../store/saved";
 
 const SinglePosting = () => {
     const dispatch = useDispatch();
-    const history = useHistory();
 
     const [update, setUpdate] = useState(false);
     const [editPickup, setEditPickup] = useState(false);
@@ -24,7 +23,6 @@ const SinglePosting = () => {
     const [saveUpdate, setSaveUpdate] = useState(false)
 
     const { postingId } = useParams();
-    // const postId = postingId
 
     const posting = useSelector(state => state.postings[postingId]);
 

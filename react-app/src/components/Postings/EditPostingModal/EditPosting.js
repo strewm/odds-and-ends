@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
+import { useHistory } from "react-router-dom";
 import { updateOnePosting } from "../../../store/postings";
 // import './CreatePosting.css';
 
@@ -16,6 +17,7 @@ const EditPosting = ({ setShowModal, posting }) => {
     // const [update, setUpdate] = useState(false);
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     // const current_user = useSelector(state => state.session.user);
     // const user_id = current_user.id;
