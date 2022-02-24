@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { updateOnePickup } from "../../../store/pickups"
-// import './CreatePosting.css';
+import '../CreatePickupModal/Pickup.css';
 
 
 const EditPickup = ({ setShowModal, posting, pickup, setEditPickup }) => {
@@ -52,9 +52,9 @@ const EditPickup = ({ setShowModal, posting, pickup, setEditPickup }) => {
 
 
     return (
-        <div className='create-posting-container'>
-            <div>Edit scheduling</div>
-            <form className='create-posting-form' onSubmit={handleSubmit}>
+        <div className='edit-pickup-container'>
+            <div>E D I T &nbsp; P I C K U P</div>
+            <form className='edit-pickup-form' onSubmit={handleSubmit}>
                 <fieldset>
                     <legend>Date</legend>
                     <input
@@ -68,7 +68,7 @@ const EditPickup = ({ setShowModal, posting, pickup, setEditPickup }) => {
                 <div className="errors">
                     {errors.date ? `${errors.date}` : ''}
                 </div>
-                <button id='new-post-share' type="submit">Submit Edit</button>
+                <button id='edit-pickup-submit' type="submit">Submit Edit</button>
             </form>
         </div>
     )

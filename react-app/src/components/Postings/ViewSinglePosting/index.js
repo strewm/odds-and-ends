@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getSinglePosting, getAllPostings } from "../../../store/postings";
+import { useParams, NavLink } from "react-router-dom";
+import { getSinglePosting } from "../../../store/postings";
+import { getAllPickups } from "../../../store/pickups";
+import { savePosting, unsavePosting } from "../../../store/saved";
 
-import { useParams, useHistory, NavLink } from "react-router-dom";
-// import ViewSinglePost from "../ViewSinglePost/ViewSinglePostModal";
+import ViewAllPickups from "../../Pickups/ViewAllPickups";
+import CreatePickupModal from "../../Pickups/CreatePickupModal";
 import EditPostingModal from "../EditPostingModal";
 import DeletePostingModal from "../DeletePostingModal";
-import ViewAllPickups from "../../Pickups/ViewAllPickups";
-import { getAllPickups } from "../../../store/pickups";
-import CreatePickupModal from "../../Pickups/CreatePickupModal";
 
-import { getPostSaved, savePosting, unsavePosting } from "../../../store/saved";
 import './SinglePosting.css';
 
 const SinglePosting = () => {
@@ -26,7 +25,7 @@ const SinglePosting = () => {
 
     const posting = useSelector(state => state.postings[postingId]);
     const current_user = useSelector(state => state.session.user);
-    
+
     const user_id = current_user.id;
     const username = current_user.username;
 
@@ -68,7 +67,7 @@ const SinglePosting = () => {
 
     let save;
     if (saved[user_id]) {
-        save = <i id='bookmark' className="fa-solid fa-bookmark" style={{ "color": "#fefae0" }} onClick={() => handleUnsave()}></i>
+        save = <i id='bookmark' className="fa-solid fa-bookmark" style={{ "color": "#f76c6c" }} onClick={() => handleUnsave()}></i>
     } else {
         save = <i id='un-bookmark' className="fa-regular fa-bookmark" onClick={() => handleSave()}></i>
     }
@@ -94,12 +93,6 @@ const SinglePosting = () => {
                         {icon}
                     </div>
                     {buttons}
-                    {/* {posting?.user_id === user_id && (
-                        <button id="edit-button"><EditPostingModal posting={posting}/></button>
-                    )}
-                    {posting?.user_id === user_id && (
-                        <button id="delete-button"><DeletePostingModal posting={posting}/></button>
-                    )} */}
                     <NavLink to={`/${posting?.username}`} id='single-posting-username'>
                         {posting?.username}
                     </NavLink>

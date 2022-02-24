@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import { updateOnePosting } from "../../../store/postings";
-// import './CreatePosting.css';
+import '../CreatePostingModal/CreatePosting.css';
 
 
 const EditPosting = ({ setShowModal, posting }) => {
@@ -59,12 +59,12 @@ const EditPosting = ({ setShowModal, posting }) => {
 
 
     return (
-        <div className='create-posting-container'>
-            <div>Edit posting</div>
+        <div className='posting-container'>
+            <div>E D I T &nbsp;&nbsp; P O S T I N G</div>
             {/* <div id='create-icon'>
                 {icon}
             </div> */}
-            <form className='create-posting-form' onSubmit={handleSubmit}>
+            <form className='posting-form' onSubmit={handleSubmit}>
                 <fieldset>
                     <legend>Address</legend>
                     <input
@@ -137,15 +137,17 @@ const EditPosting = ({ setShowModal, posting }) => {
                 <div className="errors">
                     {errors.caption ? `${errors.caption}` : ''}
                 </div>
-                <select onChange={handleIconChange} defaultValue={icon}>
-                    {/* <option value=''>Select an icon</option> */}
-                    {/* {iconDropdown.map((iconEdit) => <option key={iconEdit.label} value={iconEdit.label} selected={icon === iconEdit.label}>{iconEdit.label}</option>)} */}
-                    {iconDropdown.map((iconEdit) => <option key={iconEdit.label} value={iconEdit.label}>{iconEdit.label}</option>)}
-                </select>
+                <fieldset>
+                    <select onChange={handleIconChange} defaultValue={icon}>
+                        {/* <option value=''>Select an icon</option> */}
+                        {/* {iconDropdown.map((iconEdit) => <option key={iconEdit.label} value={iconEdit.label} selected={icon === iconEdit.label}>{iconEdit.label}</option>)} */}
+                        {iconDropdown.map((iconEdit) => <option key={iconEdit.label} value={iconEdit.label}>{iconEdit.label}</option>)}
+                    </select>
+                </fieldset>
                 <div className="errors">
                     {errors.icon ? `${errors.icon}` : ''}
                 </div>
-                <button id='new-post-share' type="submit">Share</button>
+                <button id='post-submit' type="submit">Submit Edit</button>
             </form>
         </div>
     )

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../../context/Modal';
 import EditPickup from './EditPickup';
+import '../CreatePickupModal/Pickup.css';
 
 
 function EditPickupModal({ posting, pickup, setEditPickup }) {
@@ -9,7 +10,7 @@ function EditPickupModal({ posting, pickup, setEditPickup }) {
   return (
     <>
       {/* <i onClick={() => setShowModal(true)} className="fa-solid fa-circle-plus"></i> */}
-      <div onClick={() => setShowModal(true)}>Edit</div>
+      <div id='edit-pickup' onClick={() => setShowModal(true)}>Edit</div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <EditPickup setShowModal={setShowModal} posting={posting} pickup={pickup} setEditPickup={setEditPickup} />

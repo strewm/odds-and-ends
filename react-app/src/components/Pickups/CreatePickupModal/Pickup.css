@@ -1,0 +1,85 @@
+/* ------------------- Create pickup button ------------------- */
+#create-pickup {
+    display: flex;
+    justify-content: center;
+    margin: 34px 0;
+    font-size: 15px;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 1s ease;
+}
+
+#create-pickup:hover {
+    font-size: 17px;
+    color: #f76c6c;
+}
+
+
+/* ------------------- Create pickup container ------------------- */
+.create-pickup-container, .edit-pickup-container {
+    /* width: 550px;
+    height: 550px; */
+    width: 277px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* ------------------- Create + edit pickup container header ------------------- */
+.create-pickup-container div:first-child, .edit-pickup-container div:first-child {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 1px solid white;
+}
+
+
+
+/* ------------------- Create + edit pickup container form ------------------- */
+.create-pickup-form, .edit-pickup-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 11px 15px 15px 15px;
+    background-color: transparent;
+}
+
+.create-pickup-form fieldset, .edit-pickup-form fieldset {
+    margin: 0;
+    color: white;
+    border: 1px solid white;
+    border-radius: 3px;
+    background-color: transparent;
+}
+
+.create-pickup-form legend, .edit-pickup-form legend {
+    font-size: 11px;
+    background-color: transparent;
+}
+
+.create-pickup-form input, .edit-pickup-form input {
+    height: 18px;
+    width: 193px;
+    padding: 0;
+    border: none;
+    font-size: 12px;
+    background-color: transparent;
+}
+
+#create-pickup-submit, #edit-pickup-submit {
+    width: 219px;
+    margin-top: 15px;
+    padding: 7px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #A8D0E6;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+}

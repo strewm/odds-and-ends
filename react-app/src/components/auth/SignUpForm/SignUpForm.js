@@ -53,8 +53,8 @@ const SignUpForm = () => {
 
   return (
     <div className='signup-page'>
+      <div className='auth-logo'>- Logo goes here -</div>
       <div className='signup-container'>
-        <div className='auth-logo'>- Logo goes here -</div>
         <form className='signup-form' onSubmit={onSignUp}>
           <div className='signup-form'>
             <input

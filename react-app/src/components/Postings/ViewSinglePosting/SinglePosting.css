@@ -1,12 +1,13 @@
 /* ------------------- Home page container ------------------- */
 .single-posting-container {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     height: auto;
-    min-width: 300px;
-    max-width: 600px;
     margin: 0 auto;
+    width: 600px;
     padding: 24px;
-    grid-gap: 1rem;
 }
 
 
@@ -17,7 +18,7 @@
     flex-direction: column;
     justify-content: center;
     padding: 20px;
-    border: 1px solid #fefae0;
+    border: 1px solid white;
     border-radius: 5px;
 }
 
@@ -44,13 +45,13 @@
 #single-posting-icon {
     font-size: 45px;
     padding: 20px 23.5px;
-    border: 1px solid #adc273;
-    background-color: #adc273;
+    border: 1px solid #f8e9a1;
+    background-color: #f8e9a1;
     border-radius: 50%;
 }
 
 #single-posting-icon i {
-    background-color: #adc273;
+    background-color: #f8e9a1;
 }
 
 .single-posting-buttons {
@@ -63,7 +64,6 @@
 .single-posting-buttons div {
     margin: 10px 5px 0 5px;
     cursor: pointer;
-    /* visibility: hidden; */
 }
 
 .single-posting-header:hover div {
@@ -74,10 +74,14 @@
     margin: 0;
     padding: 5px;
     font-size: 12px;
-    border: 1px solid rgb(255,255,255, 0.2);
     border-radius: 5px;
-    background-color: rgb(255,255,255, 0.2);
-    color: #93a365;
+    background-color: rgba(248, 233, 161, 0.4);
+    color: white;
+    transition: 0.5s ease;
+}
+
+#single-edit-button div:hover, #single-delete-button div:hover {
+    background-color: rgba(247, 108, 108, 0.3);
 }
 
 
@@ -85,10 +89,15 @@
 #single-posting-username {
     margin: 5px;
     padding: 5px;
-    font-size: 19px;
+    font-size: 21px;
     font-weight: 700;
     border-radius: 5px;
     text-decoration: none;
+    transition: 0.5s ease;
+}
+
+#single-posting-username:hover {
+    color: #f76c6c;
 }
 
 #single-posting-title p {
@@ -96,7 +105,7 @@
     padding: 7px;
     font-size: 17px;
     border-radius: 5px;
-    background-color: rgb(255,255,255, 0.2);
+    background-color: rgba(248, 233, 161, 0.8);
 }
 
 #single-posting-caption p {
@@ -104,7 +113,7 @@
     font-size: 13px;
     line-height: 18px;
     border-radius: 5px;
-    background-color: rgba(158, 173, 117, 0.3);
+    background-color: rgba(248, 233, 161, 0.7);
 }
 
 #single-posting-address p {
@@ -112,5 +121,5 @@
     font-size: 13px;
     line-height: 18px;
     border-radius: 5px;
-    background-color: rgba(158, 173, 117, 0.3);
+    background-color: rgba(248, 233, 161, 0.6);
 }

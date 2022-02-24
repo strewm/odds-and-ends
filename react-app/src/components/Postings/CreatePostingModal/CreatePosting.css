@@ -2,39 +2,43 @@
 #create-posting {
     margin: 10px 0;
     font-size: 26px;
-    color: #fefae0;
+    color: white;
     background-color: transparent;
     cursor: pointer;
+    transition: 0.5s ease;
+}
+
+#create-posting:hover {
+    color: #f76c6c;
 }
 
 
-
 /* ------------------- Create post container ------------------- */
-.create-posting-container {
-    width: 550px;
-    height: 550px;
+.posting-container {
+    width: 500px;
+    height: auto;
     display: flex;
     flex-direction: column;
+    padding-bottom: 15px;
 }
 
 
 
 /* ------------------- Create post header ------------------- */
-.create-posting-container div:first-child {
+.posting-container div:first-child {
     width: 100%;
     display: flex;
     justify-content: center;
     padding: 15px 0;
-    font-size: 20px;
-    font-weight: bold;
-    border-bottom: 1px solid #fefae0;
+    font-size: 19px;
+    font-weight: 600;
+    border-bottom: 1px solid white;
 }
 
 
 
 /* ------------------- Edit profile modal form ------------------- */
-.create-posting-form {
-    /* height: 450px; */
+.posting-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -42,25 +46,52 @@
     background-color: transparent;
 }
 
-.create-posting-form fieldset {
+.posting-form fieldset {
     width: 193px;
     margin: 5px;
-    border: 1px solid #fefae0;
+    border: 1px solid white;
     border-radius: 3px;
-    color: #fefae0;
+    color: white;
     background-color: transparent;
 }
 
-.create-posting-form legend {
+.posting-form fieldset select {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 4.4px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+}
+
+.posting-form legend {
     font-size: 11px;
     background-color: transparent;
 }
 
-.create-posting-form input {
+.posting-form input {
     height: 18px;
     width: 193px;
     padding: 0;
     border: none;
     font-size: 12px;
     background-color: transparent;
+}
+
+#post-submit {
+    width: 219px;
+    margin-top: 10px;
+    padding: 7px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    background-color: #f76c6c;
+    cursor: pointer;
+}
+
+#post-submit:hover {
+    background-color: #e45959;
 }

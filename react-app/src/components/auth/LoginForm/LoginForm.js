@@ -51,8 +51,8 @@ const LoginForm = () => {
 
   return (
     <div className='login-page'>
+      <div className='auth-logo'>- Logo goes here -</div>
       <div className='login-container'>
-        <div className='auth-logo'>- Logo goes here -</div>
         <form className='login-form' onSubmit={onLogin}>
           <div className='login-form'>
             {/* <label htmlFor='email'>Email</label> */}

@@ -26,7 +26,8 @@ const ViewAllPickups = ({ posting, setEditPickup, setDeletePickup }) => {
     const viewPickupsArrReverse = viewPickups.reverse();
 
     return (
-        <div className='all-posting-container'>
+        <div className='all-pickup-container'>
+            <div id='all-pickup-header'>P I C K U P S</div>
             {viewPickupsArrReverse.map(pickup => (
                 <PickupDetail posting={posting} pickup={pickup} setEditPickup={setEditPickup} setDeletePickup={setDeletePickup} key={pickup.id} />
             ))}
