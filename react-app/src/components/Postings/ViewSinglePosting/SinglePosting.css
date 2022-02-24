@@ -5,9 +5,8 @@
     justify-content: center;
 
     height: auto;
-    min-width: 300px;
-    max-width: 600px;
     margin: 0 auto;
+    width: 600px;
     padding: 24px;
 }
 
@@ -90,10 +89,15 @@
 #single-posting-username {
     margin: 5px;
     padding: 5px;
-    font-size: 19px;
+    font-size: 21px;
     font-weight: 700;
     border-radius: 5px;
     text-decoration: none;
+    transition: 0.5s ease;
+}
+
+#single-posting-username:hover {
+    color: #f76c6c;
 }
 
 #single-posting-title p {
@@ -101,7 +105,7 @@
     padding: 7px;
     font-size: 17px;
     border-radius: 5px;
-    background-color: rgb(255,255,255, 0.2);
+    background-color: rgba(248, 233, 161, 0.8);
 }
 
 #single-posting-caption p {
@@ -109,7 +113,7 @@
     font-size: 13px;
     line-height: 18px;
     border-radius: 5px;
-    background-color: rgba(158, 173, 117, 0.3);
+    background-color: rgba(248, 233, 161, 0.7);
 }
 
 #single-posting-address p {
@@ -117,5 +121,5 @@
     font-size: 13px;
     line-height: 18px;
     border-radius: 5px;
-    background-color: rgba(158, 173, 117, 0.3);
+    background-color: rgba(248, 233, 161, 0.6);
 }

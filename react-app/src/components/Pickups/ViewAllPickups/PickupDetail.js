@@ -21,20 +21,17 @@ const PickupDetail = ({ posting, pickup, setEditPickup, setDeletePickup }) => {
     return (
         <>
             <div className='pickup-detail-container'>
-                <div id='pickup-buttons'>
-                    {pickup.user_id === user_id && (
-                        <button id="pickup-edit-button"><EditPickupModal posting={posting} pickup={pickup} setEditPickup={setEditPickup} /></button>
-                    )}
-                    {pickup.user_id === user_id && (
-                        <button id="pickup-delete-button"><DeletePickupModal posting={posting} pickup={pickup} setDeletePickup={setDeletePickup} /></button>
-                    )}
-                </div>
-                <div className='pickup-username'>
-                    {pickup.user_id} is picking up on...
+                <div className='pickup-info'>
+                    {pickup.user_id} is picking up on... {day}, {pickup.date}
                     {/* {pickup.username} */}
                 </div>
-                <div id='pickup-date'>
-                    {day}, {pickup.date}
+                <div className='pickup-buttons'>
+                    {pickup.user_id === user_id && (
+                        <div id="pickup-edit-button"><EditPickupModal posting={posting} pickup={pickup} setEditPickup={setEditPickup} /></div>
+                    )}
+                    {pickup.user_id === user_id && (
+                        <div id="pickup-delete-button"><DeletePickupModal posting={posting} pickup={pickup} setDeletePickup={setDeletePickup} /></div>
+                    )}
                 </div>
             </div>
         </>

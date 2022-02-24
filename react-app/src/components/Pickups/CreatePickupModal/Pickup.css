@@ -1,19 +1,24 @@
-/* ------------------- Create post index ------------------- */
-#create-pickup, #edit-pickup {
-    margin: 10px 0;
-    font-size: 26px;
+/* ------------------- Create pickup button ------------------- */
+#create-pickup {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0;
+    padding: 20px;
+    font-size: 18px;
     color: white;
     background-color: transparent;
+    border: 1px solid white;
+    border-radius: 5px;
     cursor: pointer;
     transition: 0.5s ease;
 }
 
-#create-pickup:hover, #edit-pickup:hover {
+#create-pickup:hover {
     color: #f76c6c;
 }
 
 
-/* ------------------- Create post container ------------------- */
+/* ------------------- Create pickup container ------------------- */
 .create-pickup-container, .edit-pickup-container {
     width: 550px;
     height: 550px;
@@ -23,7 +28,7 @@
 
 
 
-/* ------------------- Create post header ------------------- */
+/* ------------------- Create + edit pickup container header ------------------- */
 .create-pickup-container div:first-child, .edit-pickup-container div:first-child {
     width: 100%;
     display: flex;
@@ -36,7 +41,7 @@
 
 
 
-/* ------------------- Edit profile modal form ------------------- */
+/* ------------------- Create + edit pickup container form ------------------- */
 .create-pickup-form, .edit-pickup-form {
     display: flex;
     flex-direction: column;
