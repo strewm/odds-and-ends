@@ -1,0 +1,16 @@
+/* ------------------- Profile postings containers ------------------- */
+.profile-posting-container {
+    display: grid;
+    height: auto;
+    margin: 0 auto;
+    padding: 24px;
+    grid-gap: 1rem;
+}
+
+.profile-saved-container {
+    display: grid;
+    height: auto;
+    margin: 0 auto;
+    padding: 24px;
+    grid-gap: 1rem;
+}

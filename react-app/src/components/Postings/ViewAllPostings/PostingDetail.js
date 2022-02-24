@@ -42,27 +42,25 @@ const PostingDetail = ({ posting }) => {
 
 
     return (
-        // <>
-            <div className='posting-detail-container' style={{color: color_check}}>
-                <div className='posting-header'>
-                    <div id='posting-icon'>
-                        {icon}
-                    </div>
-                    {buttons}
+        <div className='posting-detail-container' style={{color: color_check}}>
+            <div className='posting-header'>
+                <div id='posting-icon'>
+                    {icon}
                 </div>
-                <NavLink to={`/postings/${posting.id}`} className='posting-navlink-container' style={{ textDecoration: 'none' }}>
-                    <div id='posting-username' style={{color: color_check}}>
-                        {posting.username}
-                    </div>
-                    <div id='posting-title' style={{color: color_check}}>
-                        {posting.title}
-                    </div>
-                    <div id='posting-caption' style={{color: color_check}}>
-                        {posting.caption}
-                    </div>
-                </NavLink>
+                {buttons}
             </div>
-        // </>
+            <NavLink to={`/postings/${posting.id}`} className='posting-navlink-container' style={{ textDecoration: 'none' }}>
+                <div id='posting-username' style={{color: color_check}}>
+                    {posting.username}
+                </div>
+                <div id='posting-title' style={{color: color_check}}>
+                    {posting.title}
+                </div>
+                <div id='posting-caption' style={{color: color_check}}>
+                    {posting.caption}
+                </div>
+            </NavLink>
+        </div>
     )
 }
 

@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import PostingDetail from '../../Postings/ViewAllPostings/PostingDetail';
-// import UserPostings from '../UserPostings';
-import { getUsersSaved } from '../../../store/saved';
+import './UserProfile.css';
 
 const UserProfile = () => {
     const [user, setUser] = useState({});
@@ -64,14 +63,14 @@ const UserProfile = () => {
             </ul>
             {/* <UserPostings /> */}
             <div>My postings:</div>
-            <div className='profile-postings'>
+            <div className='profile-posting-container'>
                 {viewUserPostingsReverse?.map(posting => {
                     return <PostingDetail posting={posting} key={posting.id}/>
                     // return <UserPostings posting={posting} key={posting.id}/>
                 })}
             </div>
             <div>My saved postings:</div>
-            <div className='profile-saved'>
+            <div className='profile-saved-container'>
                 {viewSavedPostingsReverse?.map(posting => {
                     return <PostingDetail posting={posting} key={posting.id}/>
                     // return <UserPostings posting={posting} key={posting.id}/>
