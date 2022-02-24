@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 // import * as postActions from '../../../store/post';
-import { addPickup, getAllPickups } from "../../../store/pickups";
-import { getSinglePosting } from "../../../store/postings";
-import './CreatePickup.css';
+import { addPickup } from "../../../store/pickups";
+import './Pickup.css';
 
 
 const CreatePickup = ({ setShowModal, setUpdate, posting }) => {
@@ -75,7 +74,7 @@ const CreatePickup = ({ setShowModal, setUpdate, posting }) => {
                 <div className="errors">
                     {errors.date ? `${errors.date}` : ''}
                 </div>
-                <button id='new-post-share' type="submit">Schedule</button>
+                <button id='create-pickup-submit' type="submit">Schedule Pickup</button>
             </form>
         </div>
     )

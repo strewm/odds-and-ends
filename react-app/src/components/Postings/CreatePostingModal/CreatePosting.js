@@ -62,15 +62,7 @@ const CreatePosting = ({ setShowModal }) => {
     return (
         <div className='create-posting-container'>
             <div>Create new posting</div>
-            {/* <div id='create-icon'>
-                {icon}
-            </div> */}
             <form className='create-posting-form' onSubmit={handleSubmit}>
-                {/* <ul className='errors'>
-                    <li className="errors">
-                        {errors}
-                    </li>
-                </ul> */}
                 <fieldset>
                     <legend>Address</legend>
                     <input
