@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, NavLink } from 'react-router-dom';
-import { signUp } from '../../store/session';
+import { signUp } from '../../../store/session';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -54,9 +54,6 @@ const SignUpForm = () => {
     <>
       <NavLink to='/login' exact={true}>
         Login
-      </NavLink>
-      <NavLink to='/sign-up' exact={true}>
-        Sign Up
       </NavLink>
       <form onSubmit={onSignUp}>
         {/* <div>

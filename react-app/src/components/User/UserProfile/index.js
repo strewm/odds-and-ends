@@ -61,7 +61,6 @@ const UserProfile = () => {
                     <strong>Email:</strong> {user.email}
                 </li>
             </ul>
-            {/* <UserPostings /> */}
             <div>My postings:</div>
             <div className='profile-posting-container'>
                 {viewUserPostingsReverse?.map(posting => {
