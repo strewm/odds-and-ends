@@ -25,15 +25,10 @@ const SinglePosting = () => {
     const { postingId } = useParams();
 
     const posting = useSelector(state => state.postings[postingId]);
-
     const current_user = useSelector(state => state.session.user);
-
-    let user_id;
-    let username;
-    if (current_user) {
-        user_id = current_user.id;
-        username = current_user.username;
-    }
+    
+    const user_id = current_user.id;
+    const username = current_user.username;
 
     let icon;
     if (posting?.icon === "Food") {
@@ -44,7 +39,7 @@ const SinglePosting = () => {
         icon = <i className="fa-solid fa-box-tissue"></i>
     } else if (posting?.icon === "Other") {
         icon = <i className="fa-solid fa-box-archive"></i>
-    }
+    };
 
     useEffect(async () => {
         await dispatch(getAllPickups(postingId));

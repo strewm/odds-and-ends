@@ -49,19 +49,12 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          {/* <h1>My Home Page</h1> */}
           <ViewPostings />
         </ProtectedRoute>
-        <Route path='/postings/:postingId' exact={true}>
+        <ProtectedRoute path='/postings/:postingId' exact={true}>
           <SinglePosting />
-        </Route>
+        </ProtectedRoute>
         <ProtectedRoute path='/:username' exact={true} >
           <UserProfile />
         </ProtectedRoute>
