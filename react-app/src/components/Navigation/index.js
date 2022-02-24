@@ -22,6 +22,7 @@ const NavBar = () => {
   return (
     <div className='navbar'>
       <i id='menu-open' className="fa-solid fa-bars" onClick={openNav}></i>
+      <div id='nav-logo'>Welcome, {user.username}</div>
       <div className='nav-container' style={{ width: width }}>
         <i id='button-close' className="fa-solid fa-xmark" onClick={closeNav}></i>
         <div className='nav-links'>

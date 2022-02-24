@@ -1,8 +1,22 @@
 /* ------------------- Navbar container ------------------- */
 .navbar {
     width: 100%;
-    display: flex;
+    /* display: flex;
     justify-content: flex-start;
+    position: relative; */
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    /* gap: 0px 0px; */
+    grid-template-areas:
+      ". . .";
+
+}
+
+#nav-logo {
+    /* margin-left: 10rem; */
+    text-align: center;
 }
 
 #menu-open {
