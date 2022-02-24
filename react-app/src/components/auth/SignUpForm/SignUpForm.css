@@ -5,7 +5,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* overflow: hidden; */
 }
 
 .signup-container {
@@ -13,8 +12,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* width: 290px; */
-    /* height: 220px; */
     padding: 3px;
     border-radius: 5px;
     box-shadow: 0 0 6px #e6be3d;
@@ -25,7 +22,7 @@
 
 /* ------------------- Signup elements ------------------- */
 .signup-form {
-    background-color: #f8e9a1;
+    background-color: transparent;
 }
 
 .signup-inputs {
@@ -55,7 +52,7 @@
 }
 
 .signup-submit:hover {
-    background-color: #7b8856;
+    background-color: #e45959;
 }
 /*
 .signup-policies {
@@ -76,7 +73,7 @@
     height: 50px;
     width: 288px;
     margin: 10px 0 25px 0;
-    font-size: 13px;
+    font-size: 12px;
     border-radius: 5px;
     box-shadow: 0 0 6px #e6be3d;
     background-color: #f8e9a1;
@@ -84,8 +81,8 @@
 
 .below-signup div {
     margin-right: 2px;
-    background-color: #f8e9a1;
     color: #f76c6c;
+    background-color: #f8e9a1;
 }
 
 .below-signup a {
@@ -94,4 +91,9 @@
     color: #f76c6c;
     background-color: #f8e9a1;
     text-decoration: none;
+    transition: 0.5s ease;
+}
+
+.below-login a:hover {
+    color: #e45959;
 }
