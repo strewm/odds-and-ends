@@ -16,7 +16,7 @@
 
 body {
     margin: 0;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
 }
 
 #root {
@@ -24,7 +24,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 25px;
+    padding: 0 25px;
     /* height: 100vh; */
 }
 

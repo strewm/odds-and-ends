@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* overflow: hidden; */
 }
 
 .signup-container {
@@ -55,7 +56,7 @@
 .signup-submit:hover {
     background-color: #7b8856;
 }
-/* 
+/*
 .signup-policies {
     padding-top: 10px;
     background-color: white;
