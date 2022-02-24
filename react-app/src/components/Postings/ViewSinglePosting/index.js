@@ -100,12 +100,12 @@ const SinglePosting = () => {
                     {posting?.user_id === user_id && (
                         <button id="delete-button"><DeletePostingModal posting={posting}/></button>
                     )} */}
-                    <NavLink to={`/${posting?.username}`} className='single-posting-username'>
+                    <NavLink to={`/${posting?.username}`} id='single-posting-username'>
                         {posting?.username}
                     </NavLink>
                 </div>
                 <div id='single-posting-title'>
-                    <b>{posting?.title}</b>
+                    <p>{posting?.title}</p>
                 </div>
                 <div id='single-posting-caption'>
                     <p>{posting?.caption}</p>
