@@ -60,10 +60,10 @@ const EditPosting = ({ setShowModal, posting }) => {
 
     return (
         <div className='create-posting-container'>
-            <div>Create new posting</div>
-            <div id='create-icon'>
+            <div>Edit posting</div>
+            {/* <div id='create-icon'>
                 {icon}
-            </div>
+            </div> */}
             <form className='create-posting-form' onSubmit={handleSubmit}>
                 <fieldset>
                     <legend>Address</legend>
