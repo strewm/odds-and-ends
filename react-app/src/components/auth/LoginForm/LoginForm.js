@@ -92,6 +92,11 @@ const LoginForm = () => {
         <div>New here?</div>
         <NavLink to='/sign-up' exact={true}>Sign up</NavLink>
       </div>
+      <div className='below-login-about'>
+        <div>Savanah Trewman</div>
+        <a href='https://www.linkedin.com/in/savanah-trewman/' target="_blank" rel="noreferrer"><i className="fa-brands fa-linkedin-in"></i></a>
+        <a href='https://github.com/strewm/odds-and-ends' target="_blank" rel="noreferrer"><i className="fa-brands fa-github"></i></a>
+      </div>
     </div>
   );
 };

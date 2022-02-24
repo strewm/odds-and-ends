@@ -14,7 +14,7 @@
     align-items: center;
     padding: 3px;
     border-radius: 5px;
-    box-shadow: 0 0 6px #e6be3d;
+    box-shadow: 0 0 4px #e6be3d;
     background-color: #f8e9a1;
 }
 
@@ -75,7 +75,7 @@
     margin: 10px 0 25px 0;
     font-size: 12px;
     border-radius: 5px;
-    box-shadow: 0 0 6px #e6be3d;
+    box-shadow: 0 0 4px #e6be3d;
     background-color: #f8e9a1;
 }
 
