@@ -1,6 +1,6 @@
 # Odds + Ends
 
-Odds + Ends is an application loosely based on Meta Marketplace + , [Instagram](https://www.instagram.com/).
+Odds + Ends is an application loosely based on [Meta Marketplace](https://www.facebook.com/) + [Nextdoor](https://nextdoor.com/).
 
 Check out Odds + Ends' live site: [Odds + Ends](https://odds-ends.herokuapp.com/login).
 
@@ -35,7 +35,7 @@ To view and use this application, you can either navigate to the [live hosted si
 7. Enjoy!
 
 ## Libraries Used
-<img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height=40/>
+<img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" /><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain-wordmark.svg" /><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height=40/>
 
 ## Features
 ### Login + Signup
@@ -45,13 +45,13 @@ To view and use this application, you can either navigate to the [live hosted si
 ### Home
 Home feed:
 <!-- ![home feed](./Images/ReadMePhotos/1-homefeed.png) -->
-Single post:
-<!-- ![single post](./Images/ReadMePhotos/2-singlepost.png) -->
+Single posting:
+<!-- ![single posting](./Images/ReadMePhotos/2-singlepost.png) -->
 
-### Create post
+### Create posting
 <!-- ![create post](./Images/ReadMePhotos/3-createpost.png) -->
 
-### Profile Page
+### User Profile Page
 User profile:
 <!-- ![user profile](./Images/ReadMePhotos/4-viewprofile.png) -->
 Edit profile:
