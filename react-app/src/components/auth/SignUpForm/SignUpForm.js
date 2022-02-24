@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, NavLink } from 'react-router-dom';
 import { signUp } from '../../../store/session';
+import textLogo from '../../Images/text-logo.png';
 import './SignUpForm.css';
 
 const SignUpForm = () => {
@@ -53,7 +54,7 @@ const SignUpForm = () => {
 
   return (
     <div className='signup-page'>
-      <div className='auth-logo'>- Logo goes here -</div>
+      <img id='nav-logo' src={textLogo} alt='text logo'/>
       <div className='signup-container'>
         <form className='signup-form' onSubmit={onSignUp}>
           <div className='signup-form'>

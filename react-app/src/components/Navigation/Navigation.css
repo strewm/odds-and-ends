@@ -12,7 +12,10 @@
 }
 
 #nav-logo {
-    text-align: center;
+    height: 24px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #menu-open {

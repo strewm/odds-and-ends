@@ -12,6 +12,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
     padding: 3px;
     border-radius: 5px;
     box-shadow: 0 0 4px #e6be3d;
