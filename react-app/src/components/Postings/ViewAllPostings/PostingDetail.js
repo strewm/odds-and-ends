@@ -16,11 +16,11 @@ const PostingDetail = ({ posting }) => {
     if (posting.icon === "Food") {
         icon = <i className="fa-solid fa-shrimp" style={{color: color_check}}></i>
     } else if (posting.icon === "Home") {
-        icon = <i className="fa-solid fa-chair" style={{color: color_check}}></i>
+        icon = <i className="fa-solid fa-bath" style={{color: color_check}}></i>
     } else if (posting.icon === "Supplies") {
-        icon = <i className="fa-solid fa-parachute-box" style={{color: color_check}}></i>
+        icon = <i className="fa-solid fa-box-tissue" style={{color: color_check}}></i>
     } else if (posting.icon === "Other") {
-        icon = <i className="fa-solid fa-otter" style={{color: color_check}}></i>
+        icon = <i className="fa-solid fa-box-archive" style={{color: color_check}}></i>
     }
 
     const url_checker = useParams();

@@ -1,7 +1,8 @@
 /* ------------------- Home page container ------------------- */
-.all-posting-container {
+.single-posting-container {
     display: grid;
     height: auto;
+    max-width: 700px;
     margin: 0 auto;
     padding: 24px;
     grid-gap: 1rem;
@@ -10,13 +11,13 @@
 
 
 /* ------------------- Posting detail container ------------------- */
-.posting-detail-container {
+.single-posting-detail-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     /* align-items: center; */
-    height: 229.5px;
-    width: 150px;
+    /* height: 193.5px;
+    width: 150px; */
     padding: 10px;
     border: 1px solid #fefae0;
     border-radius: 5px;
@@ -25,39 +26,40 @@
 
 
 /* ------------------- Posting container header ------------------- */
-.posting-header {
+#bookmark, #un-bookmark {
+    text-align: end;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.single-posting-header {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#posting-icon {
-    font-size: 40px;
+#single-posting-icon {
+    font-size: 45px;
 
     /* position: relative; */
     /* color: #ff6d29; */
     /* display: inline-block; */
     /* height: 25px; */
     /* width: 25px; */
-    padding: 20px 23.5px;
-    border: 1px solid #adc273;
-    background-color: #adc273;
-    border-radius: 50%;
+    /* padding: 15px; */
+    /* border: 1px solid #ff9029; */
+    /* border-radius: 50%; */
 }
 
-#posting-icon i {
-    background-color: #adc273;
-}
-
-.home-posting-buttons {
+.single-posting-buttons {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 23px;
 }
 
-.home-posting-buttons div {
+.single-posting-buttons div {
     margin: 0 5px 5px 5px;
     font-size: 11px;
     border: none;
@@ -65,11 +67,11 @@
     visibility: hidden;
 }
 
-.posting-header:hover div {
+.single-posting-header:hover div {
     visibility: visible;
 }
 
-#home-edit-button div, #home-delete-button div {
+#single-edit-button div, #single-delete-button div {
     margin: 0;
     padding: 0;
     color: #93a365;
@@ -121,23 +123,4 @@
     border-radius: 5px;
     background-color: rgba(158, 173, 117, 0.2);
     /* background-color: rgba(255, 255, 255, 0.3); */
-}
-
-
-
-/* ------------------- Posting detail media queries ------------------- */
-@media (min-width: 450px) {
-    .all-posting-container { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (min-width: 650px) {
-    .all-posting-container { grid-template-columns: repeat(3, 1fr); }
-}
-
-@media (min-width: 850px) {
-    .all-posting-container { grid-template-columns: repeat(4, 1fr); }
-}
-
-@media (min-width: 1050px) {
-    .all-posting-container { grid-template-columns: repeat(5, 1fr); }
 }

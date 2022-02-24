@@ -11,7 +11,7 @@ import { getAllPickups } from "../../../store/pickups";
 import CreatePickupModal from "../../Pickups/CreatePickupModal";
 
 import { getPostSaved, savePosting, unsavePosting } from "../../../store/saved";
-// import './PostingDetail.css';
+import './SinglePosting.css';
 
 const SinglePosting = () => {
     const dispatch = useDispatch();
@@ -31,15 +31,14 @@ const SinglePosting = () => {
     const username = current_user.username;
 
     let icon;
-
     if (posting?.icon === "Food") {
         icon = <i className="fa-solid fa-shrimp"></i>
     } else if (posting?.icon === "Home") {
-        icon = <i className="fa-solid fa-chair"></i>
+        icon = <i className="fa-solid fa-bath"></i>
     } else if (posting?.icon === "Supplies") {
-        icon = <i className="fa-solid fa-parachute-box"></i>
+        icon = <i className="fa-solid fa-box-tissue"></i>
     } else if (posting?.icon === "Other") {
-        icon = <i className="fa-solid fa-otter"></i>
+        icon = <i className="fa-solid fa-box-archive"></i>
     }
 
     useEffect(async () => {
@@ -69,29 +68,42 @@ const SinglePosting = () => {
 
     let save;
     if (saved[user_id]) {
-        save = <i id='bookmark' className="fa-solid fa-bookmark" style={{ "color": "#e94943" }} onClick={() => handleUnsave()}></i>
+        save = <i id='bookmark' className="fa-solid fa-bookmark" style={{ "color": "#fefae0" }} onClick={() => handleUnsave()}></i>
     } else {
         save = <i id='un-bookmark' className="fa-regular fa-bookmark" onClick={() => handleSave()}></i>
     }
 
+    let buttons;
+    if (posting?.user_id === user_id) {
+        buttons =
+        <div className='single-posting-buttons'>
+            <div id="single-edit-button"><EditPostingModal posting={posting}/></div>
+            <div id="single-delete-button"><DeletePostingModal posting={posting}/></div>
+        </div>;
+    } else {
+        buttons = <div className='single-posting-buttons'></div>;
+    }
 
 
     return (
-        <>
+        <div className='single-posting-container'>
             <div className='single-posting-detail-container'>
-                {/* {posting?.username} */}
-                <div id='single-posting-header'>
-                    {icon}
-                    {posting?.user_id === user_id && (
+                {save}
+                <div className='single-posting-header'>
+                    <div id='single-posting-icon'>
+                        {icon}
+                    </div>
+                    {buttons}
+                    {/* {posting?.user_id === user_id && (
                         <button id="edit-button"><EditPostingModal posting={posting}/></button>
                     )}
                     {posting?.user_id === user_id && (
                         <button id="delete-button"><DeletePostingModal posting={posting}/></button>
-                    )}
+                    )} */}
+                    <NavLink to={`/${posting?.username}`} className='single-posting-username'>
+                        {posting?.username}
+                    </NavLink>
                 </div>
-                <NavLink to={`/${posting?.username}`} className='single-posting-username'>
-                    {posting?.username}
-                </NavLink>
                 <div id='single-posting-title'>
                     <b>{posting?.title}</b>
                 </div>
@@ -101,11 +113,10 @@ const SinglePosting = () => {
                 <div id='single-posting-address'>
                     <p>{posting?.address}, {posting?.state} {posting?.zipcode}</p>
                 </div>
-                {save}
             </div>
             <CreatePickupModal posting={posting} setUpdate={setUpdate}/>
             {posting && <ViewAllPickups posting={posting} setEditPickup={setEditPickup} setDeletePickup={setDeletePickup} />}
-        </>
+        </div>
     )
 }
 
