@@ -1,16 +1,50 @@
-/* ------------------- Profile postings containers ------------------- */
+/* ------------------- Profile posting containers ------------------- */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin: 0 auto;
+    padding: 24px;
+}
+
 .profile-posting-container {
     display: grid;
     height: auto;
     margin: 0 auto;
-    padding: 24px;
     grid-gap: 1rem;
 }
 
-.profile-saved-container {
-    display: grid;
-    height: auto;
-    margin: 0 auto;
-    padding: 24px;
-    grid-gap: 1rem;
+
+
+/* ------------------- Profile posting containers content ------------------- */
+.profile-headers {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 44px 0 14px 0;
+    padding: 13px 0;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+
+
+/* ------------------- Posting detail media queries ------------------- */
+@media (min-width: 450px) {
+    .profile-posting-container { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 650px) {
+    .profile-posting-container { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 850px) {
+    .profile-posting-container { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (min-width: 1050px) {
+    .profile-posting-container { grid-template-columns: repeat(5, 1fr); }
 }

@@ -49,33 +49,27 @@ const UserProfile = () => {
     }
 
     return (
-        <>
-            <ul>
-                <li>
-                    <strong>Username:</strong> {user.username} {errors}
-                </li>
-                <li>
-                    <strong>User ID:</strong> {user.id}
-                </li>
-                <li>
-                    <strong>Email:</strong> {user.email}
-                </li>
-            </ul>
-            <div>My postings:</div>
+        <div className='profile-container'>
+            <div>
+                Username: {user.username} {errors}
+            </div>
+            <div>
+                Email: {user.email}
+            </div>
+            <div className='profile-headers'>{username}'s postings:</div>
             <div className='profile-posting-container'>
                 {viewUserPostingsReverse?.map(posting => {
                     return <PostingDetail posting={posting} key={posting.id}/>
                     // return <UserPostings posting={posting} key={posting.id}/>
                 })}
             </div>
-            <div>My saved postings:</div>
-            <div className='profile-saved-container'>
+            <div className='profile-headers'>{username}'s saved postings:</div>
+            <div className='profile-posting-container'>
                 {viewSavedPostingsReverse?.map(posting => {
                     return <PostingDetail posting={posting} key={posting.id}/>
-                    // return <UserPostings posting={posting} key={posting.id}/>
                 })}
             </div>
-        </>
+        </div>
     );
 }
 
