@@ -1,5 +1,5 @@
-/* ------------------- Login Container ------------------- */
-.login-page{
+/* ------------------- Signup Container ------------------- */
+.signup-page{
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -7,13 +7,13 @@
     align-items: center;
 }
 
-.login-container {
+.signup-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 380px;
     width: 350px;
+    height: 456px;
     border-radius: 5px;
     box-shadow: 0 0 6px #98a76e;
     background-color: #fefae0;
@@ -21,22 +21,12 @@
 
 
 
-/* ------------------- Login elements ------------------- */
-.auth-logo {
-    height: 41px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    margin-bottom: 25px;
-    color: blue;
+/* ------------------- Signup elements ------------------- */
+.signup-form {
+    background-color: #fefae0;
 }
 
-.login-form {
-    background-color: transparent;
-}
-
-.login-inputs {
+.signup-inputs {
     overflow: auto;
     width: 258px;
     margin: 3px;
@@ -48,7 +38,7 @@
     background-color: transparent;
 }
 
-.login-submit, #demo-button {
+.signup-submit {
     width: 276px;
     margin: 6px 3px 3px 3px;
     padding: 8px;
@@ -62,31 +52,21 @@
     transition: 0.5s ease;
 }
 
-.login-submit:hover {
+.signup-submit:hover {
     background-color: #7b8856;
 }
-
-.login-demo-container {
-    background-color: transparent;
-}
-
-#demo-button {
-    background-color: #afc967;
-}
-
-#demo-button:hover {
-    background-color: #a0b860;
-}
-
-input::placeholder {
-    font-size: 12px;
-    color: #98a76e;
-}
+/* 
+.signup-policies {
+    padding-top: 10px;
+    background-color: white;
+    font-size: 11px;
+    color: #8E8E8E;
+} */
 
 
 
-/* ------------------- Below login container ------------------- */
-.below-login {
+/* ------------------- Below signup container ------------------- */
+.below-signup {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,20 +78,15 @@ input::placeholder {
     border-radius: 5px;
     box-shadow: 0 0 6px #98a76e;
     background-color: #fefae0;
-    text-decoration: none;
 }
 
-.below-login:hover {
-    color: #7b8856;
-}
-
-.below-login div {
+.below-signup div {
     margin-right: 2px;
     background-color: #fefae0;
     color: #afc07f;
 }
 
-.below-login a {
+.below-signup a {
     margin-left: 2px;
     font-weight: 600;
     color: #98a76e;

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, NavLink } from 'react-router-dom';
 import { signUp } from '../../../store/session';
+import './SignUpForm.css';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -51,68 +52,71 @@ const SignUpForm = () => {
   }
 
   return (
-    <>
-      <NavLink to='/login' exact={true}>
-        Login
-      </NavLink>
-      <form onSubmit={onSignUp}>
-        {/* <div>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div> */}
-        <div>
-          <label>User Name</label>
-          <input
-            type='text'
-            name='username'
-            onChange={updateUsername}
-            value={username}
-          ></input>
-        </div>
-        <div className="errors">
-          {errors.username ? `${errors.username}` : ''}
-        </div>
-        <div>
-          <label>Email</label>
-          <input
-            type='text'
-            name='email'
-            onChange={updateEmail}
-            value={email}
-          ></input>
-        </div>
-        <div className="errors">
-          {errors.email ? `${errors.email}` : ''}
-        </div>
-        <div>
-          <label>Password</label>
-          <input
-            type='password'
-            name='password'
-            onChange={updatePassword}
-            value={password}
-          ></input>
-        </div>
-        <div className="errors">
-          {errors.password ? `${errors.password}` : ''}
-        </div>
-        <div>
-          <label>Confirm Password</label>
-          <input
-            type='password'
-            name='repeat_password'
-            onChange={updateRepeatPassword}
-            value={repeatPassword}
-            required={true}
-          ></input>
-        </div>
-        <div className="errors">
-          {errors.password ? `${errors.password}` : ''}
-        </div>
-        <button type='submit'>Sign Up</button>
-      </form>
-    </>
+    <div className='signup-page'>
+      <div className='signup-container'>
+        <div className='auth-logo'>- Logo goes here -</div>
+        <form className='signup-form' onSubmit={onSignUp}>
+          <div className='signup-form'>
+            <input
+              className='signup-inputs'
+              type='text'
+              name='username'
+              placeholder='Username'
+              onChange={updateUsername}
+              value={username}
+            ></input>
+          </div>
+          <div className="errors">
+            {errors.username ? `${errors.username}` : ''}
+          </div>
+          <div className='signup-form'>
+            <input
+              className='signup-inputs'
+              type='text'
+              name='email'
+              placeholder='Email'
+              onChange={updateEmail}
+              value={email}
+            ></input>
+          </div>
+          <div className="errors">
+            {errors.email ? `${errors.email}` : ''}
+          </div>
+          <div className='signup-form'>
+            <input
+              className='signup-inputs'
+              type='password'
+              name='password'
+              placeholder='Password'
+              onChange={updatePassword}
+              value={password}
+            ></input>
+          </div>
+          <div className="errors">
+            {errors.password ? `${errors.password}` : ''}
+          </div>
+          <div className='signup-form'>
+            <input
+              className='signup-inputs'
+              type='password'
+              name='repeat_password'
+              placeholder='Confirm Password'
+              onChange={updateRepeatPassword}
+              value={repeatPassword}
+              required={true}
+            ></input>
+          </div>
+          <div className="errors">
+            {errors.password ? `${errors.password}` : ''}
+          </div>
+          <button className='signup-form signup-submit' type='submit'>Sign Up</button>
+        </form>
+      </div>
+      <div className='below-signup'>
+        <div>Have an account?</div>
+        <NavLink to='/login' exact={true}>Login</NavLink>
+      </div>
+    </div>
   );
 };
 

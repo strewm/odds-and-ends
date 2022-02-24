@@ -88,9 +88,10 @@ const LoginForm = () => {
           <button type="submit" id='demo-button' onClick={handleDemo}>Demo</button>
         </div>
       </div>
-      <NavLink to='/sign-up' exact={true} className='below-login'>
-        Sign Up
-      </NavLink>
+      <div className='below-login'>
+        <div>Have an account?</div>
+        <NavLink to='/sign-up' exact={true}>Sign up</NavLink>
+      </div>
     </div>
   );
 };
