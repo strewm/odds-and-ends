@@ -89,7 +89,7 @@ const LoginForm = () => {
         </div>
       </div>
       <div className='below-login'>
-        <div>Have an account?</div>
+        <div>New here?</div>
         <NavLink to='/sign-up' exact={true}>Sign up</NavLink>
       </div>
     </div>
