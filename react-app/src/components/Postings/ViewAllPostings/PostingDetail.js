@@ -11,7 +11,7 @@ const PostingDetail = ({ posting }) => {
     const user_id = current_user.id;
 
     let icon;
-    let color_check = (user_id === posting.user_id ? "#93a365" : "#fefae0");
+    let color_check = (user_id === posting.user_id ? "#e6be3d" : "#f76c6c");
 
     if (posting.icon === "Food") {
         icon = <i className="fa-solid fa-shrimp" style={{color: color_check}}></i>
