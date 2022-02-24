@@ -53,7 +53,7 @@ const EditPickup = ({ setShowModal, posting, pickup, setEditPickup }) => {
 
     return (
         <div className='edit-pickup-container'>
-            <div>Edit scheduling</div>
+            <div>E D I T &nbsp; P I C K U P</div>
             <form className='edit-pickup-form' onSubmit={handleSubmit}>
                 <fieldset>
                     <legend>Date</legend>

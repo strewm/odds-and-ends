@@ -59,7 +59,7 @@ const CreatePickup = ({ setShowModal, setUpdate, posting }) => {
 
     return (
         <div className='create-pickup-container'>
-            <div>Schedule new pickup</div>
+            <div>S C H E D U L E &nbsp; N E W &nbsp; P I C K U P</div>
             <form className='create-pickup-form' onSubmit={handleSubmit}>
                 <fieldset>
                     <legend>Date</legend>
@@ -74,7 +74,7 @@ const CreatePickup = ({ setShowModal, setUpdate, posting }) => {
                 <div className="errors">
                     {errors.date ? `${errors.date}` : ''}
                 </div>
-                <button id='create-pickup-submit' type="submit">Schedule Pickup</button>
+                <button id='create-pickup-submit' type="submit">Schedule</button>
             </form>
         </div>
     )
