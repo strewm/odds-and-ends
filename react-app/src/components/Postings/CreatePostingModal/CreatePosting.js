@@ -60,9 +60,9 @@ const CreatePosting = ({ setShowModal }) => {
 
 
     return (
-        <div className='create-posting-container'>
-            <div>Create new posting</div>
-            <form className='create-posting-form' onSubmit={handleSubmit}>
+        <div className='posting-container'>
+            <div>C R E A T E &nbsp;&nbsp; N E W &nbsp;&nbsp; P O S T I N G</div>
+            <form className='posting-form' onSubmit={handleSubmit}>
                 <fieldset>
                     <legend>Address</legend>
                     <input
@@ -135,14 +135,16 @@ const CreatePosting = ({ setShowModal }) => {
                 <div className="errors">
                     {errors.caption ? `${errors.caption}` : ''}
                 </div>
-                <select onChange={handleIconChange}>
-                    <option value=''>Select an icon</option>
-                    {iconDropdown.map((icon) => <option key={icon.label} value={icon.label}>{icon.label}</option>)}
-                </select>
+                <fieldset>
+                    <select onChange={handleIconChange}>
+                        <option value=''>Select an icon</option>
+                        {iconDropdown.map((icon) => <option key={icon.label} value={icon.label}>{icon.label}</option>)}
+                    </select>
+                </fieldset>
                 <div className="errors">
                     {errors.icon ? `${errors.icon}` : ''}
                 </div>
-                <button id='new-post-share' type="submit">Share</button>
+                <button id='post-submit' type="submit">Share</button>
             </form>
         </div>
     )
