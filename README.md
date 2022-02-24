@@ -7,9 +7,9 @@ Check out Odds + Ends' live site: [Odds + Ends](https://odds-ends.herokuapp.com/
 
 ## Getting Started
 To view and use this application, you can either navigate to the [live hosted site](https://flask-instagram-clone.herokuapp.com/) and login as a new or demo user, or download the project locally:
-1. Clone this repository ```git clone https://github.com/jinnie96/Instagram-Clone.git```
+1. Clone this repository ```https://github.com/strewm/odds-and-ends.git```
 
-2. ```cd``` into ```/python-project``` and install dependencies ```pipenv install```
+2. Install dependencies in the main project folder ```pipenv install```
 
 3. ```cd``` into ```/react-app``` and install dependencies ```npm install```
 
