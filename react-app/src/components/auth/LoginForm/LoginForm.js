@@ -6,9 +6,10 @@ import textLogo from '../../Images/text-logo.png';
 import './LoginForm.css';
 
 const LoginForm = () => {
-  const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errors, setErrors] = useState({});
+  
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 

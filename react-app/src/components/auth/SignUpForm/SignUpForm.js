@@ -6,32 +6,28 @@ import textLogo from '../../Images/text-logo.png';
 import './SignUpForm.css';
 
 const SignUpForm = () => {
-  const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
-  const [profilePicture, setProfilePicture] = useState('');
+  const [profilePicture, setProfilePicture] = useState(null);
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
+  const [errors, setErrors] = useState({});
+
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
     e.preventDefault();
+    
     const formData = new FormData();
+
     formData.append("username", username);
     formData.append("email", email);
     if (profilePicture) {
       formData.append("profile_picture", profilePicture);
     }
     formData.append("password", password);
-    formData.append("repeat_password", repeatPassword);
-
-    // const data = await dispatch(signUp(username, email, password, repeatPassword));
-
-    // const response = await fetch('/api/auth/signup', {
-    //   method: "POST",
-    //   body: formData
-    // });
+    formData.append("confirm_password", repeatPassword);
 
     const data = await dispatch(signUp(formData));
 
@@ -46,6 +42,16 @@ const SignUpForm = () => {
       setErrors(errors);
       return;
     }
+
+
+
+    // const data = await dispatch(signUp(username, email, password, repeatPassword));
+
+    // const response = await fetch('/api/auth/signup', {
+    //   method: "POST",
+    //   body: formData
+    // });
+
   };
 
   const updateUsername = (e) => {
@@ -112,9 +118,12 @@ const SignUpForm = () => {
               name='image'
               type="file"
               accept="image/*"
-              // required
+              required
               onChange={updateProfilePicture}
             />
+          </div>
+          <div className="errors">
+            {errors.profile_picture ? `${errors.profile_picture}` : ''}
           </div>
           <div className='signup-form'>
             <input
