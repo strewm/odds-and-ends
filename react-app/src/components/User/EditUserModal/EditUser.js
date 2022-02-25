@@ -42,7 +42,7 @@ const EditUser = ({ setShowModal }) => {
             return;
         } else {
             setShowModal(false);
-            // history.push('/');
+            history.push(`/${current_user.username}`);
         }
     }
 
@@ -68,7 +68,7 @@ const EditUser = ({ setShowModal }) => {
                 <div className="errors">
                     {errors.profile_picture ? `${errors.profile_picture}` : ''}
                 </div>
-                <button id='post-submit' type="submit">Share</button>
+                <button id='post-submit' type="submit">Update</button>
             </form>
         </div>
     )

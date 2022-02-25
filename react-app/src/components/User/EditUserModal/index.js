@@ -3,17 +3,16 @@ import { Modal } from '../../../context/Modal';
 import EditUser from './EditUser';
 // import './EditUser.css';
 
-function EditUserModal() {
-    const [showModal, setShowModal] = useState(false);
-    const [update, setUpdate] = useState(false)
+function EditUserModal({ showModal, setShowModal }) {
+
+    useEffect(() => {
+        return () => {setShowModal(false)}
+    }, [setShowModal]);
 
     const onClick = () => {
         setShowModal(true);
-    }
+    };
 
-    useEffect(() => {
-		return () => {setShowModal(false)}
-	}, [setShowModal]);
 
     return (
         <>

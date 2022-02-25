@@ -10,6 +10,7 @@ const UserProfile = () => {
     const [postings, setPostings] = useState({});
     const [saved, setSaved] = useState({});
     const [errors, setErrors] = useState('');
+    const [showModal, setShowModal] = useState(false);
 
     const { username } = useParams();
     const sessionUser = useSelector((state) => state.session.user);
@@ -37,7 +38,7 @@ const UserProfile = () => {
             const saved = await res_saved.json();
             setSaved(saved);
         };
-    }, [username]);
+    }, [username, showModal]);
 
     const viewUserPostingsArr = Object.values(postings);
     const viewUserPostingsReverse = viewUserPostingsArr.reverse();
@@ -51,7 +52,7 @@ const UserProfile = () => {
 
     let editProfile;
     if (username === sessionUser.username) {
-        editProfile = <EditUserModal />
+        editProfile = <EditUserModal showModal={showModal} setShowModal={setShowModal} />
     }
 
 

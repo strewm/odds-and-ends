@@ -65,7 +65,6 @@ def updateUserProfile(userId):
         user = User.query.get(userId)
         user.profile_picture=url
 
-        # db.session.add(user)
         db.session.commit()
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
