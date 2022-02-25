@@ -124,9 +124,10 @@ const CreatePosting = ({ setShowModal }) => {
                 </div>
                 <fieldset>
                     <legend>Post Caption</legend>
-                    <input
+                    <textarea
                         name='caption'
                         type='textarea'
+                        rows='10'
                         value={caption}
                         onChange={(e) => setCaption(e.target.value)}
                     />

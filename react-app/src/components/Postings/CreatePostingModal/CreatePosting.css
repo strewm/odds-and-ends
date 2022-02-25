@@ -79,6 +79,24 @@
     background-color: transparent;
 }
 
+.posting-form textarea {
+    height: 160px;
+    width: 190px;
+    border: none;
+    resize: none;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+/* ::-webkit-scrollbar {
+    width: 5px;
+    background-color: #f8e9a1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #e6be3d;
+} */
+
 #post-submit {
     width: 219px;
     margin-top: 10px;

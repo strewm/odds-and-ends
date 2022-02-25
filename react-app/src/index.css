@@ -1,12 +1,6 @@
 /* ------------------- Sitewide styles ------------------- */
 * {
-    /* font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; */
     font-family: BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    /* background-color: #ffe4aa;
-    color: #ff9029; */
-
-    /* background-color: #bfce94;
-    color: #fefae0; */
 
     background-color: #A8D0E6;
     color: white;
@@ -16,7 +10,6 @@
 
 body {
     margin: 0;
-    /* overflow-y: hidden; */
 }
 
 #root {
@@ -28,9 +21,18 @@ body {
 }
 
 
-/* ------------------- Sitewide caret cursor ------------------- */
+/* ------------------- Sitewide caret cursor + scrollbar ------------------- */
 input {
     caret-color: #ff9029;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: #f8e9a1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #e6be3d;
 }
 
 
