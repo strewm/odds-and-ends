@@ -43,10 +43,16 @@
     border: 1px solid white;
     border-radius: 50%;
     background-color: rgb(218, 236, 245);
+    transition: 1s ease;
+}
+
+.profile-image:hover {
+    border: 1px solid #f76c6c;
 }
 
 .profile-image:hover #edit-user {
     opacity: 1;
+    color: #f76c6c;
 }
 
 #username {
@@ -61,11 +67,9 @@
 
 #email {
     width: fit-content;
-    /* padding: 3px; */
     font-size: 11px;
     color: #374785;
     border-radius: 5px;
-    /* background-color: #24305e; */
 }
 
 
