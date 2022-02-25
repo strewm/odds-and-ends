@@ -25,7 +25,9 @@ const NavBar = () => {
         <i id='menu-open' className="fa-solid fa-bars" onClick={openNav}></i>
       </div>
       {/* <div id='nav-logo'>Welcome, {user.username}</div> */}
-      <img id='nav-logo' src={textLogo} alt='text logo'/>
+      <NavLink to='/' exact={true}>
+        <img id='nav-logo' src={textLogo} alt='text logo'/>
+      </NavLink>
       <div className='nav-container' style={{ width: width }}>
         <i id='button-close' className="fa-solid fa-xmark" onClick={closeNav}></i>
         <div className='nav-links'>
