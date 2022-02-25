@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import { deleteOnePickup } from "../../../store/pickups";
+import '../../Postings/Posting.css';
 
 const DeletePickup = ({ setShowModal, posting, pickup, setDeletePickup }) => {
     const dispatch = useDispatch();
@@ -27,10 +28,9 @@ const DeletePickup = ({ setShowModal, posting, pickup, setDeletePickup }) => {
 
     return (
         <>
-            <div className='posting-detail-container'>
-                <div>Confirm Delete Scheduling</div>
-                <button id="home-delete-button" onClick={handleDelete}>Confirm</button>
-                {/* // <button id="home-delete-button" type='submit' onSubmit={handleSubmit}>Confirm</button> */}
+            <div className='confirm-delete-container'>
+                <div>C O N F I R M &nbsp;&nbsp; D E L E T E</div>
+                <button className="confirm-delete" onClick={handleDelete}>Confirm</button>
             </div>
         </>
     )

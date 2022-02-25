@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../../context/Modal';
 import CreatePosting from './CreatePosting';
-import './CreatePosting.css';
+import '../Posting.css';
 
 function CreatePostingModal({ closeNav }) {
   const [showModal, setShowModal] = useState(false);

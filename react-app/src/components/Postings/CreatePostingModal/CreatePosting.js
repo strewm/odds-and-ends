@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import { addPosting } from "../../../store/postings";
-import './CreatePosting.css';
+import '../Posting.css';
 
 
 const CreatePosting = ({ setShowModal }) => {

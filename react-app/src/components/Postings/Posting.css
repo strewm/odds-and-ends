@@ -88,7 +88,7 @@
     overflow-x: hidden;
 }
 
-#post-submit {
+#post-submit, .confirm-delete {
     width: 219px;
     margin-top: 10px;
     padding: 7px;
@@ -103,4 +103,28 @@
 
 #post-submit:hover {
     background-color: #e45959;
+}
+
+
+
+/* ------------------- Delete postings + pickups ------------------- */
+.confirm-delete-container {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.confirm-delete-container div:first-child {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    font-size: 17px;
+    font-weight: 600;
+    border-bottom: 1px solid white;
+}
+
+.confirm-delete {
+    margin: 15px;
 }

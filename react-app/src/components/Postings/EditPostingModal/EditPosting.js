@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
-import { useHistory } from "react-router-dom";
 import { updateOnePosting } from "../../../store/postings";
-import '../CreatePostingModal/CreatePosting.css';
+import '../Posting.css';
 
 
 const EditPosting = ({ setShowModal, posting }) => {

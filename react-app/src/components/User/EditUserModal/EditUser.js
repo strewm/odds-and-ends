@@ -60,7 +60,6 @@ const EditUser = ({ setShowModal }) => {
     return (
         <div className='edit-user-container'>
             <div>U P D A T E &nbsp;&nbsp; P R O F I L E</div>
-            {/* <img id='old-image-preview' src={current_user.profile_picture} alt='image-preview'/> */}
             {preview}
             <form className='edit-user-form' onSubmit={handleSubmit}>
                 <fieldset>
