@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import EditPickupModal from "../EditPickupModal";
 import DeletePickupModal from "../DeletePickupModal";
 import './PickupDetail.css';
+import { NavLink } from "react-router-dom";
 
 const PickupDetail = ({ posting, pickup, setEditPickup, setDeletePickup }) => {
     const current_user = useSelector(state => state.session.user);
@@ -16,6 +17,16 @@ const PickupDetail = ({ posting, pickup, setEditPickup, setDeletePickup }) => {
     return (
         <>
             <div className='pickup-detail-container'>
+                <NavLink to={`/${pickup.username}`}>
+                    <div className='pickup-profile-image'
+                        style={{
+                            backgroundImage: `url(${pickup.profile_picture})`,
+                            backgroundSize: "cover",
+                            backgroundRepeat: "no-repeat",
+                            backgroundPosition: "center"
+                        }}
+                    ></div>
+                </NavLink>
                 <div className='pickup-info'>
                     {pickup.user_id} is picking up on... {day}, {pickup.date}
                     {/* {pickup.username} */}

@@ -67,5 +67,7 @@ class Pickup(db.Model):
             'posting_id': self.posting_id,
             'date': self.date,
             'created_at': self.created_at,
-            'updated_at': self.updated_at
+            'updated_at': self.updated_at,
+            'username': self.users.username,
+            'profile_picture': self.users.profile_picture
         }
