@@ -114,35 +114,34 @@ def sign_up():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
-@auth_routes.route('/user/<int:userId>', methods=["PUT"])
-@login_required
-def updateUserProfile(userId):
-    form = UpdateProfile()
-    form['csrf_token'].data = request.cookies['csrf_token']
+# @auth_routes.route('/user/<int:userId>', methods=["PUT"])
+# @login_required
+# def updateUserProfile(userId):
+#     form = UpdateProfile()
+#     form['csrf_token'].data = request.cookies['csrf_token']
 
-    image = form["profile_picture"].data
+#     image = form["profile_picture"].data
 
-    if not allowed_file(image.filename):
-        return {'errors': "Invalid File Type"}, 400
+#     if not allowed_file(image.filename):
+#         return {'errors': "Invalid File Type"}, 400
 
-    image.filename = get_unique_filename(image.filename)
+#     image.filename = get_unique_filename(image.filename)
 
-    upload = upload_file_to_s3(image)
+#     upload = upload_file_to_s3(image)
 
-    if "url" not in upload:
-        return upload, 400
+#     if "url" not in upload:
+#         return upload, 400
 
-    url = upload["url"]
+#     url = upload["url"]
 
-    if form.validate_on_submit():
-        user = User.query.get(userId)
-        user.profile_picture=url
+#     if form.validate_on_submit():
+#         user = User.query.get(userId)
+#         user.profile_picture=url
 
-        db.session.add(user)
-        db.session.commit()
-
-        return user.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+#         db.session.add(user)
+#         db.session.commit()
+#         return user.to_dict()
+#     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 

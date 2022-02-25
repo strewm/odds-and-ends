@@ -13,7 +13,7 @@ const removeUser = () => ({
 });
 
 const updateUser = (user) => ({
-  type: REMOVE_USER,
+  type: UPDATE_USER,
   user
 });
 
@@ -97,7 +97,7 @@ export const signUp = (formData) => async (dispatch) => {
 }
 
 export const updateUserProfile = (formData, userId) => async (dispatch) => {
-  const response = await fetch(`/api/auth/user/${userId}`, {
+  const response = await fetch(`/api/users/user/${userId}`, {
     method: 'PUT',
     body: formData
   });

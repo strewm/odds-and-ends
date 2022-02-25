@@ -42,7 +42,7 @@ const EditUser = ({ setShowModal }) => {
             return;
         } else {
             setShowModal(false);
-            history.push('/');
+            // history.push('/');
         }
     }
 
