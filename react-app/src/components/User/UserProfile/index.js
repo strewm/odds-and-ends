@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import PostingDetail from '../../Postings/ViewAllPostings/PostingDetail';
+import EditUserModal from '../EditUserModal';
 import './UserProfile.css';
 
 const UserProfile = () => {
@@ -10,7 +12,7 @@ const UserProfile = () => {
     const [errors, setErrors] = useState('');
 
     const { username } = useParams();
-
+    const sessionUser = useSelector((state) => state.session.user);
 
     useEffect(async () => {
         if (!username) return;
@@ -46,7 +48,12 @@ const UserProfile = () => {
     if (!user.profile_picture) {
         return null;
     }
-    
+
+    let editProfile;
+    if (username === sessionUser.username) {
+        editProfile = <EditUserModal />
+    }
+
 
     return (
         <div className='profile-container'>
@@ -59,6 +66,7 @@ const UserProfile = () => {
                         backgroundPosition: "center"
                     }}
                 ></div>
+                {editProfile}
                 <div id='username'>@{user?.username} {errors}</div>
                 <div id='email'>{user?.email}</div>
             </div>

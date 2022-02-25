@@ -1,6 +1,7 @@
 // constants
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
+const UPDATE_USER = 'session/UPDATE_USER';
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -9,7 +10,12 @@ const setUser = (user) => ({
 
 const removeUser = () => ({
   type: REMOVE_USER,
-})
+});
+
+const updateUser = (user) => ({
+  type: REMOVE_USER,
+  user
+});
 
 const initialState = { user: null };
 
@@ -74,20 +80,31 @@ export const signUp = (formData) => async (dispatch) => {
   const response = await fetch('/api/auth/signup', {
     method: 'POST',
     body: formData
-    // headers: {
-    //   'Content-Type': 'application/json',
-    // },
-    // body: JSON.stringify({
-    //   username: username,
-    //   email: email,
-    //   password: password,
-    //   confirm_password: repeatPassword
-    // }),
   });
 
   if (response.ok) {
     const data = await response.json();
-    dispatch(setUser(data))
+    dispatch(setUser(data));
+    return null;
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
+  }
+}
+
+export const updateUserProfile = (formData, userId) => async (dispatch) => {
+  const response = await fetch(`/api/auth/user/${userId}`, {
+    method: 'PUT',
+    body: formData
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(updateUser(data));
     return null;
   } else if (response.status < 500) {
     const data = await response.json();
@@ -105,6 +122,8 @@ export default function reducer(state = initialState, action) {
       return { user: action.payload }
     case REMOVE_USER:
       return { user: null }
+    case UPDATE_USER:
+      return { user: action.user }
     default:
       return state;
   }

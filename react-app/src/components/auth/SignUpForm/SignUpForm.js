@@ -41,18 +41,8 @@ const SignUpForm = () => {
 
       setErrors(errors);
       return;
-    }
-
-
-
-    // const data = await dispatch(signUp(username, email, password, repeatPassword));
-
-    // const response = await fetch('/api/auth/signup', {
-    //   method: "POST",
-    //   body: formData
-    // });
-
-  };
+    };
+};
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -123,7 +113,7 @@ const SignUpForm = () => {
             />
           </div>
           <div id='signup-profile'>(Profile picture NOT required)</div>
-          {/* <label className='signup-inputs' htmlFor='profile-pic'>Add image</label> */}
+          {/* <label className='signup-inputs' htmlFor='profile-pic'>Upload profile picture (not required)</label> */}
           <div className="errors">
             {errors.profile_picture ? `${errors.profile_picture}` : ''}
           </div>

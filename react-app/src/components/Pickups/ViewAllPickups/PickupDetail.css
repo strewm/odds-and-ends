@@ -46,6 +46,7 @@
     height: 30px;
     width: 30px;
     margin: 13px 0 13px 13px;
+    border: 1px solid white;
     border-radius: 50%;
     background-color: rgb(218, 236, 245);
     /* margin-left: auto;
