@@ -47,10 +47,18 @@ const UserProfile = () => {
         return null;
     }
 
+
     return (
         <div className='profile-container'>
             <div className='profile-container-header'>
-                <div>- profile picture goes here -</div>
+                <div className='profile-image'
+                    style={{
+                        backgroundImage: `url(${user?.profile_picture})`,
+                        backgroundSize: "cover",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center"
+                    }}
+                ></div>
                 <div id='username'>@{user.username} {errors}</div>
                 <div id='email'>{user.email}</div>
             </div>

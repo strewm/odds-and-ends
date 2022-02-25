@@ -18,7 +18,7 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    
+
     const formData = new FormData();
 
     formData.append("username", username);
@@ -118,7 +118,7 @@ const SignUpForm = () => {
               name='image'
               type="file"
               accept="image/*"
-              required
+              required={false}
               onChange={updateProfilePicture}
             />
           </div>

@@ -64,7 +64,8 @@ def sign_up():
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    if form.validate_on_submit():
+    if form["profile_picture"].data:
+    # if form.validate_on_submit():
         if "profile_picture" not in request.files:
             return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
@@ -93,6 +94,19 @@ def sign_up():
         db.session.commit()
         login_user(user)
         return user.to_dict()
+    else:
+        if form.validate_on_submit():
+            user = User(
+                username=form.data['username'],
+                email=form.data['email'],
+                profile_picture="https://capstone-odds-ends.s3.us-east-2.amazonaws.com/cee2db0314ce41909703e7de8e411482.png",
+                password=form.data['password']
+            )
+            db.session.add(user)
+            db.session.commit()
+            login_user(user)
+            return user.to_dict()
+
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
