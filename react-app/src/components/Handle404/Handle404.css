@@ -1,0 +1,19 @@
+/* ------------------- 404 error ------------------- */
+.handle404 {
+    text-align: center;
+    margin-top: 350px;
+}
+
+.handle404 div {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-bottom: 20px;
+    font-size: 110px;
+}
+
+.handle404 a {
+    margin-top: 25px;
+    font-size: 25px;
+    text-decoration: none;
+}

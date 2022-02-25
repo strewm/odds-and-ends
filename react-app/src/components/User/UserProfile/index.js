@@ -67,7 +67,7 @@ const UserProfile = () => {
                         backgroundPosition: "center"
                     }}
                 >{editProfile}</div>
-                <div id='username'>@{user?.username} {errors}</div>
+                <div id='username'>@{user?.username}</div>
                 <div id='email'>{user?.email}</div>
             </div>
             <div className='profile-headers'>{username}'s postings:</div>
