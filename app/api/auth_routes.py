@@ -66,10 +66,12 @@ def sign_up():
 
     if form["profile_picture"].data:
     # if form.validate_on_submit():
-        if "profile_picture" not in request.files:
-            return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+        # if "profile_picture" not in request.files:
+        #     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
-        image = request.files['profile_picture']
+        # image = request.files['profile_picture']
+
+        image = form["profile_picture"].data
 
         if not allowed_file(image.filename):
             return {'errors': "Invalid File Type"}, 400
