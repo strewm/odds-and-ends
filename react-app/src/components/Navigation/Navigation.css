@@ -102,3 +102,22 @@
 .nav-links a {
     background-color: transparent;
 }
+
+.navbar-about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+}
+
+.navbar-about a {
+    background-color: #f8e9a1;
+}
+
+.navbar-about a i {
+    margin-top: 7px;
+    padding: 3px;
+    font-size: 16px;
+    color: #f76c6c;
+    background-color: #f8e9a1;
+}

@@ -40,6 +40,10 @@ const NavBar = () => {
           <CreatePostingModal closeNav={closeNav}/>
           <LogoutButton />
         </div>
+        <div className='navbar-about'>
+          <a href='https://www.linkedin.com/in/savanah-trewman/' target="_blank" rel="noreferrer"><i className="fa-brands fa-linkedin-in"></i></a>
+          <a href='https://github.com/strewm/odds-and-ends' target="_blank" rel="noreferrer"><i className="fa-brands fa-github"></i></a>
+        </div>
       </div>
     </div>
   );
