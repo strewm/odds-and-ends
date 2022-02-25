@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
-// import * as postActions from '../../../store/post';
 import { addPosting } from "../../../store/postings";
 import './CreatePosting.css';
 

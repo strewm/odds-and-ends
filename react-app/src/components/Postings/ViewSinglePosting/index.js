@@ -52,7 +52,7 @@ const SinglePosting = () => {
         setUpdate(false);
         setEditPickup(false);
         setDeletePickup(false);
-    }, [dispatch, saveUpdate, update, editPickup, deletePickup])
+    }, [dispatch, postingId, saveUpdate, update, editPickup, deletePickup])
 
 
     const handleSave = async () => {

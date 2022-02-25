@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import PostingDetail from '../../Postings/ViewAllPostings/PostingDetail';
 import './UserProfile.css';
@@ -50,17 +49,14 @@ const UserProfile = () => {
 
     return (
         <div className='profile-container'>
-            <div>
-                Username: {user.username} {errors}
-            </div>
-            <div>
-                Email: {user.email}
+            <div className='profile-container-header'>
+                <div id='username'>@{user.username} {errors}</div>
+                <div id='email'>{user.email}</div>
             </div>
             <div className='profile-headers'>{username}'s postings:</div>
             <div className='profile-posting-container'>
                 {viewUserPostingsReverse?.map(posting => {
                     return <PostingDetail posting={posting} key={posting.id}/>
-                    // return <UserPostings posting={posting} key={posting.id}/>
                 })}
             </div>
             <div className='profile-headers'>{username}'s saved postings:</div>

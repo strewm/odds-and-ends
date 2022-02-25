@@ -14,13 +14,8 @@ const EditPosting = ({ setShowModal, posting }) => {
     const [caption, setCaption] = useState(posting.caption);
     const [icon, setIcon] = useState(posting.icon);
     const [errors, setErrors] = useState({});
-    // const [update, setUpdate] = useState(false);
 
     const dispatch = useDispatch();
-    const history = useHistory();
-
-    // const current_user = useSelector(state => state.session.user);
-    // const user_id = current_user.id;
 
     const posting_id = posting.id;
 
@@ -44,7 +39,7 @@ const EditPosting = ({ setShowModal, posting }) => {
         } else {
             setShowModal(false);
         }
-    }
+    };
 
     let iconDropdown = [
         { label: 'Food' },

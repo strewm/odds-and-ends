@@ -6,7 +6,21 @@
     align-items: center;
     height: auto;
     margin: 0 auto;
-    padding: 24px;
+    padding: 44px 24px 24px;
+}
+
+.profile-container-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 5px;
 }
 
 .profile-posting-container {
@@ -16,6 +30,27 @@
     grid-gap: 1rem;
 }
 
+
+
+/* ------------------- Profile container header content ------------------- */
+#username {
+    width: fit-content;
+    font-size: 17px;
+    margin: 10px;
+    padding: 5px;
+    color: #f76c6c;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#email {
+    width: fit-content;
+    padding: 3px;
+    font-size: 11px;
+    color: #374785;
+    border-radius: 5px;
+    /* background-color: #24305e; */
+}
 
 
 /* ------------------- Profile posting containers content ------------------- */

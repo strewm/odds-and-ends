@@ -165,16 +165,6 @@ export const deleteOnePosting = postingId => async dispatch => {
             return data.errors;
         };
     }
-
-    // if (response.ok) {
-    //     const data = await response.json();
-    //     if (data.errors) {
-    //         return data.errors;
-    //     };
-
-    //     dispatch(deletePosting(postingId))
-    //     return 'Post successfully deleted.'
-    // }
 };
 
 
@@ -186,11 +176,9 @@ const initialState = {};
 
 // ------------------- Reducer ------------------- //
 export default function postsReducer(state = initialState, action) {
-    let newState = {};
-
+    
     switch (action.type) {
         case GET_POSTINGS: {
-            // console.log('+++++INSIDE REDUCER', action.postings)
             const newState = { ...state }
             for (const key in action.postings) {
                 newState[action.postings[key].id] = action.postings[key]
@@ -210,10 +198,6 @@ export default function postsReducer(state = initialState, action) {
                 newState[action.postings[key].id] = action.postings[key]
             }
             return newState;
-            // action.postings.forEach((posting) => {
-            //     newState[posting.id] = posting;
-            // });
-            // return newState;
         };
         case CREATE_POSTING: {
             const newState = {

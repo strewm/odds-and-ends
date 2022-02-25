@@ -1,6 +1,5 @@
 // ------------------- Action types ------------------- //
 const GET_PICKUPS = 'posts/GET_PICKUPS';
-// const GET_ONE_PICKUP = 'posts/GET_ONE_PICKUP';
 const GET_USER_PICKUPS = 'posts/GET_USER_PICKUPS';
 const CREATE_PICKUP = 'posts/CREATE_PICKUP';
 const UPDATE_PICKUP = 'posts/UPDATE_PICKUP';
@@ -149,20 +148,17 @@ export default function pickupsReducer(state = initialState, action) {
 
     switch (action.type) {
         case GET_PICKUPS: {
-            // console.log('+++++INSIDE REDUCER', action.pickups)
             const newState = {}
             for (const key in action.pickups) {
                 newState[action.pickups[key].id] = action.pickups[key]
             }
-            // console.log('=========', newState)
             return newState;
         };
-        case GET_USER_PICKUPS: {
+        case GET_USER_PICKUPS:
             action.pickups.forEach((pickup) => {
                 newState[pickup.id] = pickup;
             });
             return newState;
-        };
         case CREATE_PICKUP: {
             const newState = {
                 ...state,

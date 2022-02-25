@@ -104,7 +104,7 @@ const initialState = {};
 
 
 // ------------------- Reducer ------------------- //
-export default function (state = initialState, action) {
+export default function savedReducer(state = initialState, action) {
     let newState;
     switch (action.type) {
         case GET_SAVED: {
@@ -120,7 +120,7 @@ export default function (state = initialState, action) {
                 newState[action.saved[key].id] = action.saved[key]
             }
             return newState;
-            
+
             // newState = { ...state };
             // action.saved.map((save) => newState[save.id] = save);
             // return newState;

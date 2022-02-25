@@ -37,11 +37,7 @@ input {
 
 /* ------------------- Sitewide errors ------------------- */
 .errors {
-    /* display: flex;
-    justify-content: flex-start;
-    align-items: center; */
-    /* margin: 12px 0; */
-    padding: 0;
+    padding-left: 4px;
     font-size: 11px;
     color: red;
     background-color: transparent;
