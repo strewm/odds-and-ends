@@ -71,6 +71,8 @@ def sign_up():
 
         # image = request.files['profile_picture']
 
+        # print('+++++++++inside api route DEFAULT pic', form, form["profile_picture"].data)
+
         image = form["profile_picture"].data
 
         if not allowed_file(image.filename):

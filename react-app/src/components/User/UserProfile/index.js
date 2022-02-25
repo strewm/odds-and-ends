@@ -43,10 +43,10 @@ const UserProfile = () => {
     const viewSavedPostingsArr = Object.values(saved);
     const viewSavedPostingsReverse = viewSavedPostingsArr.reverse();
 
-    if (!user) {
+    if (!user.profile_picture) {
         return null;
     }
-
+    
 
     return (
         <div className='profile-container'>
@@ -59,8 +59,8 @@ const UserProfile = () => {
                         backgroundPosition: "center"
                     }}
                 ></div>
-                <div id='username'>@{user.username} {errors}</div>
-                <div id='email'>{user.email}</div>
+                <div id='username'>@{user?.username} {errors}</div>
+                <div id='email'>{user?.email}</div>
             </div>
             <div className='profile-headers'>{username}'s postings:</div>
             <div className='profile-posting-container'>
