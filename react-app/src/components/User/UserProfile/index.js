@@ -50,6 +50,7 @@ const UserProfile = () => {
     return (
         <div className='profile-container'>
             <div className='profile-container-header'>
+                <div>- profile picture goes here -</div>
                 <div id='username'>@{user.username} {errors}</div>
                 <div id='email'>{user.email}</div>
             </div>

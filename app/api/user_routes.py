@@ -29,23 +29,10 @@ def user(id):
     return user.to_dict()
 
 
-# @user_routes.route('/<int:id>')
-# # @login_required
-# def user(id):
-#     print('-------------------', id)
-#     user = User.query.get(id)
-#     username = user.username
-#     print('+++++++++++++', username)
-#     return user.to_dict()
-
-
 @user_routes.route('/<username>')
 # @login_required
 def username(username):
     print(username)
     user = User.query.filter(User.username == username).first_or_404()
-    # user = User.query.get(username)
-
-    print('=========user route', user.to_dict())
 
     return user.to_dict()
