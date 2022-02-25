@@ -9,7 +9,7 @@ const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
-  
+
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
@@ -57,12 +57,11 @@ const LoginForm = () => {
       <div className='login-container'>
         <form className='login-form' onSubmit={onLogin}>
           <div className='login-form'>
-            {/* <label htmlFor='email'>Email</label> */}
             <input
               className='login-inputs'
               name='email'
               type='text'
-              placeholder='Email'
+              placeholder='Email *'
               value={email}
               onChange={updateEmail}
             />
@@ -71,12 +70,11 @@ const LoginForm = () => {
             {errors.email ? `${errors.email}` : ''}
           </div>
           <div className='login-form'>
-            {/* <label htmlFor='password'>Password</label> */}
             <input
               className='login-inputs'
               name='password'
               type='password'
-              placeholder='Password'
+              placeholder='Password *'
               value={password}
               onChange={updatePassword}
             />

@@ -38,6 +38,19 @@
     background-color: transparent;
 }
 
+#signup-profile {
+    margin: 0 3px 3px 5px;
+    font-size: 10px;
+    font-style: italic;
+    color: #e6be3d;
+    background-color: transparent;
+
+}
+
+/* .signup-form input[id='profile-pic'] {
+    display: none;
+} */
+
 .signup-submit {
     width: 276px;
     margin: 6px 3px 3px 3px;
@@ -55,13 +68,6 @@
 .signup-submit:hover {
     background-color: #e45959;
 }
-/*
-.signup-policies {
-    padding-top: 10px;
-    background-color: white;
-    font-size: 11px;
-    color: #8E8E8E;
-} */
 
 
 

@@ -89,7 +89,7 @@ const SignUpForm = () => {
               className='signup-inputs'
               type='text'
               name='username'
-              placeholder='Username'
+              placeholder='Username *'
               onChange={updateUsername}
               value={username}
               required={true}
@@ -103,7 +103,7 @@ const SignUpForm = () => {
               className='signup-inputs'
               type='text'
               name='email'
-              placeholder='Email'
+              placeholder='Email *'
               onChange={updateEmail}
               value={email}
               required={true}
@@ -115,13 +115,15 @@ const SignUpForm = () => {
           <div className='signup-form'>
             <input
               className='signup-inputs'
-              name='image'
+              id='profile-pic'
               type="file"
               accept="image/*"
               required={false}
               onChange={updateProfilePicture}
             />
           </div>
+          <div id='signup-profile'>(Profile picture NOT required)</div>
+          {/* <label className='signup-inputs' htmlFor='profile-pic'>Add image</label> */}
           <div className="errors">
             {errors.profile_picture ? `${errors.profile_picture}` : ''}
           </div>
@@ -130,7 +132,7 @@ const SignUpForm = () => {
               className='signup-inputs'
               type='password'
               name='password'
-              placeholder='Password'
+              placeholder='Password *'
               onChange={updatePassword}
               value={password}
             ></input>
@@ -143,7 +145,7 @@ const SignUpForm = () => {
               className='signup-inputs'
               type='password'
               name='repeat_password'
-              placeholder='Confirm Password'
+              placeholder='Confirm Password *'
               onChange={updateRepeatPassword}
               value={repeatPassword}
               required={true}
