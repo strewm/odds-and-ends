@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Modal } from '../../../context/Modal';
 import EditUser from './EditUser';
-// import './EditUser.css';
+import './EditUser.css';
 
 function EditUserModal({ showModal, setShowModal }) {
 
@@ -16,7 +16,7 @@ function EditUserModal({ showModal, setShowModal }) {
 
     return (
         <>
-            <i id='create-posting' onClick={onClick} className="fa-solid fa-circle-plus"></i>
+            <i id='edit-user' onClick={onClick} className="fa-solid fa-pencil"></i>
 
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>

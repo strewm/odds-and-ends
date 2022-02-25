@@ -66,8 +66,7 @@ const UserProfile = () => {
                         backgroundRepeat: "no-repeat",
                         backgroundPosition: "center"
                     }}
-                ></div>
-                {editProfile}
+                >{editProfile}</div>
                 <div id='username'>@{user?.username} {errors}</div>
                 <div id='email'>{user?.email}</div>
             </div>

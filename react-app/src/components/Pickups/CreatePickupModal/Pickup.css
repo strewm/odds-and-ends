@@ -18,8 +18,6 @@
 
 /* ------------------- Create pickup container ------------------- */
 .create-pickup-container, .edit-pickup-container {
-    /* width: 550px;
-    height: 550px; */
     width: 277px;
     display: flex;
     flex-direction: column;

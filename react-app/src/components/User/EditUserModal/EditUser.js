@@ -11,10 +11,8 @@ const EditUser = ({ setShowModal }) => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-
     const current_user = useSelector(state => state.session.user);
     const user_id = current_user.id;
-    // console.log('---------user id', typeof(user_id))
 
     useEffect(() => {
 		return () => {setShowModal(false)}
@@ -51,24 +49,34 @@ const EditUser = ({ setShowModal }) => {
         setProfilePicture(file);
     };
 
+    let preview;
+    if (!profilePicture) {
+        preview = <img id='old-image-preview' src={current_user.profile_picture} alt='image-preview'/>
+    } else {
+        preview = <img id='new-image-preview' src={URL.createObjectURL(profilePicture)} alt='image-preview'/>
+    }
+
+
     return (
-        <div className='posting-container'>
+        <div className='edit-user-container'>
             <div>U P D A T E &nbsp;&nbsp; P R O F I L E</div>
-            <form className='posting-form' onSubmit={handleSubmit}>
-                <div>
+            {/* <img id='old-image-preview' src={current_user.profile_picture} alt='image-preview'/> */}
+            {preview}
+            <form className='edit-user-form' onSubmit={handleSubmit}>
+                <fieldset>
                     <input
-                        id='profile-pic'
+                        id='edit-profile-pic'
                         type="file"
                         accept="image/*"
                         required={false}
                         onChange={updateProfilePicture}
                     />
-                </div>
+                </fieldset>
                 {/* <label className='signup-inputs' htmlFor='profile-pic'>Upload profile picture (not required)</label> */}
                 <div className="errors">
                     {errors.profile_picture ? `${errors.profile_picture}` : ''}
                 </div>
-                <button id='post-submit' type="submit">Update</button>
+                <button id='edit-submit' type="submit">Update</button>
             </form>
         </div>
     )

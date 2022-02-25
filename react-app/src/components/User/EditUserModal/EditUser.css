@@ -1,0 +1,79 @@
+/* ------------------- User edit container ------------------- */
+.edit-user-container {
+    width: 277px;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-user-container div:first-child {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 1px solid white;
+}
+
+#edit-user {
+    font-size: 19px;
+    background-color: transparent;
+    opacity: 0;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+
+
+/* ------------------- User edit content ------------------- */
+#old-image-preview, #new-image-preview {
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+    margin: 10px auto 0 auto;
+    border-radius: 50%;
+}
+
+.edit-user-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 11px 15px 15px 15px;
+    background-color: transparent;
+}
+
+.edit-user-form fieldset {
+    margin: 0;
+    color: white;
+    border: 1px solid white;
+    border-radius: 3px;
+    background-color: transparent;
+}
+
+.edit-user-form input {
+    height: 18px;
+    width: 193px;
+    padding: 4.4px 0 3px;
+    border: none;
+    font-size: 12px;
+    background-color: transparent;
+}
+
+#edit-submit {
+    width: 219px;
+    margin-top: 10px;
+    padding: 7px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    background-color: #f76c6c;
+    cursor: pointer;
+}
+
+#edit-submit:hover {
+    background-color: #e45959;
+}

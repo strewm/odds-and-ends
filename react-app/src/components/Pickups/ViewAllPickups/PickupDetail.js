@@ -28,8 +28,7 @@ const PickupDetail = ({ posting, pickup, setEditPickup, setDeletePickup }) => {
                     ></div>
                 </NavLink>
                 <div className='pickup-info'>
-                    {pickup.user_id} is picking up on... {day}, {pickup.date}
-                    {/* {pickup.username} */}
+                    {pickup.username} is picking up on ... {day}, {pickup.date}
                 </div>
                 <div className='pickup-buttons'>
                     {pickup.user_id === user_id && (
