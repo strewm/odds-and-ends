@@ -6,30 +6,52 @@ import textLogo from '../../Images/text-logo.png';
 import './SignUpForm.css';
 
 const SignUpForm = () => {
-  const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
+  const [profilePicture, setProfilePicture] = useState(null);
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
+  const [errors, setErrors] = useState({});
+
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    const data = await dispatch(signUp(username, email, password, repeatPassword));
+
+    const formData = new FormData();
+
+    formData.append("username", username);
+    formData.append("email", email);
+    if (profilePicture) {
+      formData.append("profile_picture", profilePicture);
+    }
+    formData.append("password", password);
+    formData.append("confirm_password", repeatPassword);
+
+    const data = await dispatch(signUp(formData));
 
     if (data) {
       const errors = {};
-
       data.forEach(error => {
-          const errLabel = error.split(' : ')[0];
-          const errMessage = error.split(' : ')[1];
-          errors[errLabel] = errMessage;
+        const errLabel = error.split(' : ')[0];
+        const errMessage = error.split(' : ')[1];
+        errors[errLabel] = errMessage;
       });
 
       setErrors(errors);
       return;
     }
+
+
+
+    // const data = await dispatch(signUp(username, email, password, repeatPassword));
+
+    // const response = await fetch('/api/auth/signup', {
+    //   method: "POST",
+    //   body: formData
+    // });
+
   };
 
   const updateUsername = (e) => {
@@ -38,6 +60,11 @@ const SignUpForm = () => {
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
+  };
+
+  const updateProfilePicture = (e) => {
+    const file = e.target.files[0];
+    setProfilePicture(file);
   };
 
   const updatePassword = (e) => {
@@ -54,7 +81,7 @@ const SignUpForm = () => {
 
   return (
     <div className='signup-page'>
-      <img id='nav-logo' src={textLogo} alt='text logo'/>
+      <img id='nav-logo' src={textLogo} alt='text logo' />
       <div className='signup-container'>
         <form className='signup-form' onSubmit={onSignUp}>
           <div className='signup-form'>
@@ -65,6 +92,7 @@ const SignUpForm = () => {
               placeholder='Username'
               onChange={updateUsername}
               value={username}
+              required={true}
             ></input>
           </div>
           <div className="errors">
@@ -78,10 +106,24 @@ const SignUpForm = () => {
               placeholder='Email'
               onChange={updateEmail}
               value={email}
+              required={true}
             ></input>
           </div>
           <div className="errors">
             {errors.email ? `${errors.email}` : ''}
+          </div>
+          <div className='signup-form'>
+            <input
+              className='signup-inputs'
+              name='image'
+              type="file"
+              accept="image/*"
+              required={false}
+              onChange={updateProfilePicture}
+            />
+          </div>
+          <div className="errors">
+            {errors.profile_picture ? `${errors.profile_picture}` : ''}
           </div>
           <div className='signup-form'>
             <input

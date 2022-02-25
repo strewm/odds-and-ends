@@ -3,10 +3,6 @@ from wtforms import StringField, TextAreaField, SelectField
 from wtforms.validators import DataRequired, ValidationError, NumberRange, Length
 
 
-# def check_zip_number(form, field):
-#     zipcode = field.data
-
-#     if
 
 def check_zip_number(form, field):
     zipcode = field.data
