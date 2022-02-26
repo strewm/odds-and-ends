@@ -39,6 +39,7 @@ input {
 
 /* ------------------- Sitewide errors ------------------- */
 .errors {
+    margin: 2px 0;
     padding-left: 4px;
     font-size: 11px;
     color: red;

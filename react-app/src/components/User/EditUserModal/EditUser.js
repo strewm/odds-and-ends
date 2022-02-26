@@ -7,7 +7,7 @@ import './EditUser.css';
 
 const EditUser = ({ setShowModal }) => {
     const [profilePicture, setProfilePicture] = useState('');
-    const [errors, setErrors] = useState([]);
+    const [errors, setErrors] = useState({});
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -21,44 +21,50 @@ const EditUser = ({ setShowModal }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const formData = new FormData();
-
-        formData.append('profile_picture', profilePicture);
-
-        const data = await dispatch(updateUserProfile(formData, user_id));
-
-        // if (data) {
-        //     setShowModal(false);
-        //     history.push(`/${current_user.username}`);
-        // } else {
-        //     setErrors('An error occurred. Please try again.')
-        // }
-
-        if (!data) {
-            setShowModal(false);
-            history.push(`/${current_user.username}`);
+        if (!profilePicture) {
+            const errors = { profile_picture: ['Please select a new photo, or exit.'] }
+            setErrors(errors)
+            console.log('----', errors)
         } else {
-            console.log('-------edit user', data)
-            setErrors(data.errors);
-            // return;
+            const formData = new FormData();
+
+            formData.append('profile_picture', profilePicture);
+
+            const data = await dispatch(updateUserProfile(formData, user_id));
+
+            // if (data) {
+            //     setShowModal(false);
+            //     history.push(`/${current_user.username}`);
+            // } else {
+            //     setErrors('An error occurred. Please try again.')
+            // }
+
+            // if (!data) {
+            //     setShowModal(false);
+            //     history.push(`/${current_user.username}`);
+            // } else {
+            //     console.log('-------edit user', data)
+            //     setErrors(data.errors);
+            //     // return;
+            // }
+
+            if (data) {
+                const errors = {}
+
+                data.forEach(error => {
+                    const errLabel = error.split(' : ')[0];
+                    const errMessage = error.split(' : ')[1];
+                    errors[errLabel] = errMessage;
+                });
+
+                setErrors(errors);
+                return;
+            } else {
+                setShowModal(false);
+                history.push(`/${current_user.username}`);
+            }
         }
 
-        // if (data) {
-        //     console.log('-------edit user', data)
-        //     const errors = {}
-
-        //     data?.forEach(error => {
-        //         const errLabel = error.split(' : ')[0];
-        //         const errMessage = error.split(' : ')[1];
-        //         errors[errLabel] = errMessage;
-        //     });
-
-        //     setErrors(errors);
-        //     return;
-        // } else {
-        //     setShowModal(false);
-        //     history.push(`/${current_user.username}`);
-        // }
     }
 
     const updateProfilePicture = (e) => {
@@ -95,11 +101,11 @@ const EditUser = ({ setShowModal }) => {
                 <button id='edit-submit' type="submit">Update</button>
             </form>
             {/* <div className='errors'>{errors}</div> */}
-            <div className='errors'>
+            {/* <div className='errors'>
                 {errors.map((error) => (
                     <li>{error}</li>
                 ))}
-            </div>
+            </div> */}
         </div>
     )
 }
