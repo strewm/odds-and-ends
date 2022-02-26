@@ -36,18 +36,11 @@ const SignUpForm = () => {
       console.log('-------signup user', data)
 
       const errors = {};
-      const dataArr = data.map((error) => error.split(":"));
-
-      for (let i = 0; i < dataArr.length; i++) {
-        errors[dataArr[i][0]] = dataArr[i][1];
-      }
-
-      // const errors = {};
-      // data?.forEach(error => {
-      //   const errLabel = error.split(' : ')[0];
-      //   const errMessage = error.split(' : ')[1];
-      //   errors[errLabel] = errMessage;
-      // });
+      data?.forEach(error => {
+        const errLabel = error.split(' : ')[0];
+        const errMessage = error.split(' : ')[1];
+        errors[errLabel] = errMessage;
+      });
 
       setErrors(errors);
       return;

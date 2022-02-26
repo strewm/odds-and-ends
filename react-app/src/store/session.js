@@ -106,7 +106,7 @@ export const updateUserProfile = (formData, userId) => async (dispatch) => {
 
   if (response.ok) {
     dispatch(updateUser(data));
-    return;
+    // return;
   } else {
     return { errors: ['An error occurred. Please try again.'] }
   }

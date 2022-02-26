@@ -34,14 +34,13 @@ const EditUser = ({ setShowModal }) => {
         //     setErrors('An error occurred. Please try again.')
         // }
 
-        if (data) {
-            console.log('-------edit user', data)
-
-            setErrors(data.errors);
-            return;
-        } else if (!data) {
+        if (!data) {
             setShowModal(false);
             history.push(`/${current_user.username}`);
+        } else {
+            console.log('-------edit user', data)
+            setErrors(data.errors);
+            // return;
         }
 
         // if (data) {
@@ -97,8 +96,8 @@ const EditUser = ({ setShowModal }) => {
             </form>
             {/* <div className='errors'>{errors}</div> */}
             <div className='errors'>
-                {errors.map((err) => (
-                    <li>{err}</li>
+                {errors.map((error) => (
+                    <li>{error}</li>
                 ))}
             </div>
         </div>
