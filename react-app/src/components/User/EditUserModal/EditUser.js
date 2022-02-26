@@ -27,10 +27,12 @@ const EditUser = ({ setShowModal }) => {
 
         const data = await dispatch(updateUserProfile(formData, user_id));
 
+        console.log('-------edit user', data)
+
         if (data) {
             const errors = {}
 
-            data.forEach(error => {
+            data?.forEach(error => {
                 const errLabel = error.split(' : ')[0];
                 const errMessage = error.split(' : ')[1];
                 errors[errLabel] = errMessage;

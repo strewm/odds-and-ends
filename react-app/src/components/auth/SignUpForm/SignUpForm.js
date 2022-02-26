@@ -31,9 +31,12 @@ const SignUpForm = () => {
 
     const data = await dispatch(signUp(formData));
 
+    console.log('-------signup user', data)
+
+
     if (data) {
       const errors = {};
-      data.forEach(error => {
+      data?.forEach(error => {
         const errLabel = error.split(' : ')[0];
         const errMessage = error.split(' : ')[1];
         errors[errLabel] = errMessage;
