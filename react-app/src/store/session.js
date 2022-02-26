@@ -102,18 +102,27 @@ export const updateUserProfile = (formData, userId) => async (dispatch) => {
     body: formData
   });
 
+  const data = await response.json();
+
   if (response.ok) {
-    const data = await response.json();
     dispatch(updateUser(data));
-    return null;
-  } else if (response.status < 500) {
-    const data = await response.json();
-    if (data.errors) {
-      return data.errors;
-    }
+    return;
   } else {
-    return ['An error occurred. Please try again.']
+    return { errors: ['An error occurred. Please try again.'] }
   }
+
+  // if (response.ok) {
+  //   const data = await response.json();
+  //   dispatch(updateUser(data));
+  //   return null;
+  // } else if (response.status < 500) {
+  //   const data = await response.json();
+  //   if (data.errors) {
+  //     return data.errors;
+  //   }
+  // } else {
+  //   return ['An error occurred. Please try again.']
+  // }
 }
 
 export default function reducer(state = initialState, action) {

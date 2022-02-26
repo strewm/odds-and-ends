@@ -7,7 +7,7 @@ import './EditUser.css';
 
 const EditUser = ({ setShowModal }) => {
     const [profilePicture, setProfilePicture] = useState('');
-    const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState([]);
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -27,23 +27,39 @@ const EditUser = ({ setShowModal }) => {
 
         const data = await dispatch(updateUserProfile(formData, user_id));
 
+        // if (data) {
+        //     setShowModal(false);
+        //     history.push(`/${current_user.username}`);
+        // } else {
+        //     setErrors('An error occurred. Please try again.')
+        // }
 
         if (data) {
             console.log('-------edit user', data)
-            const errors = {}
 
-            data?.forEach(error => {
-                const errLabel = error.split(' : ')[0];
-                const errMessage = error.split(' : ')[1];
-                errors[errLabel] = errMessage;
-            });
-
-            setErrors(errors);
+            setErrors(data.errors);
             return;
-        } else {
+        } else if (!data) {
             setShowModal(false);
             history.push(`/${current_user.username}`);
         }
+
+        // if (data) {
+        //     console.log('-------edit user', data)
+        //     const errors = {}
+
+        //     data?.forEach(error => {
+        //         const errLabel = error.split(' : ')[0];
+        //         const errMessage = error.split(' : ')[1];
+        //         errors[errLabel] = errMessage;
+        //     });
+
+        //     setErrors(errors);
+        //     return;
+        // } else {
+        //     setShowModal(false);
+        //     history.push(`/${current_user.username}`);
+        // }
     }
 
     const updateProfilePicture = (e) => {
@@ -79,6 +95,12 @@ const EditUser = ({ setShowModal }) => {
                 </div>
                 <button id='edit-submit' type="submit">Update</button>
             </form>
+            {/* <div className='errors'>{errors}</div> */}
+            <div className='errors'>
+                {errors.map((err) => (
+                    <li>{err}</li>
+                ))}
+            </div>
         </div>
     )
 }
