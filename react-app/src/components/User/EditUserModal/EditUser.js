@@ -27,9 +27,9 @@ const EditUser = ({ setShowModal }) => {
 
         const data = await dispatch(updateUserProfile(formData, user_id));
 
-        console.log('-------edit user', data)
 
         if (data) {
+            console.log('-------edit user', data)
             const errors = {}
 
             data?.forEach(error => {
