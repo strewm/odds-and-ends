@@ -20,7 +20,7 @@ def validation_errors_to_error_messages(validation_errors):
 
 
 @posting_routes.route('/all')
-# @login_required
+@login_required
 def getAllPostings():
     """
     Route that returns all postings
@@ -37,12 +37,9 @@ def getAllPostings():
 
     return res
 
-    # postings = Posting.query.all()
-    # return jsonify([post.to_dict() for post in postings])
-
 
 @posting_routes.route('/<int:postingId>')
-# @login_required
+@login_required
 def getPosting(postingId):
     """
     Route that returns all postings
@@ -54,29 +51,16 @@ def getPosting(postingId):
 
     res = posting.to_dict()
 
-    # res['username'] = f'{username}'
-
     return res
 
 
 @posting_routes.route('/user/<username>/postings')
-# @login_required
+@login_required
 def getUserPostings(username):
     """
     Route that returns a user's postings
     """
-    # res = {}
-    # postings = Posting.query.filter(userId == Posting.user_id).all()
-
-    # for post in postings:
-    #     res[post.id] = post.to_dict()
-
-    # I have a username
-    # I need to take username, find the user entry in User table, and take the id from that user
-    # Compare the user id to the Posting user id
-
     res = {}
-    # postings = session.query(User).join(Posting, User.username)
 
     user = User.query.filter(User.username == username).first_or_404()
     userId = user.id
@@ -90,13 +74,11 @@ def getUserPostings(username):
     for post in postings:
         res[post.id] = post.to_dict()
 
-    # print('========backend routes', res)
-
     return res
 
 
 @posting_routes.route('/create', methods=["POST"])
-# @login_required
+@login_required
 def createPosting():
     """
     Route that allows user to create a posting
@@ -121,12 +103,11 @@ def createPosting():
         db.session.add(newPosting)
         db.session.commit()
         return newPosting.to_dict()
-    # print('++++++++++++++', form.errors)
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 @posting_routes.route('/<int:postingId>', methods=["PUT"])
-# @login_required
+@login_required
 def editPosting(postingId):
     """
     Route that allows a user to edit a posting
@@ -152,7 +133,7 @@ def editPosting(postingId):
 
 
 @posting_routes.route('/<int:postingId>', methods=["DELETE"])
-# @login_required
+@login_required
 def deletePosting(postingId):
     """
     Route that allows a user to delete a posting

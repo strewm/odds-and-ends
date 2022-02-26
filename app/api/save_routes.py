@@ -7,10 +7,9 @@ save_routes = Blueprint('saved', __name__)
 
 
 @save_routes.route('/posting/<int:postingId>/saved')
-# @login_required
+@login_required
 def getSaved(postingId):
     posting = Posting.query.get(postingId)
-    # print('-----inside getSaved route', posting.user_saved);
 
     res = {}
     for user in posting.user_saved:
@@ -18,11 +17,9 @@ def getSaved(postingId):
 
     return res
 
-    # return {'user_saved': [user.to_dict() for user in post.user_saved]}
-
 
 @save_routes.route('/user/<username>/saved')
-# @login_required
+@login_required
 def getUserSaved(username):
     user = User.query.filter(User.username == username).first_or_404()
     userId = user.id
@@ -33,11 +30,9 @@ def getUserSaved(username):
 
     return res
 
-    # return {'saved_postings': [posting.to_dict() for posting in user.saved_postings]}
-
 
 @save_routes.route('/posting/<int:postingId>/user/<username>/saved', methods=["POST"])
-# @login_required
+@login_required
 def newSave(postingId, username):
     posting = Posting.query.get(postingId)
     user = User.query.filter(User.username == username).first_or_404()
@@ -53,7 +48,7 @@ def newSave(postingId, username):
 
 
 @save_routes.route('/posting/<int:postingId>/user/<username>/saved', methods=["DELETE"])
-# @login_required
+@login_required
 def deleteSave(postingId, username):
     posting = Posting.query.get(postingId)
     user = User.query.filter(User.username == username).first_or_404()

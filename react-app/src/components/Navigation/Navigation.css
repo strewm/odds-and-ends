@@ -12,6 +12,8 @@
 }
 
 #nav-logo {
+    display: flex;
+    justify-content: center;
     height: 24px;
     width: auto;
     margin-left: auto;

@@ -33,7 +33,7 @@ def validation_errors_to_error_messages(validation_errors):
 
 
 @user_routes.route('/<username>')
-# @login_required
+@login_required
 def username(username):
     print(username)
     user = User.query.filter(User.username == username).first_or_404()
@@ -42,7 +42,7 @@ def username(username):
 
 
 @user_routes.route('/user/<int:userId>', methods=["PUT"])
-# @login_required
+@login_required
 def updateUserProfile(userId):
     form = UpdateProfile()
     form['csrf_token'].data = request.cookies['csrf_token']

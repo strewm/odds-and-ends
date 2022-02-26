@@ -24,29 +24,12 @@ const EditUser = ({ setShowModal }) => {
         if (!profilePicture) {
             const errors = { profile_picture: ['Please select a new photo, or exit.'] }
             setErrors(errors)
-            console.log('----', errors)
         } else {
             const formData = new FormData();
 
             formData.append('profile_picture', profilePicture);
 
             const data = await dispatch(updateUserProfile(formData, user_id));
-
-            // if (data) {
-            //     setShowModal(false);
-            //     history.push(`/${current_user.username}`);
-            // } else {
-            //     setErrors('An error occurred. Please try again.')
-            // }
-
-            // if (!data) {
-            //     setShowModal(false);
-            //     history.push(`/${current_user.username}`);
-            // } else {
-            //     console.log('-------edit user', data)
-            //     setErrors(data.errors);
-            //     // return;
-            // }
 
             if (data) {
                 const errors = {}
@@ -100,12 +83,6 @@ const EditUser = ({ setShowModal }) => {
                 </div>
                 <button id='edit-submit' type="submit">Update</button>
             </form>
-            {/* <div className='errors'>{errors}</div> */}
-            {/* <div className='errors'>
-                {errors.map((error) => (
-                    <li>{error}</li>
-                ))}
-            </div> */}
         </div>
     )
 }

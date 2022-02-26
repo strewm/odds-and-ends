@@ -20,7 +20,7 @@ def validation_errors_to_error_messages(validation_errors):
 
 
 @pickup_routes.route('/posting/<int:postingId>/pickups')
-# @login_required
+@login_required
 def getPostPickups(postingId):
     """
     Route that returns all pickups on a posting
@@ -31,13 +31,11 @@ def getPostPickups(postingId):
     for pickup in pickups:
         res[pickup.id] = pickup.to_dict()
 
-    print('+++++++ALL PICKUPS', res)
-
     return res
 
 
 @pickup_routes.route('/user/<int:userId>/pickups')
-# @login_required
+@login_required
 def getUserPickups(userId):
     """
     Route that returns a user's postings
@@ -52,7 +50,7 @@ def getUserPickups(userId):
 
 
 @pickup_routes.route('/posting/<int:postingId>/create', methods=["POST"])
-# @login_required
+@login_required
 def createPickup(postingId):
     """
     Route that allows user to create a posting
@@ -63,7 +61,6 @@ def createPickup(postingId):
     if form.validate_on_submit():
         newPickup = Pickup(
             user_id = current_user.id,
-            # user_id = userId,
             posting_id = postingId,
             date = form.data['date'],
             created_at = datetime.now()
@@ -76,7 +73,7 @@ def createPickup(postingId):
 
 
 @pickup_routes.route('/<int:pickupId>', methods=["PUT"])
-# @login_required
+@login_required
 def editPickup(pickupId):
     """
     Route that allows a user to edit a posting
@@ -96,7 +93,7 @@ def editPickup(pickupId):
 
 
 @pickup_routes.route('/<int:pickupId>', methods=["DELETE"])
-# @login_required
+@login_required
 def deletePosting(pickupId):
     """
     Route that allows a user to delete a posting

@@ -24,7 +24,6 @@ const NavBar = () => {
       <div>
         <i id='menu-open' className="fa-solid fa-bars" onClick={openNav}></i>
       </div>
-      {/* <div id='nav-logo'>Welcome, {user.username}</div> */}
       <NavLink to='/' exact={true}>
         <img id='nav-logo' src={textLogo} alt='text logo'/>
       </NavLink>

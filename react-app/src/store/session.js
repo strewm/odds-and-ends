@@ -102,15 +102,6 @@ export const updateUserProfile = (formData, userId) => async (dispatch) => {
     body: formData
   });
 
-  // const data = await response.json();
-
-  // if (response.ok) {
-  //   dispatch(updateUser(data));
-  //   // return;
-  // } else {
-  //   return { errors: ['An error occurred. Please try again.'] }
-  // }
-
   if (response.ok) {
     const data = await response.json();
     dispatch(updateUser(data));
