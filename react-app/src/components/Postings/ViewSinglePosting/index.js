@@ -9,6 +9,7 @@ import ViewAllPickups from "../../Pickups/ViewAllPickups";
 import CreatePickupModal from "../../Pickups/CreatePickupModal";
 import EditPostingModal from "../EditPostingModal";
 import DeletePostingModal from "../DeletePostingModal";
+import Maps from "../../MapsAPI";
 
 import './SinglePosting.css';
 
@@ -107,6 +108,7 @@ const SinglePosting = () => {
                     <p>{posting?.address}, {posting?.state} {posting?.zipcode}</p>
                 </div>
             </div>
+            <Maps />
             <CreatePickupModal posting={posting} setUpdate={setUpdate}/>
             {posting && <ViewAllPickups posting={posting} setEditPickup={setEditPickup} setDeletePickup={setDeletePickup} />}
         </div>
