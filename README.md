@@ -39,26 +39,28 @@ To view and use this application, you can either navigate to the [live hosted si
 
 ## Features
 ### Login + Signup
-<!-- ![login](./Images/ReadMePhotos/6-login.png)
-![signup](./Images/ReadMePhotos/7-signup.png) -->
+Login page with complete in-line error handling.
+![login](./images/1-login.png)
+
+Sign up page with complete in-line error handling (shown).
+![signup](./images/2-signup-errors.png)
 
 ### Home
-Home feed:
-<!-- ![home feed](./Images/ReadMePhotos/1-homefeed.png) -->
-Single posting:
-<!-- ![single posting](./Images/ReadMePhotos/2-singlepost.png) -->
+Home feed, showing all active postings. Postings owned by the logged-in user are yellow, and all others pink.
+![home feed](./images/3-home.png)
+Single posting page, with all scheduled pick-up dates below. Banner in upper right corner indicates a saved post by the logged-in user.
+![single posting](./images/6-post.png)
 
 ### Create posting
-<!-- ![create post](./Images/ReadMePhotos/3-createpost.png) -->
+Create posting modal, with complete in-line error handling.
+![create post](./images/5-create.png)
 
 ### User Profile Page
-User profile:
-<!-- ![user profile](./Images/ReadMePhotos/4-viewprofile.png) -->
-Edit profile:
-<!-- ![edit profile](./Images/ReadMePhotos/5-editprofile.png) -->
+User profile, with ability to edit logged-in user's profile picture.
+![user profile](./images/4-profile.png)
 
 ## Future Features
-- Profile
-   - Users will be able to add and remove a profile picture
+- Maps API
+    - Users will be able to see a single posting's pin on a map
 - Search
-    - Users will be able to filter posts by location
+    - Users will be able to filter postings by location
