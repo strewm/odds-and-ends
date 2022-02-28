@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 
 // import './Maps.css'
 
-const environment = process.env.REACT_APP_MAPS_API_KEY
+const API_KEY = process.env.REACT_APP_MAPS_API_KEY
 // console.log(key)
 
 const Maps = () => {
@@ -42,7 +42,7 @@ const Maps = () => {
             <iframe
                 className='google-map'
                 title='posting-map'
-                src={`https://www.google.com/maps/embed/v1/place?key=${environment}
+                src={`https://www.google.com/maps/embed/v1/place?key=${API_KEY}
                 &q=${address},${city}+${state}`}>
             </iframe>
         </div>
