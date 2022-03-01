@@ -104,11 +104,11 @@ const SinglePosting = () => {
                 <div id='single-posting-caption'>
                     <p>{posting?.caption}</p>
                 </div>
+                <Maps />
                 <div id='single-posting-address'>
                     <p>{posting?.address}, {posting?.state} {posting?.zipcode}</p>
                 </div>
             </div>
-            <Maps />
             <CreatePickupModal posting={posting} setUpdate={setUpdate}/>
             {posting && <ViewAllPickups posting={posting} setEditPickup={setEditPickup} setDeletePickup={setDeletePickup} />}
         </div>
