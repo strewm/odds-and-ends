@@ -56,7 +56,7 @@ Create posting modal, with complete in-line error handling.
 ![create post](./images/5-create.png)
 
 ### User Profile Page
-User profile, with ability to edit logged-in user's profile picture.
+User profile, with ability to edit logged-in user's profile picture. Google maps embedded.
 ![user profile](./images/4-profile.png)
 
 ## Future Features
