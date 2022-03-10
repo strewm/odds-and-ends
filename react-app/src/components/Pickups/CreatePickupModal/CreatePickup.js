@@ -1,25 +1,18 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-// import * as postActions from '../../../store/post';
 import { addPickup } from "../../../store/pickups";
 import './Pickup.css';
 
 
-const CreatePickup = ({ setShowModal, setUpdate, posting }) => {
+const CreatePickup = ({ setShowModal, posting }) => {
     const [date, setDate] = useState('');
     const [errors, setErrors] = useState({});
     const dispatch = useDispatch();
 
     const current_user = useSelector(state => state.session.user);
     const user_id = current_user.id;
-    // console.log('---------user id', typeof(user_id))
 
     const posting_id = posting.id;
-
-    // useEffect(() => {
-    //     dispatch(getAllPickups(posting_id));
-    //     dispatch(getSinglePosting(posting_id));
-    // }, [dispatch, setShowModal])
 
 
     const handleSubmit = async (e) => {
@@ -29,7 +22,6 @@ const CreatePickup = ({ setShowModal, setUpdate, posting }) => {
         const data = await dispatch(addPickup(info));
 
         if (data) {
-            // console.log('============ERRORS', data)
             const errors = {}
 
             data.forEach(error => {
@@ -42,7 +34,6 @@ const CreatePickup = ({ setShowModal, setUpdate, posting }) => {
             return;
         } else {
             setShowModal(false);
-            setUpdate(true);
         }
     }
 

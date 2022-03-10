@@ -5,12 +5,13 @@ const GET_USER_POSTINGS = 'posts/GET_USER_POSTINGS';
 const CREATE_POSTING = 'posts/CREATE_POSTING';
 const UPDATE_POSTING = 'posts/UPDATE_POSTING';
 const DELETE_POSTING = 'posts/DELETE_POSTING';
+const SEARCH_POSTINGS = 'posts/SEARCH_POSTINGS';
 
 
 
 // ------------------- Action creators ------------------- //
 const getPostings = postings => ({
-    type:GET_POSTINGS,
+    type: GET_POSTINGS,
     postings
 })
 
@@ -39,6 +40,9 @@ const deletePosting = posting => ({
     posting
 });
 
+// const searchPostings = () => ({
+//     type: SEARCH_POSTINGS
+// });
 
 
 // ------------------- Thunk creators ------------------- //
@@ -86,7 +90,7 @@ export const getUserPosts = (username) => async dispatch => {
     }
 };
 
-export const addPosting = ({user_id, address, city, state, zipcode, title, caption, icon}) => async dispatch => {
+export const addPosting = ({ user_id, address, city, state, zipcode, title, caption, icon }) => async dispatch => {
     const response = await fetch(`/api/postings/create`, {
         method: 'POST',
         headers: {
@@ -119,7 +123,7 @@ export const addPosting = ({user_id, address, city, state, zipcode, title, capti
     }
 };
 
-export const updateOnePosting = ({posting_id, address, city, state, zipcode, title, caption, icon}) => async dispatch => {
+export const updateOnePosting = ({ posting_id, address, city, state, zipcode, title, caption, icon }) => async dispatch => {
     const response = await fetch(`/api/postings/${posting_id}`, {
         method: 'PUT',
         headers: {
@@ -167,6 +171,17 @@ export const deleteOnePosting = postingId => async dispatch => {
     }
 };
 
+// export const searchAllPostings = () => async dispatch => {
+//     const response = await fetch('/api/postings/search')
+
+//     if (response.ok) {
+//         const data = await res.json();
+
+//         dispatch(searchPostings(data));
+//         return data;
+//     }
+// }
+
 
 
 // ------------------- Initial state ------------------- //
@@ -176,7 +191,7 @@ const initialState = {};
 
 // ------------------- Reducer ------------------- //
 export default function postsReducer(state = initialState, action) {
-    
+
     switch (action.type) {
         case GET_POSTINGS: {
             const newState = { ...state }

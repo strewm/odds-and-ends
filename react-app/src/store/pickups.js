@@ -45,8 +45,6 @@ export const getAllPickups = (postingId) => async dispatch => {
             return;
         };
 
-        // console.log('====RESPOOOOOONSE', data)
-
         dispatch(getPickups(data));
         return data;
     }
@@ -78,8 +76,6 @@ export const addPickup = ({user_id, posting_id, date}) => async dispatch => {
             date
         })
     });
-
-    // console.log('INSIDE STOOOOOOOOOORE', response)
 
     if (response.ok) {
         const data = await response.json();

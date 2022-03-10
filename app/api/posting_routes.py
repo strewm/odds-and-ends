@@ -30,10 +30,7 @@ def getAllPostings():
 
     for post in postings:
         user = User.query.get(post.user_id)
-        # username = user.username
-
         res[post.id] = post.to_dict()
-        # res[post.id]['username'] = f'{username}'
 
     return res
 

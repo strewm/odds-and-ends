@@ -47,7 +47,6 @@ export const login = (email, password) => async (dispatch) => {
     })
   });
 
-
   if (response.ok) {
     const data = await response.json();
     dispatch(setUser(data))
@@ -60,7 +59,6 @@ export const login = (email, password) => async (dispatch) => {
   } else {
     return ['An error occurred. Please try again.']
   }
-
 }
 
 export const logout = () => async (dispatch) => {
