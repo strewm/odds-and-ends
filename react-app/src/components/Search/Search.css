@@ -2,20 +2,27 @@
 .search-container {
     /* position: absolute; */
     /* position: fixed; */
+    display: flex;
+    justify-content: flex-end;
 }
 
-.search-container input {
+.search-bar {
     min-width: 200px;
-    min-height: 30px;
+    height: 30px;
+    margin-right: 10px;
 }
 
 
 
 /* ------------------- Search results ------------------- */
 .search-results {
+    position: fixed;
     display: inline;
     flex-direction: column;
     align-items: center;
+    right: 300px;
+
+    padding: 0;
 }
 
 
