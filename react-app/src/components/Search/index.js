@@ -9,15 +9,9 @@ import './Search.css'
 function Search() {
     const [search, setSearch] = useState('');
     const [results, setResults] = useState([]);
-    // const [errors, setErrors] = useState({});
     const [errors, setErrors] = useState('');
     const dispatch = useDispatch();
 
-    // useEffect(async () => {
-    //     if (search.length <= 0) return;
-    //     else history.push('/');
-
-    // }, [search])
 
     useEffect(async () => {
         let error;
@@ -35,7 +29,7 @@ function Search() {
                 results.push(posting);
             } else if ((i === postingsArr.length - 1) && search && !checkSearch) {
                 console.log('whyyyyy inside here...', search, checkSearch)
-                error = 'Nothing here! Try a different search.'
+                error = 'Nothing here! Try a different search...'
             }
         }
 
@@ -52,10 +46,8 @@ function Search() {
 
     let clearSearch = (e) => {
         setSearch('');
-    }
+    };
 
-    // When I click anywhere outside of search want to close the dropdown
-    // If I scroll around it sticks
 
     return (
         <div className='search-container'>
@@ -65,17 +57,18 @@ function Search() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
             />
-            <button onClick={clearSearch}>Click to exit</button>
-            <ul className='search-results'>
+            {/* <i id='button-close' className="fa-solid fa-xmark" onClick={clearSearch}></i> */}
+            <div className='search-results'>
                 {results && results.map(result => (
-                    <li className='search-result' key={result.id}>
-                        <NavLink className='search-result-click' to={`postings/${result.id}`} onClick={() => setResults('')}>{result.title} + {result.address}, {result.city}, {result.state}</NavLink>
-                    </li>
+                    <NavLink className='search-result' to={`postings/${result.id}`} onClick={() => setResults('')} key={result.id}>
+                        <div id='result-title'>{result.title}</div>
+                        <div id='result-location'>{result.city}, {result.state}</div>
+                    </NavLink>
                 ))}
-                <div className="errors">
+                <div className="search-result">
                     {errors ? `${errors}` : ''}
                 </div>
-            </ul>
+            </div>
         </div>
     )
 }

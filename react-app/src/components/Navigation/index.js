@@ -13,7 +13,7 @@ const NavBar = () => {
   const user = useSelector(state => state.session.user);
 
   const openNav = () => {
-    setWidth('80px');
+    setWidth('91.5px');
   };
 
   const closeNav = () => {
