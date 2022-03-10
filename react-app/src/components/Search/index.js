@@ -20,6 +20,7 @@ function Search() {
     // }, [search])
 
     useEffect(async () => {
+        let error;
         const results = [];
 
         const postings = await dispatch(getAllPostings())
@@ -28,10 +29,13 @@ function Search() {
         for (let i = 0; i < postingsArr.length; i++) {
             let posting = postingsArr[i];
 
-            if (search && posting.city.toLowerCase().includes(search.toLowerCase())) {
+            let checkSearch = posting.city.toLowerCase().includes(search.toLowerCase());
+
+            if (search && checkSearch) {
                 results.push(posting);
-            } else if (search && !posting.city.toLowerCase().includes(search.toLowerCase())) {
-                var error = 'Nothing here! Try a different search.'
+            } else if ((i === postingsArr.length - 1) && search && !checkSearch) {
+                console.log('whyyyyy inside here...', search, checkSearch)
+                error = 'Nothing here! Try a different search.'
             }
         }
 
