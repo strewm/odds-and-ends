@@ -19,7 +19,6 @@ const CreatePosting = ({ setShowModal }) => {
 
     const current_user = useSelector(state => state.session.user);
     const user_id = current_user.id;
-    // console.log('---------user id', typeof(user_id))
 
 
     const handleSubmit = async (e) => {
@@ -29,7 +28,6 @@ const CreatePosting = ({ setShowModal }) => {
         const data = await dispatch(addPosting(info));
 
         if (data) {
-            // console.log('============ERRORS', data)
             const errors = {}
 
             data.forEach(error => {

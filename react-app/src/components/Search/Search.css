@@ -1,1 +1,30 @@
-/* ------------------- Loading map style ------------------- */
+/* ------------------- Search container ------------------- */
+.search-container {
+    /* position: absolute; */
+}
+
+.search-container input {
+    min-width: 200px;
+    min-height: 30px;
+}
+
+
+
+/* ------------------- Search results ------------------- */
+.search-results {
+    display: inline;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ------------------- Search result info ------------------- */
+.search-result {
+    display: flex;
+    min-width: 200px;
+    min-height: 30px;
+    border: 1px solid white;
+}
+
+.search-result-click {
+    text-decoration: none;
+}

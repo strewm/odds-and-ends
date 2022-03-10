@@ -11,8 +11,8 @@ const ViewPostings = () => {
 
     const viewPostings = useSelector(state => state.postings);
 
-    useEffect(() => {
-        dispatch(getAllPostings());
+    useEffect(async () => {
+       await dispatch(getAllPostings());
     }, [dispatch])
 
     const viewPostingsArr = Object.values(viewPostings);

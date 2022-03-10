@@ -1,60 +1,72 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
-import { searchSongs } from '../../store/songs';
-import {useHistory} from 'react-router-dom';
+import { NavLink, Redirect, useHistory } from 'react-router-dom';
+import { getAllPostings } from '../../store/postings';
+// import { searchSongs } from '../../store/songs';
 
-import './SearchBar.css'
+import './Search.css'
 
-function SearchBar() {
-    const dispatch = useDispatch()
-    const history = useHistory()
-    const [search, setSearch] = useState([])
-    const [errors, setErrors] = useState([])
+function Search() {
+    const [search, setSearch] = useState('');
+    const [results, setResults] = useState([]);
+    // const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState('');
+    const dispatch = useDispatch();
+    const history = useHistory();
 
 
-    useEffect(() => {
-        if(search.length <= 0) {
-            return
-        } else {
-            history.push('/')
-        }
+    // const postings = useSelector(state => state.postings);
+
+    useEffect(async () => {
+        if (search.length <= 0) return;
+        else history.push('/');
+
     }, [search])
 
+    useEffect(async () => {
+        let error;
 
+        const postings = await dispatch(getAllPostings())
+        const postingsArr = Object.values(postings);
 
-    useEffect( async () => {
-        let errors = []
-        const songsObj = await dispatch(searchSongs())
-        songsObj.forEach((item) => {
-            if((item.name.includes(search) || item.artist.includes(search)) && (!(errors.includes(item)) && search.length > 0 && errors.length < 5)){
-                errors.push(item)
+        // console.log('POSTINNNNNNNNNNGS', postings);
+        // console.log('we dispatched get all postings!', Object.values(postings))
 
+        for (let i = 0; i < postingsArr.length; i++) {
+            let posting = postingsArr[i];
+
+            console.log('inside loop...', posting.city.toLowerCase())
+            console.log('HEYYY', search, posting.city.toLowerCase().includes(search.toLowerCase()))
+
+            if (search && posting.city.toLowerCase().includes(search.toLowerCase())) {
+                results.push(posting);
+                console.log('reeeeesults',results)
+            } else {
+                error = 'Nothing here! Try a different search.'
             }
+        }
 
-        })
-        setErrors(errors)
+        setErrors(error)
     }, [search])
 
 
-  return (
-      <div className='searchbar'>
-        <input
-        className='searchit'
-        placeholder='Search Songs'
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        >
-        </input>
-        <ul className='songoptionscontainer'>
-        {errors.length > 0 && errors.map(error => (
-            <li className='eachsongoption searchit' key={error.id}>
-               <Link onClick={() => setSearch("")} className='linktosongs' to={`songs/${error.id}`}>{error.name}-{error.artist}</Link>
-            </li>
-        ))}
-        </ul>
-  </div>
-  )
+    return (
+        <div className='search-container'>
+            <input
+                className='search-bar'
+                placeholder='Search by city...'
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+            />
+            <ul className='search-results'>
+                {results && results.map(result => (
+                    <li className='search-result' key={result.id}>
+                        <NavLink className='search-result-click' to={`postings/${result.id}`} onClick={() => setResults('')}>{result.title} + {result.address}, {result.city}, {result.state}</NavLink>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    )
 }
 
-export default SearchBar
+export default Search;

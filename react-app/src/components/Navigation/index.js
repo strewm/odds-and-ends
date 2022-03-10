@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LogoutButton from '../Auth/LogoutButton';
 import CreatePostingModal from '../Postings/CreatePostingModal';
+import Search from '../Search';
 import textLogo from '../Images/text-logo.png';
 import './Navigation.css';
 
@@ -27,6 +28,7 @@ const NavBar = () => {
       <NavLink to='/' exact={true}>
         <img id='nav-logo' src={textLogo} alt='text logo'/>
       </NavLink>
+      <Search />
       <div className='nav-container' style={{ width: width }}>
         <i id='button-close' className="fa-solid fa-xmark" onClick={closeNav}></i>
         <div className='nav-links'>

@@ -5,7 +5,7 @@ const GET_USER_POSTINGS = 'posts/GET_USER_POSTINGS';
 const CREATE_POSTING = 'posts/CREATE_POSTING';
 const UPDATE_POSTING = 'posts/UPDATE_POSTING';
 const DELETE_POSTING = 'posts/DELETE_POSTING';
-const SEARCH_POSTINGS = 'posts/SEARCH_POSTINGS';
+// const SEARCH_POSTINGS = 'posts/SEARCH_POSTINGS';
 
 
 
@@ -175,7 +175,7 @@ export const deleteOnePosting = postingId => async dispatch => {
 //     const response = await fetch('/api/postings/search')
 
 //     if (response.ok) {
-//         const data = await res.json();
+//         const data = await response.json();
 
 //         dispatch(searchPostings(data));
 //         return data;
