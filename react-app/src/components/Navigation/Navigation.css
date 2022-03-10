@@ -9,7 +9,8 @@
 
     width: 100%;
     padding: 35px 0;
-    background-color: #8ccdf0;
+    background-color: #b5e2fa;
+    box-shadow: 0 4px 7px -5px rgb(190, 190, 190);
     z-index: 10;
 }
 

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getAllPostings } from '../../store/postings';
-// import { searchSongs } from '../../store/songs';
 
 import './Search.css'
 
@@ -31,7 +30,6 @@ function Search() {
         setResults(results)
     }, [search]);
 
-    console.log('yooooooo...', results)
 
     let resultCheck;
     if (search && results.length >= 1) {
@@ -43,13 +41,12 @@ function Search() {
         ))
     } else if (search && results.length === 0) {
         resultCheck = <div className="search-result">Nothing here! Try a different search...</div>
-    }
+    };
 
 
     // Click outside of search clears search + clean-up to remove event handler
     useEffect(() => {
         document.body.addEventListener('click', clearSearch);
-
         return () => { window.removeEventListener('click', clearSearch) };
     }, []);
 
