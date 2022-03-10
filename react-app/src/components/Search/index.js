@@ -24,7 +24,8 @@ function Search() {
     }, [search])
 
     useEffect(async () => {
-        let error;
+        const results = [];
+        const error = {};
 
         const postings = await dispatch(getAllPostings())
         const postingsArr = Object.values(postings);
@@ -40,13 +41,14 @@ function Search() {
 
             if (search && posting.city.toLowerCase().includes(search.toLowerCase())) {
                 results.push(posting);
-                console.log('reeeeesults',results)
+                // console.log('reeeeesults',results)
             } else {
-                error = 'Nothing here! Try a different search.'
+                // error = 'Nothing here! Try a different search.'
             }
         }
 
-        setErrors(error)
+        setResults(results)
+        // setErrors(error)
     }, [search])
 
 
