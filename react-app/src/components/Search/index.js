@@ -21,37 +21,29 @@ function Search() {
 
     useEffect(async () => {
         const results = [];
-        const error = {};
 
         const postings = await dispatch(getAllPostings())
         const postingsArr = Object.values(postings);
-
-        // console.log('POSTINNNNNNNNNNGS', postings);
-        // console.log('we dispatched get all postings!', Object.values(postings))
-
-        // if (search.length <= 0) return;
-
 
         for (let i = 0; i < postingsArr.length; i++) {
             let posting = postingsArr[i];
 
             if (search && posting.city.toLowerCase().includes(search.toLowerCase())) {
                 results.push(posting);
-                // console.log('reeeeesults',results)
-            } else {
-                // error = 'Nothing here! Try a different search.'
+            } else if (search && !posting.city.toLowerCase().includes(search.toLowerCase())) {
+                var error = 'Nothing here! Try a different search.'
             }
         }
 
         setResults(results)
-        // setErrors(error)
+        setErrors(error)
     }, [search]);
 
     useEffect(() => {
         document.body.addEventListener('click', clearSearch);
 
         // Clean-up to remove event handler
-        return () => { window.removeEventListener('click', clearSearch)};
+        return () => { window.removeEventListener('click', clearSearch) };
     }, []);
 
     let clearSearch = (e) => {
@@ -76,6 +68,9 @@ function Search() {
                         <NavLink className='search-result-click' to={`postings/${result.id}`} onClick={() => setResults('')}>{result.title} + {result.address}, {result.city}, {result.state}</NavLink>
                     </li>
                 ))}
+                <div className="errors">
+                    {errors ? `${errors}` : ''}
+                </div>
             </ul>
         </div>
     )

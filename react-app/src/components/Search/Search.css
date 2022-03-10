@@ -1,6 +1,7 @@
 /* ------------------- Search container ------------------- */
 .search-container {
     /* position: absolute; */
+    /* position: fixed; */
 }
 
 .search-container input {

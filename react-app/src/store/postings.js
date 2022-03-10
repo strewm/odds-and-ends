@@ -108,8 +108,6 @@ export const addPosting = ({ user_id, address, city, state, zipcode, title, capt
         })
     });
 
-    // console.log('INSIDE STOOOOOOOOOORE', response)
-
     if (response.ok) {
         const data = await response.json();
         dispatch(createPosting(data));
@@ -117,7 +115,6 @@ export const addPosting = ({ user_id, address, city, state, zipcode, title, capt
     } else {
         const data = await response.json();
         if (data.errors) {
-            // console.log('HEYYYYYYYYYY', data.errors)
             return data.errors;
         };
     }
