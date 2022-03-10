@@ -52,7 +52,7 @@ const CreatePosting = ({ setShowModal }) => {
     ];
 
     let handleIconChange = (e) => {
-        setIcon(e.target.value)
+        setIcon(e.target.value);
     };
 
 

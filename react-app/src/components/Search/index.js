@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { NavLink, Redirect, useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { NavLink, useHistory } from 'react-router-dom';
 import { getAllPostings } from '../../store/postings';
 // import { searchSongs } from '../../store/songs';
 
@@ -12,16 +12,12 @@ function Search() {
     // const [errors, setErrors] = useState({});
     const [errors, setErrors] = useState('');
     const dispatch = useDispatch();
-    const history = useHistory();
 
+    // useEffect(async () => {
+    //     if (search.length <= 0) return;
+    //     else history.push('/');
 
-    // const postings = useSelector(state => state.postings);
-
-    useEffect(async () => {
-        if (search.length <= 0) return;
-        else history.push('/');
-
-    }, [search])
+    // }, [search])
 
     useEffect(async () => {
         const results = [];
@@ -33,11 +29,11 @@ function Search() {
         // console.log('POSTINNNNNNNNNNGS', postings);
         // console.log('we dispatched get all postings!', Object.values(postings))
 
+        // if (search.length <= 0) return;
+
+
         for (let i = 0; i < postingsArr.length; i++) {
             let posting = postingsArr[i];
-
-            console.log('inside loop...', posting.city.toLowerCase())
-            console.log('HEYYY', search, posting.city.toLowerCase().includes(search.toLowerCase()))
 
             if (search && posting.city.toLowerCase().includes(search.toLowerCase())) {
                 results.push(posting);
@@ -49,8 +45,21 @@ function Search() {
 
         setResults(results)
         // setErrors(error)
-    }, [search])
+    }, [search]);
 
+    useEffect(() => {
+        document.body.addEventListener('click', clearSearch);
+
+        // Clean-up to remove event handler
+        return () => { window.removeEventListener('click', clearSearch)};
+    }, []);
+
+    let clearSearch = (e) => {
+        setSearch('');
+    }
+
+    // When I click anywhere outside of search want to close the dropdown
+    // If I scroll around it sticks
 
     return (
         <div className='search-container'>
@@ -60,6 +69,7 @@ function Search() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
             />
+            <button onClick={clearSearch}>Click to exit</button>
             <ul className='search-results'>
                 {results && results.map(result => (
                     <li className='search-result' key={result.id}>
