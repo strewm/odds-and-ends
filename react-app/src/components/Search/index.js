@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, NavLink, useParams, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getAllPostings } from '../../store/postings';
 
 import './Search.css'

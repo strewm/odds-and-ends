@@ -10,7 +10,6 @@ import CreatePickupModal from "../../Pickups/CreatePickupModal";
 import EditPostingModal from "../EditPostingModal";
 import DeletePostingModal from "../DeletePostingModal";
 import Maps from "../../MapsAPI";
-
 import './SinglePosting.css';
 
 const SinglePosting = () => {

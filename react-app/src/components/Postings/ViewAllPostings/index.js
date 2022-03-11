@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { getAllPostings } from "../../../store/postings";
 import PostingDetail from "./PostingDetail";
 import { useDispatch, useSelector } from 'react-redux';
-// import Footer from "../../Footer";
 import './PostingDetail.css';
 
 
