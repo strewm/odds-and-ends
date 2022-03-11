@@ -25,7 +25,7 @@ const Maps = () => {
     }, []);
 
     return (
-        <div>
+        <div className='maps-container'>
             {loading ?
                 <div className='loader-container'><div id='loader'></div></div>
                 :

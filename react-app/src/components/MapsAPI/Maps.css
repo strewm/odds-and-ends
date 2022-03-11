@@ -1,4 +1,8 @@
 /* ------------------- Loading map style ------------------- */
+/* .maps-container, .loader-container, .google-map {
+    z-index: 1;
+} */
+
 .loader-container {
     display: flex;
     justify-content: center;
