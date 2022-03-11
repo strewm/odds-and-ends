@@ -49,6 +49,7 @@ const SinglePosting = () => {
         const save = await res_saved.json();
         setSaved(save);
 
+        setUpdate(false);
         setSaveUpdate(false);
         setEditPickup(false);
         setDeletePickup(false);
