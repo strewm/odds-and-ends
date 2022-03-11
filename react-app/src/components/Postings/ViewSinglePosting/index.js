@@ -16,6 +16,7 @@ import './SinglePosting.css';
 const SinglePosting = () => {
     const dispatch = useDispatch();
 
+    const [update, setUpdate] = useState(false);
     const [editPickup, setEditPickup] = useState(false);
     const [deletePickup, setDeletePickup] = useState(false);
     const [saved, setSaved] = useState([]);
@@ -51,7 +52,7 @@ const SinglePosting = () => {
         setSaveUpdate(false);
         setEditPickup(false);
         setDeletePickup(false);
-    }, [dispatch, postingId, saveUpdate, editPickup, deletePickup])
+    }, [dispatch, postingId, saveUpdate, update, editPickup, deletePickup])
 
 
     const handleSave = async () => {
@@ -107,7 +108,7 @@ const SinglePosting = () => {
                     <p>{posting?.address}, {posting?.state} {posting?.zipcode}</p>
                 </div>
             </div>
-            <CreatePickupModal posting={posting}/>
+            <CreatePickupModal posting={posting} setUpdate={setUpdate}/>
             {posting && <ViewAllPickups posting={posting} setEditPickup={setEditPickup} setDeletePickup={setDeletePickup} />}
         </div>
     )

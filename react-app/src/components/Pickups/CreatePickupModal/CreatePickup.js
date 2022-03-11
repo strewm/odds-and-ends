@@ -4,7 +4,7 @@ import { addPickup } from "../../../store/pickups";
 import './Pickup.css';
 
 
-const CreatePickup = ({ setShowModal, posting }) => {
+const CreatePickup = ({ setShowModal, setUpdate, posting }) => {
     const [date, setDate] = useState('');
     const [errors, setErrors] = useState({});
     const dispatch = useDispatch();
@@ -34,6 +34,7 @@ const CreatePickup = ({ setShowModal, posting }) => {
             return;
         } else {
             setShowModal(false);
+            setUpdate(true);
         }
     }
 
