@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect, NavLink } from 'react-router-dom';
 import { login } from '../../../store/session';
+
+import SplashImage from '../SplashImage';
 import textLogo from '../../Images/text-logo.png';
 import './LoginForm.css';
+
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -16,7 +19,7 @@ const LoginForm = () => {
   const onLogin = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
-    
+
     if (data) {
       const errors = {};
 
@@ -54,49 +57,55 @@ const LoginForm = () => {
 
   return (
     <div className='login-page'>
-      <img id='nav-logo' src={textLogo} alt='text logo'/>
-      <div className='login-container'>
-        <form className='login-form' onSubmit={onLogin}>
-          <div className='login-form'>
-            <input
-              className='login-inputs'
-              name='email'
-              type='text'
-              placeholder='Email *'
-              value={email}
-              onChange={updateEmail}
-            />
+      <div className='left-container'>
+        <SplashImage />
+      </div>
+      <hr/>
+      <div className='right-container'>
+        <img id='nav-logo' src={textLogo} alt='text logo'/>
+        <div className='login-container'>
+          <form className='login-form' onSubmit={onLogin}>
+            <div className='login-form'>
+              <input
+                className='login-inputs'
+                name='email'
+                type='text'
+                placeholder='Email *'
+                value={email}
+                onChange={updateEmail}
+              />
+            </div>
+            <div className="errors">
+              {errors.email ? `${errors.email}` : ''}
+            </div>
+            <div className='login-form'>
+              <input
+                className='login-inputs'
+                name='password'
+                type='password'
+                placeholder='Password *'
+                value={password}
+                onChange={updatePassword}
+              />
+            </div>
+            <div className="errors">
+              {errors.password ? `${errors.password}` : ''}
+            </div>
+            <button className='login-form login-submit' type='submit'>Login</button>
+          </form>
+          <div className='login-demo-container'>
+            <button type="submit" id='demo-button' onClick={handleDemo}>Demo</button>
           </div>
-          <div className="errors">
-            {errors.email ? `${errors.email}` : ''}
-          </div>
-          <div className='login-form'>
-            <input
-              className='login-inputs'
-              name='password'
-              type='password'
-              placeholder='Password *'
-              value={password}
-              onChange={updatePassword}
-            />
-          </div>
-          <div className="errors">
-            {errors.password ? `${errors.password}` : ''}
-          </div>
-          <button className='login-form login-submit' type='submit'>Login</button>
-        </form>
-        <div className='login-demo-container'>
-          <button type="submit" id='demo-button' onClick={handleDemo}>Demo</button>
         </div>
-      </div>
-      <div className='below-login'>
-        <div>New here?</div>
-        <NavLink to='/sign-up' exact={true}>Sign up</NavLink>
-      </div>
-      <div className='below-login-about'>
-        <div>Savanah Trewman</div>
-        <a href='https://www.linkedin.com/in/savanah-trewman/' target="_blank" rel="noreferrer"><i className="fa-brands fa-linkedin-in"></i></a>
-        <a href='https://github.com/strewm/odds-and-ends' target="_blank" rel="noreferrer"><i className="fa-brands fa-github"></i></a>
+        <div className='below-login'>
+          <div>New here?</div>
+          <NavLink to='/sign-up' exact={true}>Sign up</NavLink>
+        </div>
+        <div className='below-login-about'>
+          <div>Savanah Trewman</div>
+          <a href='https://www.linkedin.com/in/savanah-trewman/' target="_blank" rel="noreferrer"><i className="fa-brands fa-linkedin-in"></i></a>
+          <a href='https://github.com/strewm/odds-and-ends' target="_blank" rel="noreferrer"><i className="fa-brands fa-github"></i></a>
+        </div>
       </div>
     </div>
   );

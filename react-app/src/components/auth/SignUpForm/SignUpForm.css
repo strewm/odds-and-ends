@@ -2,11 +2,22 @@
 .signup-page{
     height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 
+.signup-page hr {
+    margin: 4rem;
+    width: 1px;
+    height: 60%;
+    background-color: white;
+    border: none;
+}
+
+
+
+
+/* ------------------- Signup elements ------------------- */
 .signup-container {
     display: flex;
     flex-direction: column;
@@ -18,10 +29,6 @@
     box-shadow: 0 0 4px #e6be3d;
     background-color: #f8e9a1;
 }
-
-
-
-/* ------------------- Signup elements ------------------- */
 .signup-form {
     background-color: transparent;
 }

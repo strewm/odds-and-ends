@@ -1,0 +1,71 @@
+/* ------------------- Splash image + animation ------------------- */
+.splash-image {
+    position: relative;
+}
+
+#splash-image-1 {
+    position: relative;
+    width: 35em;
+    height: auto;
+    background-color: transparent;
+}
+
+#splash-image-2 {
+    position: absolute;
+    top: -1em;
+    right: 9.2em;
+    width: 7em;
+    height: auto;
+    background-color: transparent;
+
+    animation: splash-orange 4s ease-in-out infinite;
+}
+
+@keyframes splash-orange {
+    0% { transform: translateY(0px) }
+    50% { transform: translatey(-25px) }
+    100% { transform: translatey(0px) }
+}
+
+#splash-image-3 {
+    position: absolute;
+    top: 7em;
+    left: 6em;
+    width: 8em;
+    height: auto;
+    background-color: transparent;
+
+    animation: splash-pizza 3s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+
+@keyframes splash-pizza {
+    0% { transform: translateY(0px) }
+    50% { transform: translatey(-25px) }
+    100% { transform: translatey(0px) }
+}
+
+#splash-image-4 {
+    position: absolute;
+    top: 7em;
+    right: 11.5em;
+    width: 7em;
+    height: auto;
+    background-color: transparent;
+
+    animation: splash-wood 3.5s ease-in-out infinite;
+    animation-delay: 0.2s;
+}
+
+@keyframes splash-wood {
+    0% { transform: translateY(0px) }
+    50% { transform: translatey(-20px) }
+    100% { transform: translatey(0px) }
+}
+
+.splash-caption {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 15px;
+    font-style: italic;
+}
