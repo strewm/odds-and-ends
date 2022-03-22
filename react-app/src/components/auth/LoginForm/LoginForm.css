@@ -151,10 +151,19 @@ input::placeholder {
     }
 
     .login-page hr {
-        margin: 4vw;
         width: 70%;
         height: 1px;
-        background-color: white;
-        border: none;
+    }
+}
+
+@media only screen and (max-width: 815px) {
+    .left-container {
+        margin: 5vw 0;
+    }
+}
+
+@media only screen and (max-width: 670px) {
+    .login-page hr {
+        margin: 5vh;
     }
 }
