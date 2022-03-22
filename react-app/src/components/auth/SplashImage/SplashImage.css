@@ -21,7 +21,7 @@
     height: auto;
     background-color: transparent;
 
-    animation: splash-orange 4s ease-in-out infinite;
+    animation: splash-orange 4.5s ease-in-out infinite;
 }
 
 @keyframes splash-orange {
@@ -38,7 +38,7 @@
     height: auto;
     background-color: transparent;
 
-    animation: splash-pizza 3s ease-in-out infinite;
+    animation: splash-pizza 3.7s ease-in-out infinite;
     animation-delay: 0.5s;
 }
 
@@ -56,7 +56,7 @@
     height: auto;
     background-color: transparent;
 
-    animation: splash-wood 3.5s ease-in-out infinite;
+    animation: splash-wood 3s ease-in-out infinite;
     animation-delay: 0.2s;
 }
 
@@ -141,28 +141,61 @@
 
     #splash-image-2 {
         top: -0.6em;
-        /* right: 10.7em; */
-        right: 170px;
-        /* width: 4.2em; */
-        width: 67.2px;
+        right: 10.7em;
+        width: 4.2em;
         height: auto;
     }
 
     #splash-image-3 {
         top: 4.2em;
-        /* left: 8em; */
-        left: 130px;
-        /* width: 5.5em; */
-        width: 88px;
+        left: 8em;
+        width: 5.5em;
         height: auto;
     }
 
     #splash-image-4 {
         top: 4em;
-        /* right: 12em; */
-        right: 190px;
-        /* width: 5.2em; */
-        width: 83.2px;
+        right: 12em;
+        width: 5.2em;
+        height: auto;
+    }
+
+    .splash-caption {
+        font-size: 13px;
+    }
+}
+
+
+@media only screen and (max-width: 597px) {
+    .splash-image {
+        width: 350px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #splash-image-1 {
+        width: 350px;
+        height: auto;
+    }
+
+    #splash-image-2 {
+        top: -0.6em;
+        right: 6em;
+        width: 4.2em;
+        height: auto;
+    }
+
+    #splash-image-3 {
+        top: 4.2em;
+        left: 3.5em;
+        width: 5.5em;
+        height: auto;
+    }
+
+    #splash-image-4 {
+        top: 4em;
+        right: 6.8em;
+        width: 5.2em;
         height: auto;
     }
 
