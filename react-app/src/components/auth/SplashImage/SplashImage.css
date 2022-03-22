@@ -5,7 +5,7 @@
 
 #splash-image-1 {
     position: relative;
-    width: 35em;
+    width: 700px;
     height: auto;
     background-color: transparent;
 }
@@ -13,8 +13,8 @@
 #splash-image-2 {
     position: absolute;
     top: -1em;
-    right: 9.2em;
-    width: 7em;
+    right: 11.5em;
+    width: 8.2em;
     height: auto;
     background-color: transparent;
 
@@ -29,9 +29,9 @@
 
 #splash-image-3 {
     position: absolute;
-    top: 7em;
-    left: 6em;
-    width: 8em;
+    top: 8.2em;
+    left: 6.5em;
+    width: 11em;
     height: auto;
     background-color: transparent;
 
@@ -47,9 +47,9 @@
 
 #splash-image-4 {
     position: absolute;
-    top: 7em;
-    right: 11.5em;
-    width: 7em;
+    top: 8em;
+    right: 14em;
+    width: 10em;
     height: auto;
     background-color: transparent;
 
@@ -68,4 +68,92 @@
     text-align: center;
     font-size: 15px;
     font-style: italic;
+}
+
+
+
+
+/* ------------------- Media queries ------------------- */
+@media only screen and (max-width: 1375px) {
+    #splash-image-1 {
+        width: 600px;
+        height: auto;
+    }
+
+    #splash-image-2 {
+        top: -1em;
+        right: 10.2em;
+        width: 7em;
+        height: auto;
+    }
+
+    #splash-image-3 {
+        top: 7em;
+        left: 5.7em;
+        width: 9em;
+        height: auto;
+    }
+
+    #splash-image-4 {
+        top: 7em;
+        right: 12.5em;
+        width: 8em;
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 815px) {
+    #splash-image-1 {
+        width: 600px;
+        height: auto;
+    }
+
+    #splash-image-2 {
+        top: -1em;
+        right: 10.2em;
+        width: 7em;
+        height: auto;
+    }
+
+    #splash-image-3 {
+        top: 7em;
+        left: 5.7em;
+        width: 9em;
+        height: auto;
+    }
+
+    #splash-image-4 {
+        top: 7em;
+        right: 12.5em;
+        width: 8em;
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 390px) {
+    #splash-image-1 {
+        width: 600px;
+        height: auto;
+    }
+
+    #splash-image-2 {
+        top: -1em;
+        right: 10.2em;
+        width: 7em;
+        height: auto;
+    }
+
+    #splash-image-3 {
+        top: 7em;
+        left: 5.7em;
+        width: 9em;
+        height: auto;
+    }
+
+    #splash-image-4 {
+        top: 7em;
+        right: 12.5em;
+        width: 8em;
+        height: auto;
+    }
 }
